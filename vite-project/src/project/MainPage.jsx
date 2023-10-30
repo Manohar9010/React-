@@ -5,6 +5,7 @@ import Body from './Body'
 import Content from './Content'
 import Footer from './Footer'
 export default function MainPage() {
+  
   return (
     <div>
         <Header/>

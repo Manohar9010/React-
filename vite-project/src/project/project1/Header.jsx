@@ -15,7 +15,7 @@ function Example(props) {
   const toggle = () => setDropdownOpen(!dropdownOpen);
 
   return (
-    <Nav tabs className='width:'>
+    <Nav tabs style={{width:"1500px",backgroundColor:"lightblue"}}>
       <NavItem>
         <NavLink href="#" active>
           Link
