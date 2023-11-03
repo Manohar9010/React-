@@ -5,11 +5,14 @@ export default function UsestatePro2() {
        let[index,setindex]= useState(0);
        const cangeindex=()=>{
         if (index >colorarr.length-2) {
-          setindex(0);
-        } else {
-
-          setindex(index + 1);
-        }
+          
+          const con= confirm("hello")
+        } 
+      
+        else{
+             
+           setindex(index + 1);
+         }
        }
 
     return (

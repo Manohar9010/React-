@@ -10,6 +10,15 @@ import MainPa from './project/project1/MainPa'
 import UsestateFun from './Hooks/usestate/UsestateFun'
 import UsestatePro from './Hooks/usestate/UsesatePro'
 import UsestatePro2 from './Hooks/usestate/UsestatePro2'
+import UsestateClass from './Hooks/usestate/UsestateClass'
+import Fragment from './map-key-Fragment/Fragment'
+import MapKey from './map-key-Fragment/MapKey'
+import UseStatecolor from './Hooks/usestate/UseStatecolor'
+import UsestateAlert from './UsestateAlert.jsx'
+import FunProps from './props/FunProps.jsx'
+import Classprops from './props/Classprops.jsx'
+import Propspro1 from './props/Propspro1.jsx'
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -22,9 +31,22 @@ function App() {
       {/* <Reactstarp/> */}
      {/* <MainPage/> */}
     {/* <MainPa/> */}
-  <UsestateFun/>
-  <UsestatePro/>
-  <UsestatePro2/>
+  {/* <UsestateFun/> */}
+  {/* <UsestatePro/> */}
+  {/* <UsestatePro2/> */}
+  {/* <UsestateClass/> */}
+  {/* <Fragment/> */}
+  {/* <Fragment/> */}
+  
+{/* <MapKey/> */}
+{/* <UseStatecolor/> */}
+{/* <UsestateAlert/> */}
+{/* <FunProps name={"shivam"} age={25} color={"purple"}/> */}
+{/* <FunProps name={"gouri"} age={20} color={"orange"}/> */}
+{/* <Classprops data={{name:"shivam",greeting:"Good Morning"}}/> */}
+{/* <Classprops/> */}
+<Propspro1/>
+
     </>
   )
   
