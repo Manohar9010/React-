@@ -5,8 +5,14 @@ export default function UsestatePro2() {
        let[index,setindex]= useState(0);
        const cangeindex=()=>{
         if (index >colorarr.length-2) {
-          
-          const con= confirm("hello")
+        
+          if (window.confirm('do you want continue?')) {
+             if(window.confirm('Are you sure you want to start over?')){
+              setindex(0)
+             }else{
+                    let dis="true"
+             }
+          }
         } 
       
         else{
@@ -28,7 +34,7 @@ export default function UsestatePro2() {
         >
           <h1>Hello World</h1>
         </div>
-        <Button onClick={()=>cangeindex()}>change color</Button>
+        <Button disabled={dis} onClick={()=>cangeindex()}>change color</Button>
     </div>
   )
 }

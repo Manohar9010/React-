@@ -14,10 +14,12 @@ import UsestateClass from './Hooks/usestate/UsestateClass'
 import Fragment from './map-key-Fragment/Fragment'
 import MapKey from './map-key-Fragment/MapKey'
 import UseStatecolor from './Hooks/usestate/UseStatecolor'
-import UsestateAlert from './UsestateAlert.jsx'
+import UsestateAlert from './Hooks/usestate/UsestateAlert.jsx'
 import FunProps from './props/FunProps.jsx'
 import Classprops from './props/Classprops.jsx'
 import Propspro1 from './props/Propspro1.jsx'
+import PropsChange from './props/PropsChange.jsx'
+import LifecycleMethod from './Lifecycle/LifecycleMethod.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -44,8 +46,10 @@ function App() {
 {/* <FunProps name={"shivam"} age={25} color={"purple"}/> */}
 {/* <FunProps name={"gouri"} age={20} color={"orange"}/> */}
 {/* <Classprops data={{name:"shivam",greeting:"Good Morning"}}/> */}
-{/* <Classprops/> */}
-<Propspro1/>
+{/* <Classprops/>    */}
+{/* <Propspro1/> */}
+<PropsChange name="shivam"/>
+{/* <LifecycleMethod/>   */}
 
     </>
   )

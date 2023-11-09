@@ -14,7 +14,7 @@ export default function CradCom(props) {
     />
     <CardBody>
       <CardTitle tag="h5">
-        {props?.name}
+        {props?.name ?? "Titile not avaleble"}
       </CardTitle>
       <CardSubtitle
         className="mb-2 text-muted"
