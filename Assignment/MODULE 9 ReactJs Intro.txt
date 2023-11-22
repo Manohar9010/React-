@@ -1,0 +1,43 @@
+          ReactJs
+   MODULE: 9 ReactJs Intro
+• What is React Js?
+Ans: React is a JavaScript library developed by Facebook , and we can create single page application. It aims to allow developers to create fast user interfaces for websites and applications alike easily. The main concept of React.js is virtual DOM.
+
+• What is NPM in React Js?
+Ans: NPM is short for node package manager, an online directory that contains the various already registered open-source packages. . NPM modules consume the various functions as a third-party package when installed into an app using the NPM command npm install .
+
+• What is Role of Node Js in react Js?
+Ans: Node is the most popular platform for hosting and running web servers for React apps. After all, using NPM (Node Package Manager), you can install any package with NPM command-line interface CLI. Moreover, Node utilizes Webpack and other modules to turn a React application into an easily compilable single file.
+
+• What is CLI command In React Js?
+Ans: React has its own command-line interface (CLI) commands. However, these CLI commands are currently only used to create a passable version of a react application using the command line.
+
+• What is Components in React Js?
+Ans: Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML. Components come in two types, Class components and Function components.
+
+• What is Header and Content Components in React Js?
+Ans:	Header= 48 headers are developed with React. A header is a section at the top of a page that displays site name and navigation. React is the most popular frontend library for developing component-driven user interfaces. It's used for developing single page, mobile, and server-rendered applications.
+Content= Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML. Components come in two types.
+
+• How to install React Js on Windows, Linux Operating System? How to Install NPM and How to check version of NPM?
+ Ans:
+ Step 1: Install npm. Login to your server as a sudo user and run the following                                       command: sudo apt install npm
+Step 2: Install create-react-app Utility. create-react-app is a utility that allows you                   to set up all the tools required for a React application. ...
+    Step 3: Create and Launch Your First React Application.
+
+To see the most current version of a package in the npm repository, use the npm view npm get version of package-name version command.
+
+• How to check version of React Js?
+Ans:
+1)	npx create-react-app name_of_the_app
+2)	npm view react version
+3)	import React from 'react';
+let a = React.version.
+
+• How to change in components of React Js?
+Ans:
+To update the state of a class based component we will be using the given setState method. Class based component can directly access the states using this keyword.
+
+• How to Create a List View in React Js?
+
+
