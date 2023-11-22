@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import ReactUsestatePro2, { useState } from 'react'
 import { Button } from "reactstrap";
-export default function UsestatePro2() {
+export default function UsestateAlert () {
      const colorarr=["red","blue","yellow","pink","orange","green","Purple"];
        let[index,setindex]= useState(0);
        const cangeindex=()=>{
@@ -9,8 +9,6 @@ export default function UsestatePro2() {
           if (window.confirm('do you want continue?')) {
              if(window.confirm('Are you sure you want to start over?')){
               setindex(0)
-             }else{
-                    let dis="true"
              }
           }
         } 
@@ -34,7 +32,7 @@ export default function UsestatePro2() {
         >
           <h1>Hello World</h1>
         </div>
-        <Button disabled={dis} onClick={()=>cangeindex()}>change color</Button>
+        <Button onClick={()=>cangeindex()}>change color</Button>
     </div>
   )
 }

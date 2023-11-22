@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import { Button } from 'reactstrap'
 
 export default function PropsChange(props) {
-        const  [name,setstate]=useState(props.name)
+        let  [name,setstate]=useState(props.name)
+        let  [isProps, setisprops]=useState(false)
         
   
     const changeName=()=>{
-      
-        setstate("user")
-    
-       
+   
+          setstate(isProps ? props.name :"user");
+          setisprops(!isProps)
+  
     }
     
     

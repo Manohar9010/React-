@@ -7,6 +7,7 @@ export default class LifecycleMethod extends Component {
         console.log("------constructor-----");
         this.state={
             count:0,
+            
         }
     }
 

@@ -1,0 +1,88 @@
+/* .homepage{
+    position: relative;
+} */
+.mainhead{
+    background-color: black;
+   /* position: fixed; */
+   width: 100%;
+}
+.downarrow{
+    color: white;
+}
+.container{
+    margin: 0px 70px;
+}
+.head_flex{
+    display: flex;
+   align-items: center;
+}
+.brand{
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex: 1;
+    
+}
+.brand h1{
+    font-weight: 700;
+    color: white;
+}
+.brand p{
+    font-size: 35px;
+    color: white;
+    
+}
+.navbar{
+    flex: 2;
+    
+}
+.navbar ul{
+    display: flex;
+    gap: 20px;
+    padding-top: 10px;
+    
+}
+.navbar .home_c a{
+    color: orangered;
+}
+.navbar a{
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    transition: .5s all ease-in-out;
+}
+.navbar a:hover{
+    color: orangered;
+}
+.search_bar{
+display: flex;
+ flex: 1; 
+ align-items: baseline;
+}
+.theme{
+    flex: .1;
+    color: white;
+}
+.search_bar input{
+    height: 40px;
+    border: 1px solid grey;
+    border-bottom-left-radius: 20px;
+    border-toP-left-radius: 20px;
+    border-right: none;
+    
+}
+.search_bar button{
+    height: 40px;
+    width: 50px;
+    border-bottom-right-radius: 20px;
+    border-toP-right-radius: 20px;
+    background-color: orangered;
+    border: none;
+    color: white;
+}
+.search_bar input::placeholder{
+    padding-left: 20px;
+}
+.theme{
+    font-size: 35px;
+}

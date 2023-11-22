@@ -20,6 +20,15 @@ import Classprops from './props/Classprops.jsx'
 import Propspro1 from './props/Propspro1.jsx'
 import PropsChange from './props/PropsChange.jsx'
 import LifecycleMethod from './Lifecycle/LifecycleMethod.jsx'
+import UseFor from '../UseFor.jsx'
+import ExpApp from './Expproject/Expenses/ExpApp.jsx'
+import MainWeb from './webpage/MainWeb.jsx'
+import Use_State_Class_Task from './Hooks/usestate/Use_State_Class_Task.jsx'
+import StateHook from './component/functional/StateHook.jsx'
+import ArrayMap from './module/ArrayMap.jsx'
+import UniqueKey from './module/UniqueKey.jsx'
+
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -48,8 +57,15 @@ function App() {
 {/* <Classprops data={{name:"shivam",greeting:"Good Morning"}}/> */}
 {/* <Classprops/>    */}
 {/* <Propspro1/> */}
-<PropsChange name="shivam"/>
+{/* <PropsChange name="shivam"/> */}
+{/* <Use_State_Class_Task/> */}
 {/* <LifecycleMethod/>   */}
+   {/* <UseFor/> */}
+   {/* <ExpApp/> */}
+   {/* <StateHook/> */}
+   {/* <ArrayMap/> */}
+   <UniqueKey/>
+   {/* <MainWeb/> */}
 
     </>
   )
