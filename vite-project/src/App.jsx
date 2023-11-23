@@ -27,6 +27,7 @@ import Use_State_Class_Task from './Hooks/usestate/Use_State_Class_Task.jsx'
 import StateHook from './component/functional/StateHook.jsx'
 import ArrayMap from './module/ArrayMap.jsx'
 import UniqueKey from './module/UniqueKey.jsx'
+import IndexUsekey from './module/IndexUsekey.jsx'
 
 
 
@@ -64,7 +65,8 @@ function App() {
    {/* <ExpApp/> */}
    {/* <StateHook/> */}
    {/* <ArrayMap/> */}
-   <UniqueKey/>
+   <IndexUsekey/>
+   {/* <UniqueKey/> */}
    {/* <MainWeb/> */}
 
     </>

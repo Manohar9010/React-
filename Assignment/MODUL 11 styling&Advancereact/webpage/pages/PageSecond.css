@@ -1,0 +1,53 @@
+.mainlearn{
+    padding: 80px 0px;
+}
+.learn_flex{
+    display: flex;
+}
+
+
+.learn_flex .learn_small_text{
+    
+    display: flex;
+}
+
+.mainlearn .learn_image{
+   
+    display:flex ;
+    gap: 40px;
+    
+}
+.mainlearn .learn_image .learn_smimg{
+  padding-top: 20px;   
+}
+.mainlearn .learn_image .learn_smimg img{
+    height: 350px;
+}
+.mainlearn .learn_image img{
+   /* width: fit-content; */
+   height: 380px;
+   width: 290px;
+   border-radius: 10px;
+}
+.mainlearn h1{
+    font-size: 45px;
+    font-weight: 700;
+}
+.mainlearn p{
+  color: grey;
+    font-size: 15px;
+    padding: 20px 0px;
+}
+.mainlearn h4{
+    font-weight: 700;
+}
+.mainlearn .learn_small_text span{
+    display: grid;
+    place-content:center ;
+   height: 50px;
+   width: 50px;
+   border-radius: 50%;
+    background-color: orangered;
+    font-size: 30px;
+    color: white;
+}
