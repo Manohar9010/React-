@@ -12,8 +12,8 @@ export default class LifecycleMethod extends Component {
     }
 
     componentDidMount(){
-        console.log("-------componentDidMount----------");
-        alert("------componentDidMount------")
+        console.log("-------componentDidMount-----------");
+        alert("------componentDidMount-------")
     }
     componentDidUpdate(){
         console.log("-----componentDidUpdate-------");

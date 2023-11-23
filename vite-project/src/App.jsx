@@ -60,7 +60,7 @@ function App() {
 {/* <Propspro1/> */}
 {/* <PropsChange name="shivam"/> */}
 {/* <Use_State_Class_Task/> */}
-<LifecycleMethod/>  
+{/* <LifecycleMethod/>   */}
    {/* <UseFor/> */}
    {/* <ExpApp/> */}
    {/* <StateHook/> */}
