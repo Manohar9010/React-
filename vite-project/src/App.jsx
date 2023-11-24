@@ -28,6 +28,10 @@ import StateHook from './component/functional/StateHook.jsx'
 import ArrayMap from './module/ArrayMap.jsx'
 import UniqueKey from './module/UniqueKey.jsx'
 import IndexUsekey from './module/IndexUsekey.jsx'
+import UseEffect from './Hooks/usestate/UseEffect.jsx'
+import UseEffectarry from './Hooks/usestate/UseEffectarry.jsx'
+import UseEffectmach from './Hooks/usestate/UseEffectmach.jsx'
+
 
 
 
@@ -67,6 +71,9 @@ function App() {
    {/* <ArrayMap/> */}
    {/* <IndexUsekey/> */}
    {/* <UniqueKey/> */}
+   {/* <UseEffect/> */}
+   {/* <UseEffectarry/> */}
+   <UseEffectmach/>
    {/* <MainWeb/> */}
 
     </>
