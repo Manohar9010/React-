@@ -11,13 +11,14 @@ export default function UseEffectmach() {
     if(index > names1.length-2){
         setIndex(0)
     }
+    
   };
 
   useEffect(() => {
     const currentName = names1[index];
    
     if (names2.includes(currentName)) {
-      alert(`The name ${currentName} exists in both arrays!`);
+      alert(`The name ${currentName} exists in both arrays`);
     }
   }, [index, names1, names2]);
 
@@ -29,7 +30,7 @@ export default function UseEffectmach() {
       <div style={{textAlign:"center", marginTop:"150px"}}>
         <h1>mach elements of both arrays</h1>
        <h1>{names1[index]}</h1>
-        <button onClick={increment}  style={{padding:"5px 10px"}} >check mach Name</button>
+        <button onClick={increment}  style={{padding:"5px 10px",border:"2px solid red"}} >check mach Name</button>
     </div>
   )
 }

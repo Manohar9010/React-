@@ -31,6 +31,9 @@ import IndexUsekey from './module/IndexUsekey.jsx'
 import UseEffect from './Hooks/usestate/UseEffect.jsx'
 import UseEffectarry from './Hooks/usestate/UseEffectarry.jsx'
 import UseEffectmach from './Hooks/usestate/UseEffectmach.jsx'
+import InputValueget from './Inputs/InputValueget.jsx'
+import InputToken from './Inputs/InputToken.jsx'
+import BootstapCard from './bootstapuse/BootstapCard.jsx'
 
 
 
@@ -73,8 +76,12 @@ function App() {
    {/* <UniqueKey/> */}
    {/* <UseEffect/> */}
    {/* <UseEffectarry/> */}
-   <UseEffectmach/>
+   {/* <UseEffectmach/> */}
+   {/* <InputValueget/> */}
+   {/* <InputToken/> */}
    {/* <MainWeb/> */}
+   <BootstapCard/>
+   
 
     </>
   )
