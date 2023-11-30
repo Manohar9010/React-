@@ -34,6 +34,9 @@ import UseEffectmach from './Hooks/usestate/UseEffectmach.jsx'
 import InputValueget from './Inputs/InputValueget.jsx'
 import InputToken from './Inputs/InputToken.jsx'
 import BootstapCard from './bootstapuse/BootstapCard.jsx'
+import InputMulty from './Inputs/InputMulty.jsx'
+import { ToastContainer } from 'react-toastify'
+import InputPractice from './Inputs/InputPractice.jsx'
 
 
 
@@ -80,7 +83,11 @@ function App() {
    {/* <InputValueget/> */}
    {/* <InputToken/> */}
    {/* <MainWeb/> */}
-   <BootstapCard/>
+   {/* <BootstapCard/> */}
+   <InputMulty/>
+   <ToastContainer/>
+   {/* <InputPractice/> */}
+
    
 
     </>
