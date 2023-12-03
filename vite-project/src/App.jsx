@@ -37,6 +37,8 @@ import BootstapCard from './bootstapuse/BootstapCard.jsx'
 import InputMulty from './Inputs/InputMulty.jsx'
 import { ToastContainer } from 'react-toastify'
 import InputPractice from './Inputs/InputPractice.jsx'
+import InputDeleteupdate from './Inputs/InputDeleteupdate.jsx'
+import DataManagementComponent from './Inputs/InputPractice.jsx'
 
 
 
@@ -84,12 +86,14 @@ function App() {
    {/* <InputToken/> */}
    {/* <MainWeb/> */}
    {/* <BootstapCard/> */}
-   <InputMulty/>
-   <ToastContainer/>
+   {/* <InputMulty/> */}
+   {/* <InputDeleteupdate/> */}
    {/* <InputPractice/> */}
+   <DataManagementComponent/>
 
    
 
+   <ToastContainer/>
     </>
   )
   
