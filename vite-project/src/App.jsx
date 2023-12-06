@@ -39,6 +39,7 @@ import { ToastContainer } from 'react-toastify'
 import InputPractice from './Inputs/InputPractice.jsx'
 import InputDeleteupdate from './Inputs/InputDeleteupdate.jsx'
 import DataManagementComponent from './Inputs/InputPractice.jsx'
+import ExlocalStorage from './LocalStorage/ExlocalStorage.jsx'
 
 
 
@@ -89,8 +90,8 @@ function App() {
    {/* <InputMulty/> */}
    {/* <InputDeleteupdate/> */}
    {/* <InputPractice/> */}
-   <DataManagementComponent/>
-
+   {/* <DataManagementComponent/> */}
+     <ExlocalStorage/>
    
 
    <ToastContainer/>
