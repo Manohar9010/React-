@@ -1,0 +1,40 @@
+.mainheade{
+    display: flex;
+    justify-content: space-between;
+     height:10vh;
+     padding: 20px 0px;
+     margin: 0px 60px; 
+}
+.lefthead{
+    flex: 1;
+    display: flex;
+    gap: 40px;
+    font-size: 25px;
+    font-weight: 600;
+    align-items: center;
+
+}
+.righthead{
+    flex: 2;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+.righthead ul{
+    display: flex;
+    gap: 40px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.righthead ul li{
+    transition: .5s all ease-in-out;
+}
+.righthead ul li:hover{
+     color: orange;
+     text-shadow: -8px 6px 20px orange;
+}
+.n_btn{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+}
