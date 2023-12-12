@@ -2,9 +2,9 @@
     display: flex;
     justify-content: space-between;
      height:10vh;
-     padding: 20px 0px;
-     margin: 0px 60px; 
+    
 }
+
 .lefthead{
     flex: 1;
     display: flex;

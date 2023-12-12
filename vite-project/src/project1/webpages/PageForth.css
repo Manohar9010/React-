@@ -1,0 +1,94 @@
+.main_work{
+    display: flex;
+}
+.work_left{
+    flex: 1;
+}
+.work_left h1{
+ font-weight: 600;
+}
+.work_left h1:nth-of-type(2){
+    color: orange;
+}
+.work_left p{
+    line-height: 20px;
+    font-weight: 500;
+    color: rgb(122, 115, 115);
+    padding: 20px 0px 50px 0px;
+}
+.work_left .w-button{
+    padding: 10px 35px;
+}
+.work_right{
+    flex: 1;
+    position: relative;
+}
+.main_roud{
+    position: relative;
+    left: 220px;
+    top: 30px;
+   box-shadow:-9px 2px 15px 0px rgb(205, 200, 200);
+    height: 220px;
+    width: 230px;
+    border-radius: 50%;
+    background-color: white;
+}
+.main_roud .brand_round{
+    position: absolute;
+}
+.main_roud .brand_round{
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid rgb(209, 193, 193);
+    background-color:white;
+}
+.main_roud :nth-child(1) {
+    top: -38px;
+    left: 80px;
+}
+.main_roud :nth-child(2) {
+    top: 60px;
+    left: -30px;
+}
+.main_roud :nth-child(3) {
+    top: 65px;
+    right: 70px;
+}
+.main_roud :nth-child(4) {
+    top: 60px;
+    right: -35px;
+}
+.main_roud :nth-child(5) {
+    top: 170px;
+    right: 70px;
+}
+.blur_round{
+    position: absolute;
+    top: -30px;
+    height: 170px;
+    width: 170px;
+    right: -50px;
+    border-radius: 100%;
+    background-color: blue;
+    z-index: -1;
+}
+.yellow_round{
+    position: absolute;
+    height: 170px;
+    width: 170px;
+    top: 80px;
+    right: -50px;
+    border-radius: 100%;
+    background-color: yellow;
+    z-index: -1;
+}
+
+
+    
+.main_roud .brand_round img{
+    transform: scale(0.4);
+}

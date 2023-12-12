@@ -1,0 +1,47 @@
+.second_main{
+    padding-top: 100px;
+    display: flex;
+    padding-bottom: 200px;
+}
+.second_left{
+    flex: 1;
+    position: relative;
+}
+.second_left h2{
+  color: rgb(231, 169, 54);
+  font-weight: 600;
+}
+.second_left h1{
+    font-weight: 600;
+}
+.second_left p{
+    font-weight: 500;
+    color: rgb(104, 98, 98);
+} 
+.sec_button{
+    margin-top: 40px;
+    padding: 10px 20px;
+}
+.second_right{
+    flex: 1;
+}
+.second_right .blur{
+    background-color: rgb(238, 210, 255);
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    filter: blur(50px);
+    right: -80px;
+    top: 130px;
+}
+.second_left .blur1{
+    background-color: #c1f5ff;
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    filter: blur(50px);
+    top: 300px;
+    left: -150px;
+}

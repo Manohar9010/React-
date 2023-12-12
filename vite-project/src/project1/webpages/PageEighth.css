@@ -1,0 +1,12 @@
+.main_footer img{
+   height: 300px;
+   width: 100%;
+}
+.main_footer{
+    position: relative;
+}
+.main_footer .footer_icons{
+    position: absolute;
+    top: 150px;
+    left: 40%;
+} 

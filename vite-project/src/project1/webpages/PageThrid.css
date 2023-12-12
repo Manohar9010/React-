@@ -1,0 +1,41 @@
+.main_experience{
+    padding: 150px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    background-color: transparent;
+}
+.eaxp_small .expnumber{
+    height: 80px;
+    width: 80px;
+    display: grid;
+    place-content: center;
+    border-width: 8px;
+    border-style: solid;
+    /* border-radius: 50px; */
+    border-image: 
+    linear-gradient(to bottom, #87e6fb 0%, #ffc05c 100%)1;
+    font-size: 28px;
+    font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.extext *{
+   padding: 0;
+   margin: 0;
+   text-align: center;
+}
+.extext h5{
+    background: -webkit-linear-gradient(
+        90deg,
+        rgb(223, 87, 33) 0%,
+        rgb(216, 101, 24) 21%,
+        rgb(212, 100, 8) 51%,
+        rgb(255, 136, 0) 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      max-width: max-content;
+} 
+    

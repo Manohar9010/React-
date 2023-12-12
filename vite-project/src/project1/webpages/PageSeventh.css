@@ -1,0 +1,47 @@
+.main_form{
+    display: flex;
+    margin: 150px 0px;
+}
+.form_left{
+flex: 1;
+text-align: center;
+position: relative;
+}
+.form_left h1:nth-child(2){
+    color: orange;
+}
+.form_right{
+  flex: 1;
+   display: grid;
+   place-content: start;
+   position: relative;
+}
+.form_right Input{
+    border: 2px solid orange;
+    width: 380px;
+}
+.form_right .texbordr{
+    border: 2px solid orange;
+    width: 380px;
+
+}
+
+.form_left .left_blur{
+    background-color: rgb(238, 210, 255);
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    filter: blur(50px);
+   
+}
+.form_right .right_blur{
+    background-color: #c1f5ff;
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    filter: blur(50px);
+    top: -180px;
+    right: 150px;
+}

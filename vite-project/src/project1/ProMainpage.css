@@ -16,7 +16,8 @@ a{
     border: 1px solid orange;
     color: white;
     font-size: 16px;
-    padding: 9px 26px 37px 26px;
+    padding: 5px 20px 30px 20px;
+    transition: 0.2s all ease-in;
   }
   
   .button:hover {
@@ -25,3 +26,7 @@ a{
     border: 1px solid orange;
     color: orange;
   }
+  .container{
+    padding: 20px 0px;
+    margin: 0px 60px; 
+}

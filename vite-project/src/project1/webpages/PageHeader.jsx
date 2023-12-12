@@ -3,7 +3,7 @@ import './PageHeader.css'
 export default function PageHeader() {
   return (
     <div>
-        <div className="mainheade">
+        <div className="mainheade container">
             <div className="lefthead">
                 <div className="logo">Anfrew</div>
                 <span>toggle</span>

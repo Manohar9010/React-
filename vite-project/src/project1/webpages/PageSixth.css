@@ -1,0 +1,51 @@
+.main_clients .client_text h1 span{
+    color: orange;
+}
+.main_clients .client_text h1{
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+.slide1{
+    margin: 0px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.border_slide{
+    border: 5px solid rgb(175, 157, 157);
+    border-radius: 15px;
+    width: 600px;
+    text-align: center;
+    padding: 20px;
+
+}
+.border_slide img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+.client_slide{
+    position: relative;
+}
+.blur{
+background-color: #c1f5ff;
+position: absolute;
+width: 250px;
+height: 250px;
+border-radius: 50%;
+filter: blur(50px);
+left: 250px;
+top: 45px;
+}
+.blur1{
+    background-color: rgb(238, 210, 255);
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    filter: blur(50px);
+    right: 250px;
+    top: -70px;   
+}

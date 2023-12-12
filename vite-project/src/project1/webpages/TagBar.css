@@ -1,0 +1,18 @@
+.tagformain{
+    display: flex;
+     align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 15px;
+    height: 100px;
+    width: 280px;
+    font-size: 28px;
+    font-weight: 700;
+    
+   }
+   .tagformain .tag_img{
+    transform: scale(0.5);
+   }
+  
+   
+

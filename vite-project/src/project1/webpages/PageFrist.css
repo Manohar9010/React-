@@ -1,0 +1,93 @@
+.mainpage{
+    display: flex;
+    
+}
+.main_left{
+    flex: 1;
+}
+.main_left h1:first-of-type{
+    padding-top: 40px;
+
+}
+.main_left h1:nth-of-type(2){
+    color:#FFA500	;
+    
+}
+.main_left p{
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 0px;
+}
+.main_socialapp{
+    margin-top: 80px;
+    
+}
+
+.main_right{
+    flex: 1;
+}
+.h_button{
+    margin: 15px 0px;
+    padding:  5px 35px 5px 35px;
+}
+.main_socialapp ul{
+    display: flex;
+
+    gap: 40px;
+}
+.main_socialapp li img{
+    
+    height: 30px;
+    width: 30px;
+}
+
+.main_right{
+    position: relative;
+} 
+.main_right .main_r_img,.main_tag {
+    position: absolute;
+    z-index: 1;
+}
+.main_right :nth-child(1){
+    top: -30px;
+    transform: scale(0.69);
+}
+.main_right :nth-child(2){
+    top: -80px;
+    transform: scale(0.6);
+}
+.main_right :nth-child(3){
+    transform: scale(1.2);
+    right: 50px;
+    top: 23px;
+
+}
+.main_right .main_tag{
+   
+    top: 50px;
+
+}
+
+.main_right .blur {
+    background-color: rgb(238, 210, 255);
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    filter: blur(50px);
+    right: -100px;
+    top: -50px;
+}
+.main_right .blur1{
+    background-color: #c1f5ff;
+    top: 300px;
+    left: 0px;
+}
+.main_right .glassimmg{
+    position: absolute;
+    left: -40px;
+    top: -45px;
+}
+.main_right .glassimmg img{
+    transform: scale(.5);
+}
