@@ -41,6 +41,8 @@ import InputDeleteupdate from './Inputs/InputDeleteupdate.jsx'
 import DataManagementComponent from './Inputs/InputPractice.jsx'
 import ExlocalStorage from './LocalStorage/ExlocalStorage.jsx'
 import ProMainpage from './project1/ProMainpage.jsx'
+import UseRefCom from './Hooks/usestate/UseRefCom.jsx'
+import UseContaxtCom from './Hooks/usestate/UseContaxt/UseContaxtCom.jsx'
 
 
 
@@ -93,7 +95,9 @@ function App() {
    {/* <InputPractice/> */}
    {/* <DataManagementComponent/> */}
    {/* <ExlocalStorage/> */}
-     <ProMainpage/>
+     {/* <ProMainpage/> */}
+     {/* <UseRefCom/> */}
+     <UseContaxtCom/>
    
 
    <ToastContainer/>
