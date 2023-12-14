@@ -1,22 +1,23 @@
 import React, { createContext, useState } from 'react'
 import ComA from './ComA'
-import ComB from './ComB'
-  
-export const NameContaxt= createContext();
 
+export const ValueChange=createContext()
 export default function UseContaxtCom() {
-     let[names,setNames]=useState({
-        name:"shivam",
-        age:"25",
-     })
+const[names,SetNames]=useState({
+  usename:"shivam",
+  Age:"25",
+})
   return (
     <div>
-        <NameContaxt.Provider value={names} >
+    
+    UseContaxtCom
+        
+      <ValueChange.Provider value={names}>
 
         <ComA/>
-
-        <ComB/>
-        </NameContaxt.Provider>
-    </div>
+      </ValueChange.Provider>
+        
+      
+      </div>
   )
 }
