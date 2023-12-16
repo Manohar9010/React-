@@ -18,7 +18,7 @@ const [city,setCity]=useState("surat")
       <ValueChange.Provider value={names}>
 
         <ComA/>
-        <CityChage.Provider value={{city: city}}>
+        <CityChage.Provider value={city}>
           <ComB/>
         </CityChage.Provider>
 
