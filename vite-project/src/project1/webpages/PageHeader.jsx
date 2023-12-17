@@ -1,5 +1,6 @@
 import React from 'react'
 import './PageHeader.css'
+import { NavLink } from 'react-router-dom'
 export default function PageHeader() {
   return (
     <div>
@@ -11,10 +12,10 @@ export default function PageHeader() {
             <div className="righthead">
                 <div className="navhead">
                 <ul>
-                    <li>Home</li>
-                    <li>service</li>
-                    <li>Experince</li>
-                    <li>Testimonials</li>
+                    <li> <NavLink to={'/forth'}>Home</NavLink> </li>
+                    <li> <NavLink to={'/second'}>Sevice</NavLink> </li>
+                    <li> <NavLink to={'/fifth'}>About</NavLink> </li>
+                    <li> <NavLink to={'/sixth'}>Detailes</NavLink> </li>
                 </ul>
                 </div>
             </div>
@@ -22,7 +23,6 @@ export default function PageHeader() {
                   <button className='button'>Contact Us</button>
                 </div>
         </div>
-        
         
     </div>
   )

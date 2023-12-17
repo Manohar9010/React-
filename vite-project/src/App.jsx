@@ -44,6 +44,8 @@ import ProMainpage from './project1/ProMainpage.jsx'
 import UseRefCom from './Hooks/usestate/UseRefCom.jsx'
 import UseContaxtCom from './Hooks/usestate/UseContaxt/UseContaxtCom.jsx'
 import UseRedeuserCom from './Hooks/usestate/UseRedeuserCom.jsx'
+import UseoneReduser from './Hooks/usestate/UseoneReduser.jsx'
+import RoutingCom from './Hooks/usestate/Routing/RoutingCom.jsx'
 
 
 
@@ -98,8 +100,10 @@ function App() {
    {/* <ExlocalStorage/> */}
      {/* <ProMainpage/> */}
      {/* <UseRefCom/> */}
-     <UseRedeuserCom/>
+     {/* <UseRedeuserCom/> */}
      {/* <UseContaxtCom/> */}
+     <UseoneReduser/>
+     {/* <RoutingCom/> */}
    
 
    <ToastContainer/>

@@ -13,7 +13,7 @@ const [city,setCity]=useState("surat")
   return (
     <div>
     
-    UseContaxtCom
+    
         
       <ValueChange.Provider value={names}>
 
