@@ -100,9 +100,9 @@ function App() {
    {/* <ExlocalStorage/> */}
      {/* <ProMainpage/> */}
      {/* <UseRefCom/> */}
-     {/* <UseRedeuserCom/> */}
+     <UseRedeuserCom/>
      {/* <UseContaxtCom/> */}
-     <UseoneReduser/>
+     {/* <UseoneReduser/> */}
      {/* <RoutingCom/> */}
    
 
