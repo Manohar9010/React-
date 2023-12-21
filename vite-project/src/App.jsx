@@ -46,6 +46,7 @@ import UseContaxtCom from './Hooks/usestate/UseContaxt/UseContaxtCom.jsx'
 import UseRedeuserCom from './Hooks/usestate/UseRedeuserCom.jsx'
 import UseoneReduser from './Hooks/usestate/UseoneReduser.jsx'
 import RoutingCom from './Hooks/usestate/Routing/RoutingCom.jsx'
+import Routing from './Routing/Routing.jsx'
 
 
 
@@ -100,11 +101,11 @@ function App() {
    {/* <ExlocalStorage/> */}
      {/* <ProMainpage/> */}
      {/* <UseRefCom/> */}
-     <UseRedeuserCom/>
+     {/* <UseRedeuserCom/> */}
      {/* <UseContaxtCom/> */}
      {/* <UseoneReduser/> */}
      {/* <RoutingCom/> */}
-   
+   <Routing/>
 
    <ToastContainer/>
     </>

@@ -11,6 +11,8 @@ import NormalBike from "./Services/bikes/NormalBike";
 import SportsBike from "./Services/bikes/SportsBike";
 import SportsCar from "./Services/Cars/SportsCar";
 import NormalCar from "./Services/Cars/NormalCar";
+import UseParam from "./Param/UseParam";
+import Username from "./Param/userName";
 
 export default function Routing() {
   return (
@@ -36,6 +38,8 @@ export default function Routing() {
             </Route>
           </Route>
           <Route path="*" Component={Error404} />
+          <Route path="/useparam" Component={UseParam} />
+          <Route path="/username/:name " Component={Username}/>
         </Routes>
       </BrowserRouter>
     </div>

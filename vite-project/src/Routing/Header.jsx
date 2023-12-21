@@ -9,6 +9,7 @@ export default function Header() {
           <li> <NavLink  to={"/"}> Home</NavLink> </li>
           <li> <NavLink  to={"/contact"}> Contact</NavLink> </li>
           <li> <NavLink to={"/service"}> Service</NavLink> </li>
+          <li> <NavLink to={"/useparam"}> useparam</NavLink> </li>
         </ul>
        </div>
 
