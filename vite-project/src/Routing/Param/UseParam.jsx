@@ -4,7 +4,7 @@ import { Table } from 'reactstrap'
 export default function UseParam() {
 
   const navigate= useNavigate()
-    let userdetaile=[{name:"Madhav",age:25,city:"surat"},{name:"Mani",age:27,city:"surat"},{name:"Goapl",age:24,city:"surat"}]
+    let userdetaile=[{name:"Madhav",age:25,city:"surat"},{name:"Mani",age:27,city:"Navsari"},{name:"Goapl",age:24,city:"valsad"}]
   return (
     <div className='mt-5 px-5 bg-info-subtle' style={{height:"500px",textAlign:"center",paddingTop:"100px"}}>
         
@@ -13,7 +13,7 @@ export default function UseParam() {
   <thead>
     <tr>
       <th>
-        #
+        Sr.
       </th>
       <th>
         First Name
@@ -23,6 +23,9 @@ export default function UseParam() {
       </th>
       <th>
         Username
+      </th>
+      <th>
+        All Data
       </th>
     </tr>
   </thead>
@@ -36,11 +39,14 @@ export default function UseParam() {
           <td role='button' onClick={()=>navigate(`/username/${e.name}`)}>
             {e.name}
           </td>
-          <td>
+          <td role='button' onClick={()=>navigate(`/useage/${e.age}`)}>
             {e.age}
           </td>
-          <td>
+          <td role='button' onClick={()=>navigate(`/usecity/${e.city}`)}>
            {e.city}
+          </td>
+          <td role='button' onClick={()=>navigate(`/usealldata/${e.name}/${e.age}/${e.city}`)}>
+            All Data
           </td>
         </tr>)
       })
@@ -54,3 +60,4 @@ export default function UseParam() {
     </div>
   )
 }
+// 

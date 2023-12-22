@@ -9,11 +9,11 @@ export default function Username() {
        console.log("-------->",data)
 
        return (
-         <div>
+         <div style={{textAlign:"center",paddingTop:"200px",backgroundColor:"#A1EEBD",height:"85vh" }}>
 
-      <h1>My Name {data?.name}</h1> 
+      <h1>My Name is : {data?.name}</h1> 
       
-      <Button onClick={()=>navigate(-1)}></Button>
+      <Button onClick={()=>navigate(-1)}>Go Back</Button>
       
     </div>
   )

@@ -13,6 +13,9 @@ import SportsCar from "./Services/Cars/SportsCar";
 import NormalCar from "./Services/Cars/NormalCar";
 import UseParam from "./Param/UseParam";
 import Username from "./Param/userName";
+import UseAge from "./Param/UseAge";
+import UseCity from "./Param/UseCity";
+import UseAlldata from "./Param/UseAlldata";
 
 export default function Routing() {
   return (
@@ -39,7 +42,10 @@ export default function Routing() {
           </Route>
           <Route path="*" Component={Error404} />
           <Route path="/useparam" Component={UseParam} />
-          <Route path="/username/:name " Component={Username}/>
+          <Route path="/username/:name" Component={Username}/>
+          <Route path="/useage/:age" Component={UseAge}/>
+          <Route path="/usecity/:city" Component={UseCity}/>
+          <Route path="/usealldata/:name/:age/:city" Component={UseAlldata}/>
         </Routes>
       </BrowserRouter>
     </div>
