@@ -16,6 +16,7 @@ import Username from "./Param/userName";
 import UseAge from "./Param/UseAge";
 import UseCity from "./Param/UseCity";
 import UseAlldata from "./Param/UseAlldata";
+import SearchParam from "./Searchparam/SearchParam";
 
 export default function Routing() {
   return (
@@ -27,12 +28,10 @@ export default function Routing() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/service">
             <Route index Component={Service} />
-            <Route path="car"  >
-              
-              <Route index Component={CarService}/>
-              <Route path="sportscar" Component={SportsCar}/>
-              <Route path="normalcar" Component={NormalCar}/>
-              
+            <Route path="car">
+              <Route index Component={CarService} />
+              <Route path="sportscar" Component={SportsCar} />
+              <Route path="normalcar" Component={NormalCar} />
             </Route>
             <Route path="bike">
               <Route index Component={BikeService} />
@@ -42,10 +41,11 @@ export default function Routing() {
           </Route>
           <Route path="*" Component={Error404} />
           <Route path="/useparam" Component={UseParam} />
-          <Route path="/username/:name" Component={Username}/>
-          <Route path="/useage/:age" Component={UseAge}/>
-          <Route path="/usecity/:city" Component={UseCity}/>
-          <Route path="/usealldata/:name/:age/:city" Component={UseAlldata}/>
+          <Route path="/username/:name" Component={Username} />
+          <Route path="/useage/:age" Component={UseAge} />
+          <Route path="/usecity/:city" Component={UseCity} />
+          <Route path="/usealldata/:name/:age/:city" Component={UseAlldata} />
+          <Route path="/seaparam" Component={SearchParam} />
         </Routes>
       </BrowserRouter>
     </div>
