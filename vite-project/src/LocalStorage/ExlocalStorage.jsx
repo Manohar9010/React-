@@ -11,25 +11,24 @@ export default function ExlocalStorage() {
   const [upindex, setupindex] = useState(null);
   const getdata = () => {
     if (user.email.length > 0 && user.password.length > 0) {
-      const match=alldata.some((e)=>{
-        return e.email==user.email
-      })
-      if(match){
+      const match = alldata.some((e) => {
+        return e.email == user.email;
+      });
+      if (match) {
         setUser({
           email: "",
           password: "",
         });
-        toast.error("same data")
-
-
-      }else{
-      setAlldata([...alldata, user]);
-      localStorage.setItem("alldataloc", JSON.stringify([...alldata, user]));
-      setUser({
-        email: "",
-        password: "",
-      });
-      toast.success("Success");}
+        toast.error("same data");
+      } else {
+        setAlldata([...alldata, user]);
+        localStorage.setItem("alldataloc", JSON.stringify([...alldata, user]));
+        setUser({
+          email: "",
+          password: "",
+        });
+        toast.success("Success");
+      }
     } else {
       toast.error("Plese Enter Data");
     }
