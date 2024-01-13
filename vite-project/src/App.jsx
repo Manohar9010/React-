@@ -63,6 +63,7 @@ import SweetAlertComponent from "./Inputs/SweetAlert.jsx";
 import InputCheckbox from "./Inputs/InputCheckbox.jsx";
 import ToDoList from "./Inputs/Todotask.jsx";
 import ToDoListtask from "./Inputs/Check.jsx";
+import Checkicon from "./check.jsx";
 
 function App() {
 
@@ -129,11 +130,12 @@ function App() {
       {/* <MultipulCrund/> */}
       {/* <ModalRout/> */}
       {/* <ModalRoute/> */}
-      <TodoList/>
+      {/* <TodoList/> */}
       {/* <SweetAlertComponent/> */}
       {/* <InputCheckbox/> */}
       {/* <ToDoList/> */}
       {/* <ToDoListtask/> */}
+      <Checkicon/>
       <ToastContainer />
     </>
   );
