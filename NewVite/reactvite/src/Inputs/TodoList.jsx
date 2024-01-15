@@ -108,6 +108,7 @@ export default function ToDoList() {
     } else {
       setSelectindex([...selectindex, index]);
       
+      
     }
   };
 
@@ -125,7 +126,7 @@ export default function ToDoList() {
             }
             setDonetask([...donetask, ...filldata]);
             setPendingdata(empty);
-            setSelectindex([]);
+            setSelectindex([]);``
             localStorage.setItem("pendindata", JSON.stringify(empty));
             localStorage.setItem(
               "passdata",
@@ -185,6 +186,7 @@ export default function ToDoList() {
   };
   console.log(selectindex);
   const multiselctfun = (ell) => {
+    setSelectAllPending
     if (ell.target.checked) {
       setSelectindex(pendingdata.map((e,i) => i));
     } else {
