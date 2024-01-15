@@ -25,6 +25,13 @@ export default function Checkbox() {
         "pendingstore",
         JSON.stringify([...pendingtask, inputval])
       );
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } else {
       Swal.fire({
         icon: "error",
@@ -40,7 +47,7 @@ export default function Checkbox() {
     }
   };
   const pendingfun = (index) => {
-    if(confirm("Do You Want Move Single Data")){
+    if (confirm("Do You Want Move Single Data")) {
       let fillterdata = pendingtask.filter((e, i) => i !== index);
       setPendingtask(fillterdata);
       setDonetask([...donetask, pendingtask[index]]);
@@ -49,34 +56,28 @@ export default function Checkbox() {
         "donestore",
         JSON.stringify([...donetask, pendingtask[index]])
       );
-    }else{
-
+    } else {
     }
-    
   };
   const doneraskfun = (index1) => {
-    if(confirm("Do You Want Move Single Data")){
+    if (confirm("Do You Want Move Single Data")) {
       let fillterdata1 = donetask.filter((e, i) => i !== index1);
-    setDonetask(fillterdata1);
-    setPendingtask([...pendingtask, donetask[index1]]);
-    localStorage.setItem(
-      "pendingstore",
-      JSON.stringify([...pendingtask, donetask[index1]])
-    );
-    localStorage.setItem("donestore", JSON.stringify(fillterdata1));
-    }else{
-      
+      setDonetask(fillterdata1);
+      setPendingtask([...pendingtask, donetask[index1]]);
+      localStorage.setItem(
+        "pendingstore",
+        JSON.stringify([...pendingtask, donetask[index1]])
+      );
+      localStorage.setItem("donestore", JSON.stringify(fillterdata1));
+    } else {
     }
-    
   };
   const Donedeletefun = (index2) => {
-    if(confirm("Do You Want Delete")){
+    if (confirm("Do You Want Delete")) {
       let delfillter = donetask.filter((e, i) => i !== index2);
       setDonetask(delfillter);
       localStorage.setItem("donestore", JSON.stringify(delfillter));
-
-    }else{
-      
+    } else {
     }
   };
 
@@ -95,32 +96,29 @@ export default function Checkbox() {
   const moveSlectedPendingData = () => {
     let filldatapen = [];
     let emptydatapen = [];
-    if(confirm("Do You Want Move All Selected Data")){
-           if(confirm("Are You Sure To Move Data")){
-            pendingtask.map((e, index4) => {
-              if (selectindex.includes(index4)) {
-                filldatapen.push(e);
-              } else {
-                emptydatapen.push(e);
-              }
-            });
-        
-            setDonetask([...donetask, ...filldatapen]);
-            setPendingtask(emptydatapen);
-            setSelectindex([]);
-            setSelectAllPending(false);
-            localStorage.setItem(
-              "donestore",
-              JSON.stringify([...donetask, ...filldatapen])
-            );
-            localStorage.setItem("pendingstore", JSON.stringify(emptydatapen));
-           }else{
+    if (confirm("Do You Want Move All Selected Data")) {
+      if (confirm("Are You Sure To Move Data")) {
+        pendingtask.map((e, index4) => {
+          if (selectindex.includes(index4)) {
+            filldatapen.push(e);
+          } else {
+            emptydatapen.push(e);
+          }
+        });
 
-           }
-    }else{
-
+        setDonetask([...donetask, ...filldatapen]);
+        setPendingtask(emptydatapen);
+        setSelectindex([]);
+        setSelectAllPending(false);
+        localStorage.setItem(
+          "donestore",
+          JSON.stringify([...donetask, ...filldatapen])
+        );
+        localStorage.setItem("pendingstore", JSON.stringify(emptydatapen));
+      } else {
+      }
+    } else {
     }
-    
   };
 
   const DoneCheckfun = (index4) => {
@@ -137,29 +135,27 @@ export default function Checkbox() {
     let filldata1 = [];
     let emptydata1 = [];
 
-    if(confirm("Do You Want Move All selected Data")){
-        if(confirm("Are You Sure To Move Data")){
-          donetask.map((e, index5) => {
-            if (selectindex1.includes(index5)) {
-              filldata1.push(e);
-            } else {
-              emptydata1.push(e);
-            }
-          });
-          setDonetask(emptydata1);
-          setPendingtask([...pendingtask, ...filldata1]);
-          setSelectindex1([]);
-          setAllselect(false);
-          localStorage.setItem("donestore", JSON.stringify(emptydata1));
-          localStorage.setItem(
-            "pendingstore",
-            JSON.stringify([...pendingtask, ...filldata1])
-          );
-        }
-    }else{
-
+    if (confirm("Do You Want Move All selected Data")) {
+      if (confirm("Are You Sure To Move Data")) {
+        donetask.map((e, index5) => {
+          if (selectindex1.includes(index5)) {
+            filldata1.push(e);
+          } else {
+            emptydata1.push(e);
+          }
+        });
+        setDonetask(emptydata1);
+        setPendingtask([...pendingtask, ...filldata1]);
+        setSelectindex1([]);
+        setAllselect(false);
+        localStorage.setItem("donestore", JSON.stringify(emptydata1));
+        localStorage.setItem(
+          "pendingstore",
+          JSON.stringify([...pendingtask, ...filldata1])
+        );
+      }
+    } else {
     }
-    
   };
 
   const selectallpendingfun = (checval) => {
@@ -180,17 +176,15 @@ export default function Checkbox() {
     }
   };
 
-  const donetaskalldeletefun=()=>{
-    if(confirm("Do You Want Delete All Donetask Data")){
-      if(confirm("Are You Sure To Delete All Data")){
-        setDonetask([])
-        localStorage.setItem("donestore",JSON.stringify([]))
-      }else{
-
+  const donetaskalldeletefun = () => {
+    if (confirm("Do You Want Delete All Donetask Data")) {
+      if (confirm("Are You Sure To Delete All Data")) {
+        setDonetask([]);
+        localStorage.setItem("donestore", JSON.stringify([]));
+      } else {
       }
     }
-       
-  }
+  };
   useEffect(() => {
     try {
       let jsonpendata = localStorage.getItem("pendingstore") || "[]";
@@ -276,7 +270,10 @@ export default function Checkbox() {
               })}
             </div>
             <div>
-              <Button style={{background:"#96DED1"}} onClick={moveSlectedPendingData}>
+              <Button
+                style={{ background: "#96DED1" }}
+                onClick={moveSlectedPendingData}
+              >
                 Move Selected Data
               </Button>
             </div>
@@ -285,14 +282,22 @@ export default function Checkbox() {
             <div className="d-flex justify-content-around">
               <h1 className="text-center">Done Task</h1>
               <div>
-              <Button onClick={donetaskalldeletefun} style={{height:"40px",marginLeft:"120px",background:"red"}}>DeleteAll</Button>
-              <Input
-                style={{ height: "30px", width: "30px", marginLeft: "20px" }}
-                type="checkbox"
-                onChange={(e) => selectalldonefun(e)}
-                checked={allselect}
-              />
-
+                <Button
+                  onClick={donetaskalldeletefun}
+                  style={{
+                    height: "40px",
+                    marginLeft: "120px",
+                    background: "red",
+                  }}
+                >
+                  DeleteAll
+                </Button>
+                <Input
+                  style={{ height: "30px", width: "30px", marginLeft: "20px" }}
+                  type="checkbox"
+                  onChange={(e) => selectalldonefun(e)}
+                  checked={allselect}
+                />
               </div>
             </div>
             <div className="">
@@ -333,7 +338,12 @@ export default function Checkbox() {
                 );
               })}
             </div>
-            <Button style={{background:"#96DED1"}} onClick={moveSlectedDoneData}>Move Selected Data</Button>
+            <Button
+              style={{ background: "#96DED1" }}
+              onClick={moveSlectedDoneData}
+            >
+              Move Selected Data
+            </Button>
           </div>
         </div>
       </div>

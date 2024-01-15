@@ -1,6 +1,7 @@
 
 import './App.css'
 import Checkbox from './Inputs/Checkbox';
+import SimpleInput from './Inputs/SingleInput';
 import ToDoList from './Inputs/TodoList';
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <>
      {/* <ToDoList/>  */}
      <Checkbox/>
+     {/* <SimpleInput/> */}
     </>
   )
 }
