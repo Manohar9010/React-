@@ -17,21 +17,29 @@ export default function Checkbox() {
   const [allselect, setAllselect] = useState(false);
   const [selectAllPending, setSelectAllPending] = useState(false);
 
+  
   const getdata = () => {
     if (inputval.length > 0) {
-      setPendingtask([...pendingtask, inputval]);
-      setInputval("");
-      localStorage.setItem(
-        "pendingstore",
-        JSON.stringify([...pendingtask, inputval])
-      );
-      Swal.fire({
-        position: "top-center",
-        icon: "success",
-        title: "Your work has been saved",
-        showConfirmButton: false,
-        timer: 1500,
-      });
+      let match=pendingtask.some((e)=>e === inputval)
+      console.log("match",match)
+      if(match){
+        alert("same")
+      }else{
+        setPendingtask([...pendingtask, inputval]);
+        setInputval("");
+        localStorage.setItem(
+          "pendingstore",
+          JSON.stringify([...pendingtask, inputval])
+        );
+        Swal.fire({
+          position: "top-center",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+     
     } else {
       Swal.fire({
         icon: "error",
@@ -40,7 +48,6 @@ export default function Checkbox() {
       });
     }
   };
-
   const getdataEnterkey = (e) => {
     if (e.key === "Enter") {
       getdata();
@@ -213,7 +220,7 @@ export default function Checkbox() {
         <div style={{ margin: "auto", marginTop: "50px", width: "400px" }}>
           <InputGroup className="">
             <input
-              className="border border-2  "
+              className="border border-end-0 rounded-start-2  "
               style={{ width: "300px" }}
               type="text"
               onChange={(e) => setInputval([e?.target?.value])}
@@ -226,7 +233,7 @@ export default function Checkbox() {
             </Button>
           </InputGroup>
         </div>
-        <div className="d-flex gap-5 mt-5 border border-dark-subtle px-5 py-3 mx-5">
+        <div className="d-flex gap-5 mt-5 border border-info-subtle rounded-3 px-5 py-3 mx-5">
           <div className="w-100">
             <div className="d-flex justify-content-around">
               <h1 className="text-center">Pending Task</h1>
@@ -279,7 +286,7 @@ export default function Checkbox() {
             </div>
           </div>
           <div className="w-100">
-            <div className="d-flex justify-content-around">
+            <div className=" d-flex justify-content-around">
               <h1 className="text-center">Done Task</h1>
               <div>
                 <Button
@@ -307,8 +314,8 @@ export default function Checkbox() {
                     key={i}
                     className="border border-info mb-3 rounded-2 py-2 d-flex justify-content-around"
                   >
-                    <div>{e}</div>
-                    <div className=" w-75 d-flex justify-content-end align-content-center">
+                    <div className="w-100 ps-5">{e}</div>
+                    <div className=" w-75 d-flex px-5 justify-content-end align-content-center">
                       <ArrowLeftFromLine
                         role="button"
                         size={36}
