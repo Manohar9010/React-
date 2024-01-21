@@ -1,4 +1,5 @@
 
+import SimpleApi from './Api/SimpleApi';
 import './App.css'
 import Checkbox from './Inputs/Checkbox';
 import RouteMain from './Inputs/Rigister&Login/RouteMain';
@@ -12,8 +13,9 @@ function App() {
      {/* <ToDoList/>  */}
      {/* <Checkbox/> */}
      {/* <SimpleInput/> */}
-     {/* <TravelProjectmain/> */}
-     <RouteMain/>
+     <TravelProjectmain/>
+     {/* <RouteMain/> */}
+     {/* <SimpleApi/> */}
     </>
   )
 }

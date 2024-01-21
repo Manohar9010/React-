@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Input } from "reactstrap";
 
 export default function TodoDone({
@@ -9,6 +9,7 @@ export default function TodoDone({
   setDonetask,
 }) {
   const [selectindex1, setSelectindex1] = useState([]);
+  const [searchbox1,setSeachbox]=useState("")
   const Returndata = (index) => {
     if (confirm("Do you want move the data!")) {
       setPendingdata([...pendingdata, donetask[index]]);
@@ -34,7 +35,8 @@ export default function TodoDone({
     } else {
     }
   };
-  const Doneselectfun = (index2) => {
+  const 
+  Doneselectfun = (index2) => {
     let available1 = selectindex1.includes(index2);
     if (available1) {
       let filldata1 = selectindex1.filter((e) => e !== index2);
@@ -86,6 +88,11 @@ export default function TodoDone({
       setSelectindex1([]);
     }
   };
+  useEffect(()=>{
+    let data1=JSON.parse (localStorage.getItem("passdata") || "[]")
+    let fillterdata1=data1.filter((e)=>e.toLowerCase() .includes( searchbox1.toLowerCase()))
+    setDonetask(fillterdata1)
+  },[searchbox1])
 
   return (
     <div>
@@ -96,11 +103,16 @@ export default function TodoDone({
         >
           <div className="d-flex ">
             <h1 className="text-center px-5 ">Done Task</h1>
+            <Input style={{height:"35px",width:"150px",marginTop:"10px"}} type="text"
+              value={searchbox1}
+             onChange={(e)=>setSeachbox(e?.target?.value)}
+             
+            />
             <Button
               style={{
                 height: "40px",
                 marginTop: "7px",
-                marginLeft: "150px",
+                marginLeft: "15px",
               }}
               onClick={Alldeletfun}
             >
@@ -114,6 +126,7 @@ export default function TodoDone({
                 marginTop: "10px",
               }}
               type="checkbox"
+              checked={donetask.length === selectindex1.length}
               onChange={(val) => multiselctfundone(val)}
             />
           </div>

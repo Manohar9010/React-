@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Input, InputGroup } from "reactstrap";
 import Swal from "sweetalert2";
 
-export default function Checkbox() {
+export default function Checkbox() {  
   const [inputval, setInputval] = useState("");
   const [pendingtask, setPendingtask] = useState([]);
   const [donetask, setDonetask] = useState([]);
@@ -241,7 +241,7 @@ export default function Checkbox() {
                 style={{ height: "30px", width: "30px", marginLeft: "120px" }}
                 type="checkbox"
                 onChange={(e) => selectallpendingfun(e)}
-                checked={selectAllPending}
+                checked={pendingtask.length === selectindex.length}
               />
             </div>
 
@@ -303,7 +303,7 @@ export default function Checkbox() {
                   style={{ height: "30px", width: "30px", marginLeft: "20px" }}
                   type="checkbox"
                   onChange={(e) => selectalldonefun(e)}
-                  checked={allselect}
+                  // checked={}
                 />
               </div>
             </div>

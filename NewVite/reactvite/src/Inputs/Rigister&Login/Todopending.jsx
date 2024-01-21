@@ -118,6 +118,7 @@ export default function Todopending({
                 marginTop: "10px",
               }}
               type="checkbox"
+              checked={pendingdata.length===selectindex.length}
               onChange={(ell) => multiselctfun(ell)}
             />
           </div>

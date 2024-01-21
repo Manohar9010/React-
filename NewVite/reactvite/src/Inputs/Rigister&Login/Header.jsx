@@ -3,6 +3,7 @@ import { Button } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import LoginModel from "./LoginModel";
 import RegisterModel from "./RegisterModell";
+import { Bird } from "lucide-react";
 
 export default function Header() {
   const [loginModal, setLoginModal] = useState(false);
@@ -15,10 +16,11 @@ export default function Header() {
 
   return (
     <div>
-      <div className="d-flex justify-content-around ">
-        <div>logo</div>
+      
+      <div className="bg-info-subtle py-3 mt-3 d-flex justify-content-around ">
+        <div className="fs-5 fw-medium"><Bird size={48} color="black" /> </div>
         <div>
-          <ul className="d-flex gap-5">
+          <ul className="fs-5 fw-medium  d-flex gap-5">
             <li>
               <NavLink
                 style={{ textDecoration: "none", color: "black" }}

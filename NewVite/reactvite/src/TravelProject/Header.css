@@ -1,0 +1,31 @@
+.Headermain {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  background-color: rgba(255, 255, 255, 0.092);
+  padding: 0px 0px 7px 0px;
+
+}
+.Headermain ul {
+  display: flex;
+  gap: 40px;
+  font-weight: 600;
+  font-size: 18px;
+  color: white;
+}
+.Headermain .subhead{
+  display: flex;
+  gap: 40px;
+  align-items: baseline;
+}
+.Headermain .logo{
+  display: flex;
+  align-items: baseline;
+}
+.Headermain .logo span {
+  font-size: 30px;
+  font-weight: 700;
+  color: #20b7d5;
+  
+}
+

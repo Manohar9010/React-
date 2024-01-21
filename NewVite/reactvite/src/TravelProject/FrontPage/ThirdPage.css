@@ -1,0 +1,138 @@
+.divone{
+    background-image: url(../Images/thirdpageimage1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    place-content: center;
+    position: relative;
+    z-index: 0;
+
+}
+.divone::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    min-height: 100%;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+.divone .text1{
+    color: white;
+    margin: 350px 50px 200px 50px;
+   
+}
+.divone .text1 h1{
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.divtwo{
+    background-image: url(../Images/thirdpageimage2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+}
+.divtwo::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    min-height: 100%;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+.divtwo .text2{
+    color: white;
+    margin: 150px 30px 100px 50px;
+}
+.text2 h1{
+    font-size: 30px;
+}
+.divthree{
+    background-image: url(../Images/thirdpageimage3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    position: relative;
+    z-index: 0;
+}
+.divthree::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    min-height: 100%;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+.divthree .text3{
+    color: white;
+    margin: 150px 30px 100px 50px;
+}
+.text3 h1{
+    font-size: 30px;
+}
+.divfour{
+    background-image: url(../Images/thirdpageimage4.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    position: relative;
+    z-index: 0;
+}
+.divfour::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    min-height: 100%;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.divfour .text4{
+    color: white;
+    margin: 150px 30px 100px 50px;
+}
+.text4 h1{
+    font-size: 30px;
+}
+
+.divfix{
+    background-image: url(../Images/thirdpageimage5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+}
+.divfix::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    min-height: 100%;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.divfix .text5{
+    color: white;
+    margin: 150px 30px 100px 50px;
+}
+.text5 h1{
+    font-size: 30px;
+}
+.divmain h1{
+    transition: 0.5s ease-in-out    ;
+}
+.divmain h1:hover{
+    color: orange;
+}
+
+
+

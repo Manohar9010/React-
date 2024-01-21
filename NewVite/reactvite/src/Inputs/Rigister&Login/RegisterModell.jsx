@@ -75,9 +75,10 @@ export default function RegisterModel({ rectmodal, restoggle }) {
   });
 
   return (
-    <div>
+    <div  >
       <Modal isOpen={rectmodal}>
-        <ModalHeader>
+        <ModalHeader  className="text-white" style={{background:"#778899"}}
+            >
           Modal title{" "}
           <X
             style={{ marginLeft: "330px", color: "red" }}
@@ -85,8 +86,9 @@ export default function RegisterModel({ rectmodal, restoggle }) {
             onClick={restoggle}
           />
         </ModalHeader>
-        <ModalBody>
-          <div>
+        <ModalBody className="text-white" style={{backgroundImage: "linear-gradient(#778899,#36454f)",
+            color: "darkred",}}>
+          <div  >
             <div>
               <Form onSubmit={getdata}>
                 <FormGroup>
@@ -186,7 +188,7 @@ export default function RegisterModel({ rectmodal, restoggle }) {
                     />
                   </FormGroup>
                 </FormGroup>
-                <Button>Submit</Button>
+                <Button className="bg-info-subtle text-black fs-5 fw-medium">Submit</Button>
               </Form>
             </div>
           </div>

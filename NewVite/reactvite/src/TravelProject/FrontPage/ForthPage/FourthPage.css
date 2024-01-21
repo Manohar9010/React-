@@ -1,0 +1,6 @@
+.title{
+    transition: 0.5s ease-in-out;
+}
+.title:hover{
+    color: orange;
+}

@@ -1,0 +1,23 @@
+.sixthmain{
+    background-image: url(../Images/sixthpageimage.jpg);
+}
+.text6{
+    padding: 150px 0px 80px 0px;
+    text-align: center;
+    color: white;
+}
+.text6 h1{
+    font-size: 50px;
+    font-weight: 700;
+}
+.text6 p{
+    margin: 30px 0px 40px 0px;
+}
+.sixthmain button{
+    background-color:#20b7d5;
+    padding: 13px 30px ;
+    transition: 0.5s ease-in-out;
+}
+.sixthmain button:hover{
+    background-color: orange;
+}
