@@ -1,3 +1,52 @@
-a{
-    text-decoration: none;
+.Imgegalary img {
+  height: 80px;
+  width: 100px;
+  border-radius: 15px;
+}
+.Imgegalary ul {
+  display: flex;
+  gap: 15px;
+}
+.Imgegalary ul li a {
+  text-decoration: none;
+}
+.footermain h5 {
+  color: white;
+  margin-left: 33px;
+}
+.footermain {
+  background-color: black;
+  padding: 30px 80px 20px 80px;
+}
+.footermain .Imgegalary li {
+  color: grey;
+}
+.footermain a {
+  color: grey;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+.footermain a:hover {
+  color: white;
+}
+.footermain .socicons li {
+  height: 35px;
+  width: 35px;
+  /* background-color: aliceblue; */
+  display: grid;
+  place-content: center;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+.footermain .socicons li:nth-of-type(1):hover{
+    background-color: #316FF6;
+}
+.footermain .socicons li:nth-of-type(2):hover{
+    background-color: #1DA1F2;
+}
+.footermain .socicons li:nth-of-type(3):hover{
+    background-color: #962fbf ;
+}
+.footermain .socicons li:nth-of-type(4):hover{
+    background-color: #0077b5 ;
 }
