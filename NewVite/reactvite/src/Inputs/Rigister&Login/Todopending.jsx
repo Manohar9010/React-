@@ -80,12 +80,19 @@ export default function Todopending({
   //  setPendingdata(fillterdata3)
   // },[searchbox])
   const handleSearch = () => {
+   
     let data = JSON.parse(localStorage.getItem("pendindata") || "[]");
     let fillterdata3 = data.filter((e) =>
       e.toLowerCase().includes(searchbox.toLowerCase())
     );
     setPendingdata(fillterdata3);
   };
+  useEffect(()=>{
+    if(searchbox===0){
+      let data1 = JSON.parse(localStorage.getItem("pendindata") || "[]");
+      setPendingdata(data1)
+    }
+  })
 
   return (
     <div>
@@ -101,6 +108,7 @@ export default function Todopending({
               onChange={(e) => setsearchbox(e?.target?.value)}
               style={{ height: "35px", marginTop: "10px", width: "150px" }}
               type="text"
+            
             />
 
             <Button
