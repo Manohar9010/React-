@@ -2,6 +2,16 @@
  text-decoration: none;
 
 }
+.aboutmain{
+    position: relative;
+}
+.abouthead{
+    position: absolute;
+    background-color:rgba(16, 15, 15, 0.251);
+    z-index: 1;
+    width: 100%;
+    top: 50px;
+}
 .about1main{
     background-image: url(../Images/aboutimage1.jpg);
     background-repeat: no-repeat;

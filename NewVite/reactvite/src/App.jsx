@@ -6,6 +6,7 @@ import RouteMain from './Inputs/Rigister&Login/RouteMain';
 import SimpleInput from './Inputs/SingleInput';
 import ToDoList from './Inputs/TodoList';
 import TravelProjectmain from './TravelProject/TravelProjectmain';
+import UseforPractice from './UseforPractice';
 function App() {
 
   return (
@@ -16,6 +17,7 @@ function App() {
      <TravelProjectmain/>
      {/* <RouteMain/> */}
      {/* <SimpleApi/> */}
+     {/* <UseforPractice/> */}
     </>
   )
 }

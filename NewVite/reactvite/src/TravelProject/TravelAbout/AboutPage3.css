@@ -1,0 +1,26 @@
+.aboutpage3main{
+    background-image: url(../Images/sixthpageimage.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 50px 0px;
+    display: flex;
+    justify-content: end;
+
+}
+.aboutpage3text{
+    height: 400px;
+    width:650px ;
+    background-color: white;
+    border-radius: 15px;
+    margin-right: 45px;
+    padding: 40px 50px ;
+
+}
+.aboutpage3text h1{
+    font-size: 30px;
+    font-weight: 700;
+}
+.aboutpage3text p{
+    padding: 40px 0px;
+}

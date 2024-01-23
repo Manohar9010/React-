@@ -1,0 +1,34 @@
+.aboutpage4main{
+  display: flex;
+  gap: 50px;
+   margin: 80px 150px;
+}
+.aboutpage4one{
+    flex: 1;
+}
+.aboutpage4two{
+    flex:1;
+}
+.aboutpage4one h1{
+    font-size: 34px;
+    font-weight: 600;
+    margin-top: 30px;
+}
+.aboutpage4one p{
+    margin: 50px 0px;
+}
+.aboutpage4one button{
+    background-color: #20b7d5;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+.aboutpage4one button:hover{
+    background-color: orange;
+}
+.aboutpage4two img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
