@@ -1,0 +1,27 @@
+.lurexmain{
+    background-color: 
+    #e8e8e8;
+}
+.luxetitle{
+    text-align: center;
+    font-family: 'auto';
+    margin: 40px 0px ;
+    padding-top: 20px;
+}
+.lurecarddiv{
+    /* width: 500px; */
+    /* max-width: 500px; */
+    display: flex;
+    gap: 50px;
+    margin: 40px 60px;
+}
+.lurecarddiv img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.shoplureimg img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

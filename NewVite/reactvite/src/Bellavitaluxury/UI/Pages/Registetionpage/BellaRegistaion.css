@@ -1,0 +1,16 @@
+.registermain {
+  padding-top: 180px;
+  padding-bottom: 50px;
+  background-color: rgb(233, 237, 240);
+}
+.rigistrationtitle {
+  text-align: center;
+  font-family: auto;
+}
+
+.regiterborder {
+  border: 1px double black;
+  margin: 0px 350px;
+  padding: 30px 50px;
+  border-radius: 15px;
+}

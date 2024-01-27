@@ -1,16 +1,15 @@
-.expocard img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-
+.expocard img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
 }
-.expocard{
-    margin-bottom: 40px;
+.expocard {
+  margin-bottom: 40px;
 }
-.expocard h4{
-    margin: 20px 0px 10px 0px;
+.expocard h4 {
+  margin: 20px 0px 10px 0px;
 }
-.expopage2{
-    margin: 0px 100px;
+.expopage2 {
+  margin: 0px 100px;
 }

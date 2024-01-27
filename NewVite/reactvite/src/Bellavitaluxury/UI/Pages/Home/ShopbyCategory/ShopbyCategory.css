@@ -1,0 +1,32 @@
+.shopbycategorytitle{
+    font-family: 'auto';
+    margin: 40px 0px;
+}
+
+.shopcategorycard{
+ align-items: center;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ margin: 0px 0px ;
+ padding: 0px ;
+}
+.shopcategorycard img{
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    
+}
+.shopcategorycard p{
+    text-align: center;
+    margin: 30px 0px;
+    font-size: 18px;
+}
+.shopcategoryinsercard{
+    display: flex;
+    gap: 60px;
+    margin: 0px 30px;
+}
+.shopcate{
+    margin: 0px 80px;
+}

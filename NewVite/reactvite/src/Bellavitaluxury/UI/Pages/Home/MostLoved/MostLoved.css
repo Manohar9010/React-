@@ -1,0 +1,46 @@
+.mostlovedmain{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+}
+.mostloveimg{
+    padding: 50px;
+
+
+}
+.mostlovesmallimg img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+
+}
+.mostlovesmallimg{
+    height: 350px;
+    display: flex;
+justify-content: end;
+}
+.mostlovedtext{
+ display: flex;
+ align-items: center;
+}
+.mostlovedtext button{
+    background-color: #e8e8e8;
+    color: black;
+    border: none;
+    border-radius: none;
+    padding: 10px 25px;
+    font-size: 13px;
+    margin: 30px 0px 0px 0px;
+}
+.mostlovedsmall{
+   /* border: 1px solid; */
+   background-color: white;
+   padding: 30px 50px 30px 50px;
+   transform: translateX(-100px);
+   border-radius: 15px;
+   
+}
+.mostlovedsmall h2{
+    font-family: auto;
+}

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Button, Input } from "reactstrap";
 
 export default function Todopending({
-
   pendingdata,
   setPendingdata,
   donetask,
@@ -74,25 +73,24 @@ export default function Todopending({
     } else {
     }
   };
-   // useEffect(()=>{
+  // useEffect(()=>{
   //  let data=JSON.  parse (localStorage.getItem("pendindata") || "[]")
   //  let fillterdata3=data.filter((e)=>e.includes(searchbox))
   //  setPendingdata(fillterdata3)
   // },[searchbox])
   const handleSearch = () => {
-   
     let data = JSON.parse(localStorage.getItem("pendindata") || "[]");
     let fillterdata3 = data.filter((e) =>
       e.toLowerCase().includes(searchbox.toLowerCase())
     );
     setPendingdata(fillterdata3);
   };
-  useEffect(()=>{
-    if(searchbox===0){
+  useEffect(() => {
+    if (searchbox === 0) {
       let data1 = JSON.parse(localStorage.getItem("pendindata") || "[]");
-      setPendingdata(data1)
+      setPendingdata(data1);
     }
-  })
+  });
 
   return (
     <div>
@@ -108,7 +106,6 @@ export default function Todopending({
               onChange={(e) => setsearchbox(e?.target?.value)}
               style={{ height: "35px", marginTop: "10px", width: "150px" }}
               type="text"
-            
             />
 
             <Button
@@ -126,7 +123,7 @@ export default function Todopending({
                 marginTop: "10px",
               }}
               type="checkbox"
-              checked={pendingdata.length===selectindex.length}
+              checked={pendingdata.length === selectindex.length}
               onChange={(ell) => multiselctfun(ell)}
             />
           </div>

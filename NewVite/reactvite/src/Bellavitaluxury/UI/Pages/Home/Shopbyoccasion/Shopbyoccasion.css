@@ -1,0 +1,20 @@
+.occasiondiv{
+    display: flex;
+    gap: 65px;
+    margin: 0px 80px;
+    /* padding: 0px 0px; */
+}
+.occsiontitle{
+    text-align: center;
+    font-family: auto;
+    margin: 30px 0px 50px 0px;
+}
+.occasiondiv img{
+    height: 150px;
+    width: 150px;
+   object-fit: cover; 
+}
+.occasiondiv {
+    height: auto;
+    width: auto;
+}

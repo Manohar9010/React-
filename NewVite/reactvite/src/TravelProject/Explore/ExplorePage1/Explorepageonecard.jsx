@@ -1,7 +1,7 @@
 import React from "react";
 import "./ExplrePageone.css";
 import { Plane } from "lucide-react";
-export default function Explorepageonecard({expolreicon,exploretitle}) {
+export default function Explorepageonecard({ expolreicon, exploretitle }) {
   return (
     <div>
       <div className="explorecardmain">

@@ -1,16 +1,16 @@
-.exploreicon{
-    background-color: #40bad5;
-    height:50px ;
-    width: 50px;
-    display: grid;
-    place-content: center;
-    border-radius: 8px;
+.exploreicon {
+  background-color: #40bad5;
+  height: 50px;
+  width: 50px;
+  display: grid;
+  place-content: center;
+  border-radius: 8px;
 }
-.explorecardmain h4{
+.explorecardmain h4 {
   margin: 25px 0px 25px 0px;
 }
-.explorecardmain p{
-    color: grey;
-    font-size: 16px;
-    font-weight: 400;
+.explorecardmain p {
+  color: grey;
+  font-size: 16px;
+  font-weight: 400;
 }

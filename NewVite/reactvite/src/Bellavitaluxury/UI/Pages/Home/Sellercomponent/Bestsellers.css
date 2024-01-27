@@ -1,0 +1,25 @@
+.bestsellermain{
+    margin: 0px 50px;
+}
+.cardmain{
+    margin: 0px px;
+}
+
+.bestsellertitle{
+    text-align: center;
+    font-family: auto;
+    margin: 40px 0px;
+}
+.bestsellarimg img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+.bestsellartext button{
+    background-color: black;
+    border-radius: none!important;
+    
+}
+.bestsellartext button:hover{
+    background-color: black;
+}

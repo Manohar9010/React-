@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Input, InputGroup } from "reactstrap";
-import{ BadgeDollarSign } from"lucide-react"
+import { BadgeDollarSign } from "lucide-react";
 export default function ToDoList() {
   const [inputval, setInput] = useState("");
   const [pendingdata, setPendingdata] = useState([]);
@@ -8,7 +8,7 @@ export default function ToDoList() {
   const [selectindex, setSelectindex] = useState([]);
   const [selectindex1, setSelectindex1] = useState([]);
   const [selectAllPending, setSelectAllPending] = useState([]);
-  const [searchbox,setsearchbox]=useState("")
+  const [searchbox, setsearchbox] = useState("");
   const getdata = () => {
     if (inputval.length > 0) {
       setPendingdata([...pendingdata, inputval]);
@@ -22,13 +22,11 @@ export default function ToDoList() {
     }
   };
   const handleKeyPress = (e) => {
-      if(inputval.length>0){
-
-        if (e.key === "Enter") {
-          getdata();
-          
-        }
+    if (inputval.length > 0) {
+      if (e.key === "Enter") {
+        getdata();
       }
+    }
   };
   const movedatafun = (index) => {
     if (confirm("Do you want move the data!")) {
@@ -70,20 +68,16 @@ export default function ToDoList() {
     } else {
     }
   };
-  const Alldeletfun=()=>{
-    if(confirm("Do you want delete all done list data")){
-      if(confirm("Are You Sure")){
-        setDonetask([])
+  const Alldeletfun = () => {
+    if (confirm("Do you want delete all done list data")) {
+      if (confirm("Are You Sure")) {
+        setDonetask([]);
         localStorage.setItem("passdata", JSON.stringify([]));
-
-      }else{
-
+      } else {
       }
-
-    }else{
-
+    } else {
     }
-  }
+  };
 
   useEffect(() => {
     try {
@@ -105,7 +99,6 @@ export default function ToDoList() {
     }
   }, []);
 
-
   const pendingcheckfun = (index) => {
     let avalible = selectindex.includes(index);
 
@@ -114,39 +107,34 @@ export default function ToDoList() {
       setSelectindex(fillterdata);
     } else {
       setSelectindex([...selectindex, index]);
-      
-      
     }
   };
 
   const pendingselectfun = () => {
-
     let filldata = [];
     let empty = [];
-    if(confirm("do you want move data to done list")){
-         if(confirm("Are you sure")){
-          pendingdata.map((ele, index1) => {
-            if (selectindex.includes(index1)) {
-              filldata.push(ele);
-            } else {
-              empty.push(ele);
-            }
-            setDonetask([...donetask, ...filldata]);
-            setPendingdata(empty);
-            setSelectindex([]);``
-            localStorage.setItem("pendindata", JSON.stringify(empty));
-            localStorage.setItem(
-              "passdata",
-              JSON.stringify([...donetask, ...filldata])
-            );
-          });
-         }else{
-          
-         }
-    }else{
-
+    if (confirm("do you want move data to done list")) {
+      if (confirm("Are you sure")) {
+        pendingdata.map((ele, index1) => {
+          if (selectindex.includes(index1)) {
+            filldata.push(ele);
+          } else {
+            empty.push(ele);
+          }
+          setDonetask([...donetask, ...filldata]);
+          setPendingdata(empty);
+          setSelectindex([]);
+          ``;
+          localStorage.setItem("pendindata", JSON.stringify(empty));
+          localStorage.setItem(
+            "passdata",
+            JSON.stringify([...donetask, ...filldata])
+          );
+        });
+      } else {
+      }
+    } else {
     }
- 
   };
 
   const Doneselectfun = (index2) => {
@@ -163,58 +151,52 @@ export default function ToDoList() {
     let empty1 = [];
     let filldata1 = [];
 
+    if (confirm("Do you want move data to pending list")) {
+      if (confirm("Are you sure")) {
+        donetask.map((e, i) => {
+          if (selectindex1.includes(i)) {
+            filldata1.push(e);
+          } else {
+            empty1.push(e);
+          }
+          setPendingdata([...pendingdata, ...filldata1]);
+          setDonetask(empty1);
+          setSelectindex1([]);
 
-    if(confirm("Do you want move data to pending list")){
-         if(confirm("Are you sure")){
-          donetask.map((e, i) => {
-            if (selectindex1.includes(i)) {
-              filldata1.push(e);
-            } else {
-              empty1.push(e);
-            }
-            setPendingdata([...pendingdata, ...filldata1]);
-            setDonetask(empty1);
-            setSelectindex1([]);
-      
-            localStorage.setItem(
-              "pendindata",
-              JSON.stringify([...pendingdata, ...filldata1])
-            );
-            localStorage.setItem("passdata", JSON.stringify(empty1));
-          });
-         }else{
-
-         }
-
-    }else{
-
+          localStorage.setItem(
+            "pendindata",
+            JSON.stringify([...pendingdata, ...filldata1])
+          );
+          localStorage.setItem("passdata", JSON.stringify(empty1));
+        });
+      } else {
+      }
+    } else {
     }
-   
   };
   console.log(selectindex);
   const multiselctfun = (ell) => {
-    setSelectAllPending
+    setSelectAllPending;
     if (ell.target.checked) {
-      setSelectindex(pendingdata.map((e,i) => i));
+      setSelectindex(pendingdata.map((e, i) => i));
     } else {
-          setSelectindex([]);
+      setSelectindex([]);
     }
   };
 
-  const multiselctfundone=(val)=>{
+  const multiselctfundone = (val) => {
     if (val.target.checked) {
-      setSelectindex1(donetask.map((e,i) => i));
-      
+      setSelectindex1(donetask.map((e, i) => i));
     } else {
-          setSelectindex1([]);
+      setSelectindex1([]);
     }
-  }
+  };
 
-  useEffect(()=>{
-   let data=JSON.parse (localStorage.getItem("pendindata") || "[]")
-   let fillterdata3=data.filter((e)=>e.includes(searchbox))
-   setPendingdata(fillterdata3)
-  },[searchbox])
+  useEffect(() => {
+    let data = JSON.parse(localStorage.getItem("pendindata") || "[]");
+    let fillterdata3 = data.filter((e) => e.includes(searchbox));
+    setPendingdata(fillterdata3);
+  }, [searchbox]);
   return (
     <div>
       <div>
@@ -234,7 +216,6 @@ export default function ToDoList() {
             <Button className=" " onClick={getdata}>
               Click <BadgeDollarSign />
             </Button>
-        
           </InputGroup>
           <div></div>
         </div>
@@ -245,9 +226,23 @@ export default function ToDoList() {
           >
             <div className="d-flex  gap-5">
               <h1 className="text-center ps-2">PendingTask</h1>
-              <Input value={searchbox} onChange={(e)=>setsearchbox(e?.target?.value)} style={{height:"35px",marginTop:"10px",width:"150px"}} type="text"/>
-              
-              <Input style={{width:"35px",height:"35px",marginLeft:"px",marginTop:"10px" }} type="checkbox" onChange={(ell) => multiselctfun(ell)} />
+              <Input
+                value={searchbox}
+                onChange={(e) => setsearchbox(e?.target?.value)}
+                style={{ height: "35px", marginTop: "10px", width: "150px" }}
+                type="text"
+              />
+
+              <Input
+                style={{
+                  width: "35px",
+                  height: "35px",
+                  marginLeft: "px",
+                  marginTop: "10px",
+                }}
+                type="checkbox"
+                onChange={(ell) => multiselctfun(ell)}
+              />
             </div>
 
             {pendingdata.map((e, i) => {
@@ -277,17 +272,36 @@ export default function ToDoList() {
                 </ul>
               );
             })}
-            <Button style={{marginLeft:"180px"}} onClick={pendingselectfun}>MoveSelected data</Button>
+            <Button style={{ marginLeft: "180px" }} onClick={pendingselectfun}>
+              MoveSelected data
+            </Button>
           </div>
           <div
             className=" rounded-4 mx-auto mt-5 border border-info"
             style={{ width: "599px" }}
           >
             <div className="d-flex ">
-
-            <h1 className="text-center px-5 ">Done Task</h1>
-            <Button style={{height:"40px",marginTop:"7px",marginLeft:"150px"}} onClick={ Alldeletfun}>Alldelet</Button>
-            <Input style={{width:"35px",height:"35px",marginLeft:"10px",marginTop:"10px" }} type="checkbox" onChange={(val) => multiselctfundone(val)} />
+              <h1 className="text-center px-5 ">Done Task</h1>
+              <Button
+                style={{
+                  height: "40px",
+                  marginTop: "7px",
+                  marginLeft: "150px",
+                }}
+                onClick={Alldeletfun}
+              >
+                Alldelet
+              </Button>
+              <Input
+                style={{
+                  width: "35px",
+                  height: "35px",
+                  marginLeft: "10px",
+                  marginTop: "10px",
+                }}
+                type="checkbox"
+                onChange={(val) => multiselctfundone(val)}
+              />
             </div>
             {donetask.map((e, i) => {
               return (
@@ -319,10 +333,13 @@ export default function ToDoList() {
                 </ul>
               );
             })}
-            <Button style={{marginLeft:"220px"}} onClick={donedatamovefun}>MoveSelected Data</Button>
+            <Button style={{ marginLeft: "220px" }} onClick={donedatamovefun}>
+              MoveSelected Data
+            </Button>
           </div>
         </div>
       </div>
-    </div>
-  );
+         
+    </div>
+  );
 }

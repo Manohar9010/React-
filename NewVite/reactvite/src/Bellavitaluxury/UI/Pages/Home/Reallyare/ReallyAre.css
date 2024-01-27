@@ -1,0 +1,33 @@
+.reallytitle{
+    text-align: center;
+    font-family: auto;
+    margin: 30px 0px 40px 0px;
+}
+.reallydflex{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin: 0px 200px;
+}
+.reallydflex img{
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+
+}
+.reallytext img{
+    height:100px ;
+    width: 450px;
+    margin-top: 30px;
+}
+.reallytext p{
+    margin: 10px 0px 0px 0px;
+    font-size: 15px;
+    color: grey;
+}
+.downapp img{
+    height: 100%;
+    width: 100%;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}

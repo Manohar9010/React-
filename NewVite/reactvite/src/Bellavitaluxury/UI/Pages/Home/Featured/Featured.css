@@ -1,0 +1,21 @@
+.featuretext p{
+    background-color: rgba(248, 246, 246, 0.976);
+   padding: 20px 20px;
+   font-size: 12px;
+   color: rgb(97, 94, 94);
+}
+.featuredflex{
+    display: flex;
+    gap: 40px;
+    margin: 0px 40px 50px 40px;
+
+}
+.faturetitle{
+text-align: center;
+font-family: auto;
+margin: 30px 0px;    
+}
+.featuremain img{
+    height: 80px;
+    width: 200px;
+}

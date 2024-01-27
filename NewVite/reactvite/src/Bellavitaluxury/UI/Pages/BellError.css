@@ -1,0 +1,17 @@
+.erromain{
+   text-align: center;
+   background-color: antiquewhite;
+
+}
+.erromain h1{
+    font-size: 250px;
+    color: grey;
+}
+.erromain h2{
+    font-size: 50px;
+    color: grey;
+}
+.erromain button{
+
+    margin: 30px 0px;
+}
