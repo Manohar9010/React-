@@ -16,6 +16,7 @@ export default function TravelProjectmain() {
         <Routes>
           <Route path="/" element={<FrontPage />} />
           <Route path="/about" element={<Aboutmain />} />
+          <Route path="/explore" element={<Exploremain/>} />
           <Route path="*" element={<Errorpage />} />
         </Routes>
       </BrowserRouter>

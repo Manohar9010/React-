@@ -6,6 +6,12 @@
   padding: 0px 0px 7px 0px;
 
 }
+.Headermain .navlink_custom{
+  color: white !important;
+}
+.Headermain .navlink_custom:active{
+  color: red !important;
+}
 .Headermain ul {
   display: flex;
   gap: 40px;

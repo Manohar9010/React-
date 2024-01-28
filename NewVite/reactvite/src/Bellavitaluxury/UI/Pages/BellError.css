@@ -14,4 +14,7 @@
 .erromain button{
 
     margin: 30px 0px;
+    background-color: beige;
+    color: black;
+    font-weight: 600;
 }

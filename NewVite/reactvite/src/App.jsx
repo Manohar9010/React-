@@ -18,8 +18,8 @@ function App() {
       {/* <RouteMain/> */}
       {/* <SimpleApi/> */}
       {/* <UseforPractice/> */}
-      <BellaRouter/>
-      {/* <Slidercheck/> */}
+      {/* <BellaRouter/> */}
+      <Slidercheck/>
     </>
   );
 }

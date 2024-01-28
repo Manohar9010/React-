@@ -52,7 +52,7 @@ export default function BellaHeader() {
               <div className="search gap-4">
                 <InputGroup style={{ height: "20px", width: "" }}>
                   <Input type="text" placeholder="Search for product" />
-                  <Button style={{ background: "transparent" }}>
+                  <Button className="seabtn" style={{ background: "transparent" }}>
                     <Search color="black" size={20} strokeWidth={1.25} />
                   </Button>
                 </InputGroup>

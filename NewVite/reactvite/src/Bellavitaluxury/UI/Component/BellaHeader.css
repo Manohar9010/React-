@@ -74,3 +74,13 @@ a{
 .active{
     color: red !important;
 }
+.search button{
+    border: 1px solid rgb(226, 216, 216) !important;
+    border-left: none !important;
+    
+}
+.search input{
+    border-right: none !important;
+     border-color: rgb(226, 216, 216) !important;
+    box-shadow: none !important;
+}

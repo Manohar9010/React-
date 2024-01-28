@@ -86,11 +86,11 @@ export default function Todopending({
     setPendingdata(fillterdata3);
   };
   useEffect(() => {
-    if (searchbox === 0) {
+    if (searchbox.length === 0) {
       let data1 = JSON.parse(localStorage.getItem("pendindata") || "[]");
       setPendingdata(data1);
     }
-  });
+  },[searchbox]);
 
   return (
     <div>

@@ -22,12 +22,12 @@ export default function Header() {
           <div>
             <ul>
               <li>
-                <NavLink to={"/"}>Home</NavLink>{" "}
+                <NavLink className={"navlink_custom"} to={"/"}>Home</NavLink>{" "}
               </li>
               <li>
-                <NavLink to={"/about"}>About</NavLink>{" "}
+                <NavLink className={"navlink_custom"} to={"/about"}>About</NavLink>{" "}
               </li>
-              <li>Explore</li>
+              <li><NavLink className={"navlink_custom"} to={"/explore"}>Explore</NavLink>  </li>
               <li>Pages</li>
               <li>Contact</li>
             </ul>
