@@ -11,9 +11,12 @@ a{
 .headermain{
     position: fixed;
     width: 100%;
-    z-index: 10;
-    background-color: white;
+    z-index: 100;
+      background-size: cover;
+      background-color: white;
+    /* right: 0; */
     top: 0%;
+    margin: 0PX;
 }
 .headtitle{
  display: flex;  
@@ -39,6 +42,7 @@ a{
     flex: 0.5;
     display: flex;
     align-items:center;
+    
 }
 .fragreceli{
     transition: 0.9s ease-in-out;
@@ -51,6 +55,7 @@ a{
     display: flex;
     flex-direction: column;
     gap: 8px   ;
+    
 }
 .frageacesub{
     display: none;
@@ -62,6 +67,7 @@ a{
     transition: 0.9s ease-in-out;
     border-radius: 15px;
     padding: 15px 0px;
+    
    
 }
 .frageacesub a{
@@ -84,3 +90,52 @@ a{
      border-color: rgb(226, 216, 216) !important;
     box-shadow: none !important;
 }
+
+
+/* =======toglemenuside */
+
+.menubar{
+    position: fixed;
+    top: 30px;
+    right: 0;
+    /* transform: translate(100px,-20px); */
+    background-color: aliceblue;
+   height: 450px;
+   width: 350px;
+   /* padding: 50px; */
+   margin-right: 2px;
+   z-index: 5;
+}
+.closebtn{
+    transform: translate(10px ,-100px);
+    /* transform: rotate(180deg); */
+
+}
+.menutext{
+    margin: 70px 60px 0px 0px;
+}
+.menutext h5{
+    margin: 20px 0px;
+}
+.menubar button:nth-child(2){
+    background-color: black;
+    border-radius: none !important;
+}
+
+/* ===togglemenu */
+.navbar_toggle{
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    background-color:white;
+    text-align: center;
+    padding: 10px 0px;
+}
+.navbar_toggle ul {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+/* media quary */

@@ -4,7 +4,7 @@ import { Button } from 'reactstrap'
 import "./BellError.css"
 export default function BellError() {
   return (
-    <div style={{padding:"200px 0px 0px 0px"}}>
+    <div className='errordiv' style={{padding:"200px 0px 0px 0px"}}>
       
       <div className='erromain'>
 

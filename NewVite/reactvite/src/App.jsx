@@ -7,7 +7,7 @@ import SimpleInput from "./Inputs/SingleInput";
 import ToDoList from "./Inputs/TodoList";
 import Slidercheck from "./Slidercheck";
 import TravelProjectmain from "./TravelProject/TravelProjectmain";
-// import UseforPractice from './UseforPractice';
+import UseforPractice from './UseforPractice';
 function App() {
   return (
     <>
@@ -18,8 +18,8 @@ function App() {
       {/* <RouteMain/> */}
       {/* <SimpleApi/> */}
       {/* <UseforPractice/> */}
-      {/* <BellaRouter/> */}
-      <Slidercheck/>
+      <BellaRouter/>
+      {/* <Slidercheck/> */}
     </>
   );
 }

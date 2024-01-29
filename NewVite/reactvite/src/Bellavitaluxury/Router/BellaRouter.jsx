@@ -8,7 +8,7 @@ import BellRegistetion from '../UI/Pages/Registetionpage/BellRegistetion'
 import BellaAboutus from '../UI/Pages/bellAbout/BellaAboutus'
 import BellaContact from '../UI/Pages/BellaContact/BellaContact'
 import BellError from '../UI/Pages/BellError'
-
+import '../UI/Pages/CssMediaQuary/Max576px.css'
 export default function BellaRouter() {
   return (
     <div>
@@ -16,7 +16,7 @@ export default function BellaRouter() {
    <BellaHeader/>
    <Routes>
     
-    <Route path='/' element={<Home/>} />
+    {/* <Route path='/' element={<Home/>} /> */}
     <Route path='/belllogin' element={<BellalLogin/>} />
     <Route path='/bellrigister' element={<BellRegistetion/>} />
     <Route path='/bellabout' element={<BellaAboutus/>} />

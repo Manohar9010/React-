@@ -1,0 +1,755 @@
+class LimeChatWhatsapp {
+	constructor({
+		phone,
+		prefill_text,
+		button_message_mobile,
+		button_message_desktop,
+		widget_type_desktop,
+		widget_type_mobile,
+		display_size_desktop,
+		display_size_mobile,
+		display_on,
+		position_mobile,
+		bottom_margin_mobile,
+		left_margin_mobile,
+		right_margin_mobile,
+		position_desktop,
+		bottom_margin_desktop,
+		left_margin_desktop,
+		right_margin_desktop,
+		show_pop_up,
+		pop_up_message_position,
+		pop_up_message_text,
+		pop_up_image,
+		pop_up_delay,
+		pdp_prefill_text,
+		pages_to_display,
+		isShopify,
+		includeVariant,
+        zIndex
+	}) {
+		this.phone = phone;
+		this.prefill_text = prefill_text;
+		this.button_message_mobile = button_message_mobile;
+		this.button_message_desktop = button_message_desktop;
+		this.widget_type_desktop = widget_type_desktop;
+		this.widget_type_mobile = widget_type_mobile;
+		this.display_size_desktop = display_size_desktop;
+		this.display_size_mobile = display_size_mobile;
+		this.display_on = display_on;
+		this.position_mobile = position_mobile;
+		this.bottom_margin_mobile = bottom_margin_mobile;
+		this.left_margin_mobile = left_margin_mobile;
+		this.right_margin_mobile = right_margin_mobile;
+		this.position_desktop = position_desktop;
+		this.bottom_margin_desktop = bottom_margin_desktop;
+		this.left_margin_desktop = left_margin_desktop;
+		this.right_margin_desktop = right_margin_desktop;
+		this.show_pop_up = show_pop_up;
+		this.pop_up_message_position = pop_up_message_position;
+		this.pop_up_message_text = pop_up_message_text;
+		this.pop_up_image = pop_up_image;
+		this.pop_up_delay = pop_up_delay;
+		this.pdp_prefill_text = pdp_prefill_text;
+		this.pages_to_display = pages_to_display;
+		this.isShopify = isShopify;
+		this.includeVariant = includeVariant;
+        this.zIndex = zIndex;
+	}
+
+	deviceCheck(displayDevice) {
+		var is_mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+		if (displayDevice === 'desktop' && !is_mobile) return true;
+		if (displayDevice === 'mobile' && is_mobile) return true;
+		if (displayDevice === 'both') return true;
+	}
+
+	titleCase(str) {
+		var splitStr = str.toLowerCase().split(' ');
+		for (var i = 0; i < splitStr.length; i++) {
+			splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+		}
+		return splitStr.join(' ');
+	}
+
+	renderWidget() {
+		if (this.deviceCheck(this.display_on)) {
+			this.renderButton();
+		}
+	}
+
+	pageCheck(pagesDisplay) {
+		let check = false;
+		pagesDisplay.forEach((element) => {
+			if (element == 'homepage' && window.location.pathname == '/') {
+				check = true;
+			}
+
+			if (element == 'collections' && window.location.pathname.includes('/collections/')) {
+				check = true;
+			}
+
+			if (element == 'products' && window.location.pathname.includes('/products/')) {
+				check = true;
+			}
+
+			if (element == 'cart' && window.location.pathname == '/cart') {
+				check = true;
+			}
+
+			if (element == 'pages' && window.location.pathname.includes('/pages/')) {
+				check = true;
+			}
+
+			if (element == 'checkout' && window.location.pathname.includes('/checkouts/')) {
+				check = true;
+			}
+
+			if (element == 'blogs' && window.location.pathname.includes('/blogs/')) {
+				check = true;
+			}
+		});
+		return check;
+	}
+
+	getParameterByName(name, url) {
+		name = name.replace(/[\[\]]/g, '\\$&');
+		var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, ' '));
+	}
+
+	renderButton() {
+		if (this.pageCheck(this.pages_to_display) || !this.isShopify) {
+			let fontAwesome = document.createElement('script');
+			fontAwesome.setAttribute('src', 'https://kit.fontawesome.com/2640aa91b4.js');
+			document.body.appendChild(fontAwesome);
+
+			let lato = document.createElement('link');
+			lato.setAttribute('href', 'https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap');
+			lato.setAttribute('rel', 'stylesheet');
+			document.body.appendChild(lato);
+
+			let styles = document.createElement('link');
+			styles.setAttribute(
+				'href',
+				'https://s3.ap-south-1.amazonaws.com/cdn.limechat.ai/packs/js/whatsapp_widget/LC_whatsapp_stylesheet.css'
+			);
+			styles.setAttribute('rel', 'stylesheet');
+			styles.setAttribute('type', 'text/css');
+			document.body.appendChild(styles);
+
+            let rootZIndex = this.zIndex !== 1000 ? this.zIndex : 1000;
+
+			let root = document.createElement('div');
+			root.className = 'WhatsAppButton__root';
+            
+
+			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				this.position_mobile === 'left'
+					? root.setAttribute(
+							'style',
+							`position: fixed; bottom: ${this.bottom_margin_mobile}px; left: ${this.left_margin_mobile}px; z-index: ${rootZIndex};`
+					  )
+					: root.setAttribute(
+							'style',
+							`position: fixed; bottom: ${this.bottom_margin_mobile}px; right: ${this.right_margin_mobile}px; z-index: ${rootZIndex};`
+					  );
+			} else {
+				this.position_desktop === 'left'
+					? root.setAttribute(
+							'style',
+							`position: fixed; bottom: ${this.bottom_margin_desktop}px; left: ${this.left_margin_desktop}px; z-index: ${rootZIndex};`
+					  )
+					: root.setAttribute(
+							'style',
+							`position: fixed; bottom: ${this.bottom_margin_desktop}px; right: ${this.right_margin_desktop}px; z-index: ${rootZIndex};`
+					  );
+			}
+
+			document.body.appendChild(root);
+
+			let button_root = document.createElement('a');
+			let poweredByButton = document.createElement('a');
+
+			if (
+				window.location.pathname.includes('/products/') &&
+				this.pdp_prefill_text !== '' &&
+				this.isShopify &&
+				((window.location.href.includes('variant') && !this.includeVariant) ||
+					(!window.location.href.includes('variant') && this.includeVariant) ||
+					(!window.location.href.includes('variant') && !this.includeVariant))
+			) {
+				let current_page = window.location.href;
+				let splitted = current_page.split('/products/');
+				let second_half = '';
+				if (splitted[1].includes('?')) {
+					let new_splitted = splitted[1].split('?');
+					second_half = new_splitted[0];
+				} else {
+					second_half = splitted[1];
+				}
+				var replace_dash = second_half.replace(/\-/g, ' ');
+				var replace_fwdSlash = replace_dash.replace(/\//g, '');
+				var xmlURL = second_half + '.xml';
+				xmlURL = current_page.replace(second_half, xmlURL);
+				var product_name = this.titleCase(replace_fwdSlash);
+
+				fetch(xmlURL).then((response) => {
+					response
+						.text()
+						.then((xmlDOC) => new DOMParser().parseFromString(xmlDOC, 'text/xml'))
+						.then((parsedXMLDOC) => parsedXMLDOC.querySelector('title'))
+						.then((parsedTitle) => parsedTitle.textContent)
+						.then((formattedTitle) => {
+							formattedTitle = formattedTitle.replaceAll('&', '%26');
+							try {
+								button_root.setAttribute(
+									'href',
+									`https://wa.me/${this.phone}?text=${this.pdp_prefill_text + ' ' + formattedTitle}`
+								);
+
+								poweredByButton.setAttribute(
+									'href',
+									`https://wa.me/${this.phone}?text=${this.pdp_prefill_text + ' ' + formattedTitle}`
+								);
+							} catch (error) {
+								button_root.setAttribute(
+									'href',
+									`https://wa.me/${this.phone}?text=${this.pdp_prefill_text + ' ' + product_name}`
+								);
+
+								poweredByButton.setAttribute(
+									'href',
+									`https://wa.me/${this.phone}?text=${this.pdp_prefill_text + ' ' + product_name}`
+								);
+							}
+						});
+				});
+			} else if (
+				window.location.pathname.includes('/collections/') &&
+				!window.location.pathname.includes('/products/') &&
+				this.isShopify
+			) {
+				let current_page = window.location.href;
+				let splitted = current_page.split('collections/');
+				let second_half = '';
+				if (splitted[1].includes('?')) {
+					let new_splitted = splitted[1].split('?');
+					second_half = new_splitted[0];
+				} else {
+					second_half = splitted[1];
+				}
+				var replace_dash = second_half.replace(/\-/g, ' ');
+				var replace_fwdSlash = replace_dash.replace(/\//g, '');
+				var collection_name = this.titleCase(replace_fwdSlash);
+				const collection_prefill = 'Hey! I would like to know more about';
+
+				button_root.setAttribute(
+					'href',
+					`https://wa.me/${this.phone}?text=${collection_prefill + ' ' + collection_name}`
+				);
+
+				poweredByButton.setAttribute(
+					'href',
+					`https://wa.me/${this.phone}?text=${collection_prefill + ' ' + collection_name}`
+				);
+			} else if (
+				window.location.pathname.includes('/products/') &&
+				window.location.href.includes('variant') &&
+				this.pdp_prefill_text !== '' &&
+				this.isShopify &&
+				this.includeVariant
+			) {
+				let current_page = window.location.href;
+				let splitted = current_page.split('products/');
+				let second_half = '';
+				if (splitted[1].includes('?')) {
+					let new_splitted = splitted[1].split('?');
+					second_half = new_splitted[0];
+				} else {
+					second_half = splitted[1];
+				}
+				var replace_dash = second_half.replace(/\-/g, ' ');
+				var replace_fwdSlash = replace_dash.replace(/\//g, '');
+				var xmlURL = second_half + '.xml';
+				xmlURL = current_page.replace(second_half, xmlURL);
+				var product_name = this.titleCase(replace_fwdSlash);
+
+				var currentVariantID = this.getParameterByName('variant', window.location.href);
+
+				fetch(xmlURL)
+					.then((response) => {
+						response
+							.text()
+							.then((xmlDOC) => new DOMParser().parseFromString(xmlDOC, 'text/xml'))
+							.then((parsedXMLDOC) => [
+								parsedXMLDOC.querySelectorAll('variant'),
+								parsedXMLDOC.querySelector('title'),
+							])
+							.then((parsedVariants) => {
+								for (const variant of parsedVariants[0]) {
+									if (variant.querySelector('id').textContent === currentVariantID) {
+										const options = [];
+										let i = 1;
+										let optionElement = variant.querySelector(`option${i}`);
+										while (optionElement) {
+											if (optionElement.textContent) {
+												options.push(optionElement.textContent);
+											}
+											i++;
+											optionElement = variant.querySelector(`option${i}`);
+										}
+										return [options.join(' / '), parsedVariants[1].textContent];
+									}
+								}
+							})
+							.then((variantOptionsAndProductName) => {
+								try {
+									const optionsFormatted = variantOptionsAndProductName[0];
+									const replace_dash = optionsFormatted.replace(/\-/g, ' ');
+									const replace_fwdSlash = replace_dash.replace(/\//g, '');
+
+									button_root.setAttribute(
+										'href',
+										`https://wa.me/${this.phone}?text=${
+											this.pdp_prefill_text +
+											' ' +
+											variantOptionsAndProductName[1].replaceAll('&', '%26') +
+											' ' +
+											replace_fwdSlash
+										}`
+									);
+
+									poweredByButton.setAttribute(
+										'href',
+										`https://wa.me/${this.phone}?text=${
+											this.pdp_prefill_text +
+											' ' +
+											variantOptionsAndProductName[1].replaceAll('&', '%26') +
+											' ' +
+											replace_fwdSlash
+										}`
+									);
+								} catch (error) {
+									button_root.setAttribute(
+										'href',
+										`https://wa.me/${this.phone}?text=${this.pdp_prefill_text + ' ' + product_name}`
+									);
+
+									poweredByButton.setAttribute(
+										'href',
+										`https://wa.me/${this.phone}?text=${this.pdp_prefill_text + ' ' + product_name}`
+									);
+								}
+							});
+					})
+					.catch((error) => {
+						button_root.setAttribute(
+							'href',
+							`https://wa.me/${this.phone}?text=${this.pdp_prefill_text + ' ' + product_name}`
+						);
+
+						poweredByButton.setAttribute(
+							'href',
+							`https://wa.me/${this.phone}?text=${this.pdp_prefill_text + ' ' + product_name}`
+						);
+					});
+			} else {
+				button_root.setAttribute('href', `https://wa.me/${this.phone}?text=${this.prefill_text}`);
+
+				poweredByButton.setAttribute('href', `https://wa.me/${this.phone}?text=${this.prefill_text}`);
+			}
+
+			button_root.setAttribute('style', 'text-decoration: none');
+			button_root.setAttribute('target', '_blank');
+			root.appendChild(button_root);
+
+			poweredByButton.setAttribute('target', '_blank');
+
+			poweredByButton.setAttribute('class', 'whatsapp__poweredBy');
+
+			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				if (this.widget_type_mobile === 'widget_text') {
+					let button = document.createElement('button');
+					button.setAttribute('class', 'landbot-whatsapp__button');
+
+					button.setAttribute(
+						'style',
+						`min-width:${this.display_size_mobile}px; padding:${this.display_size_mobile / 16}px`
+					);
+
+					button_root.appendChild(button);
+
+					let whatsappIcon = document.createElement('i');
+					whatsappIcon.setAttribute('class', 'fab fa-whatsapp');
+					whatsappIcon.setAttribute('style', 'font-size: 24px; margin-right: 5px');
+					button.appendChild(whatsappIcon);
+
+					let button_text = document.createElement('p');
+					button_text.setAttribute('style', 'margin: 0');
+					button_text.innerText = this.button_message_mobile;
+					button.appendChild(button_text);
+
+					if (this.position_mobile === 'left' && this.pop_up_message_position !== 'top') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy');
+
+						if (this.display_size_mobile === 120) {
+							if (this.button_message_mobile.length === 19 || this.button_message_mobile.length === 20) {
+								poweredByButton.setAttribute(
+									'style',
+									`left: ${this.display_size_mobile + this.button_message_mobile.length + 40}px;`
+								);
+							} else {
+								poweredByButton.setAttribute(
+									'style',
+									`left: ${this.display_size_mobile + this.button_message_mobile.length + 12}px;`
+								);
+							}
+						}
+						if (this.display_size_mobile === 140) {
+							if (this.button_message_mobile.length === 19 || this.button_message_mobile.length === 20) {
+								poweredByButton.setAttribute(
+									'style',
+									`left: ${this.display_size_mobile + this.button_message_mobile.length + 20}px;`
+								);
+							} else {
+								poweredByButton.setAttribute(
+									'style',
+									`left: ${this.display_size_mobile + this.button_message_mobile.length + 8}px;`
+								);
+							}
+						}
+
+						if (this.display_size_mobile === 160) {
+							if (this.button_message_mobile.length === 19 || this.button_message_mobile.length === 20) {
+								poweredByButton.setAttribute(
+									'style',
+									`left: ${this.display_size_mobile + this.button_message_mobile.length + 10}px;`
+								);
+							} else {
+								poweredByButton.setAttribute(
+									'style',
+									`left: ${this.display_size_mobile + this.button_message_mobile.length + 8}px;`
+								);
+							}
+						}
+					} else if (this.position_mobile === 'right' && this.pop_up_message_position !== 'top') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy whatsapp__poweredBySideLefty');
+
+						if (this.display_size_mobile === 120) {
+							if (this.button_message_mobile.length === 19 || this.button_message_mobile.length === 20) {
+								poweredByButton.setAttribute(
+									'style',
+									`right: ${this.display_size_mobile + this.button_message_mobile.length + 40}px;`
+								);
+							} else {
+								poweredByButton.setAttribute(
+									'style',
+									`right: ${this.display_size_mobile + this.button_message_mobile.length + 12}px;`
+								);
+							}
+						}
+						if (this.display_size_mobile === 140) {
+							if (this.button_message_mobile.length === 19 || this.button_message_mobile.length === 20) {
+								poweredByButton.setAttribute(
+									'style',
+									`right: ${this.display_size_mobile + this.button_message_mobile.length + 20}px;`
+								);
+							} else {
+								poweredByButton.setAttribute(
+									'style',
+									`right: ${this.display_size_mobile + this.button_message_mobile.length + 8}px;`
+								);
+							}
+						}
+
+						if (this.display_size_mobile === 160) {
+							if (this.button_message_mobile.length === 19 || this.button_message_mobile.length === 20) {
+								poweredByButton.setAttribute(
+									'style',
+									`left: ${this.display_size_mobile + this.button_message_mobile.length + 10}px;`
+								);
+							} else {
+								poweredByButton.setAttribute(
+									'style',
+									`left: ${this.display_size_desktop + this.button_message_mobile.length + 8}px;`
+								);
+							}
+						}
+					}
+
+					if (this.pop_up_message_position === 'top' && this.position_mobile === 'left') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy');
+						poweredByButton.setAttribute(
+							'style',
+							`bottom: ${this.display_size_mobile / 2.5 + 2}px; left: 0px;`
+						);
+					} else if (this.pop_up_message_position === 'top' && this.position_mobile === 'right') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy whatsapp__poweredByTopRight');
+						poweredByButton.setAttribute(
+							'style',
+							`bottom: ${this.display_size_mobile / 2.5 + 2}px; right: 0px;`
+						);
+					}
+				} else {
+					let whatsappIconImage = document.createElement('img');
+					whatsappIconImage.src =
+						'https://s3.ap-south-1.amazonaws.com/cdn.limechat.ai/packs/js/whatsapp_widget/media/LC_WA.png';
+
+					whatsappIconImage.setAttribute('style', `width:${this.display_size_mobile}px; opacity:1`);
+
+					button_root.appendChild(whatsappIconImage);
+
+					if (this.position_mobile === 'left' && this.pop_up_message_position !== 'top') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy');
+
+						poweredByButton.setAttribute('style', `left: ${this.display_size_mobile + 12}px;`);
+					} else if (this.position_mobile === 'right' && this.pop_up_message_position !== 'top') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy whatsapp__poweredBySideLefty');
+
+						poweredByButton.setAttribute('style', `right: ${this.display_size_mobile + 12}px;`);
+					}
+
+					if (this.pop_up_message_position === 'top' && this.position_mobile === 'left') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy');
+
+						poweredByButton.setAttribute('style', `bottom: ${this.display_size_mobile + 14}px; left: 0px;`);
+					} else if (this.pop_up_message_position === 'top' && this.position_mobile === 'right') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy whatsapp__poweredByTopRight');
+
+						poweredByButton.setAttribute(
+							'style',
+							`bottom: ${this.display_size_mobile + 14}px; right: 0px;`
+						);
+					}
+				}
+			} else {
+				if (this.widget_type_desktop === 'widget_text') {
+					let button = document.createElement('button');
+					button.setAttribute('class', 'landbot-whatsapp__button');
+
+					button.setAttribute(
+						'style',
+						`min-width:${this.display_size_desktop}px; padding:${this.display_size_desktop / 16}px`
+					);
+
+					button_root.appendChild(button);
+
+					let whatsappIcon = document.createElement('i');
+					whatsappIcon.setAttribute('class', 'fab fa-whatsapp');
+					whatsappIcon.setAttribute('style', 'font-size: 24px; margin-right: 5px');
+					button.appendChild(whatsappIcon);
+
+					let button_text = document.createElement('p');
+					button_text.setAttribute('style', 'margin: 0');
+					button_text.innerText = this.button_message_desktop;
+					button.appendChild(button_text);
+
+					if (this.position_desktop === 'left' && this.pop_up_message_position !== 'top') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy');
+
+						if (this.display_size_desktop === 120) {
+							if (
+								this.button_message_desktop.length === 19 ||
+								this.button_message_desktop.length === 20
+							) {
+								poweredByButton.setAttribute('style', `left: 110%;`);
+							} else {
+								poweredByButton.setAttribute('style', `left: 110%;`);
+							}
+						}
+						if (this.display_size_desktop === 140) {
+							if (
+								this.button_message_desktop.length === 19 ||
+								this.button_message_desktop.length === 20
+							) {
+								poweredByButton.setAttribute('style', `left: 110%;`);
+							} else {
+								poweredByButton.setAttribute('style', `left: 110%;`);
+							}
+						}
+
+						if (this.display_size_desktop === 160) {
+							if (
+								this.button_message_desktop.length === 19 ||
+								this.button_message_desktop.length === 20
+							) {
+								poweredByButton.setAttribute('style', `left: 110%;`);
+							} else {
+								poweredByButton.setAttribute('style', `left: 110%;`);
+							}
+						}
+					} else if (this.position_desktop === 'right' && this.pop_up_message_position !== 'top') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy whatsapp__poweredBySideLefty');
+
+						if (this.display_size_desktop === 120) {
+							if (
+								this.button_message_desktop.length === 19 ||
+								this.button_message_desktop.length === 20
+							) {
+								poweredByButton.setAttribute('style', `right: 110%;`);
+							} else {
+								poweredByButton.setAttribute('style', `right: 110%;`);
+							}
+						}
+						if (this.display_size_desktop === 140) {
+							if (
+								this.button_message_desktop.length === 19 ||
+								this.button_message_desktop.length === 20
+							) {
+								poweredByButton.setAttribute('style', `right: 110%;`);
+							} else {
+								poweredByButton.setAttribute('style', `right: 110%;`);
+							}
+						}
+
+						if (this.display_size_desktop === 160) {
+							if (
+								this.button_message_desktop.length === 19 ||
+								this.button_message_desktop.length === 20
+							) {
+								poweredByButton.setAttribute('style', `right: 110%;`);
+							} else {
+								poweredByButton.setAttribute('style', `right: 110%;`);
+							}
+						}
+					}
+
+					if (this.pop_up_message_position === 'top' && this.position_desktop === 'left') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy');
+
+						poweredByButton.setAttribute(
+							'style',
+							`bottom: ${this.display_size_desktop / 2.7 + 2}px; left: 0px;`
+						);
+					} else if (this.pop_up_message_position === 'top' && this.position_desktop === 'right') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy whatsapp__poweredByTopRight');
+						poweredByButton.setAttribute(
+							'style',
+							`bottom: ${this.display_size_desktop / 2.7 + 2}px; right: 0px;`
+						);
+					}
+				} else {
+					let whatsappIconImage = document.createElement('img');
+					whatsappIconImage.src =
+						'https://s3.ap-south-1.amazonaws.com/cdn.limechat.ai/packs/js/whatsapp_widget/media/LC_WA.png';
+
+					whatsappIconImage.setAttribute('style', `width:${this.display_size_desktop}px; opacity:1`);
+
+					button_root.appendChild(whatsappIconImage);
+
+					if (this.position_desktop === 'left' && this.pop_up_message_position !== 'top') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy');
+
+						poweredByButton.setAttribute(
+							'style',
+							`left: ${this.display_size_desktop + 12}px; bottom: ${this.display_size_desktop * 0.2}px;`
+						);
+					} else if (this.position_desktop === 'right' && this.pop_up_message_position !== 'top') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy whatsapp__poweredBySideLefty');
+
+						poweredByButton.setAttribute(
+							'style',
+							`right: ${this.display_size_desktop + 12}px; bottom: ${this.display_size_desktop * 0.2}px;
+              
+              `
+						);
+					}
+
+					if (this.pop_up_message_position === 'top' && this.position_desktop === 'left') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy');
+
+						poweredByButton.setAttribute(
+							'style',
+							`bottom: ${this.display_size_desktop + 12}px; left: 0px;`
+						);
+					} else if (this.pop_up_message_position === 'top' && this.position_desktop === 'right') {
+						poweredByButton.setAttribute('class', 'whatsapp__poweredBy whatsapp__poweredByTopRight');
+
+						poweredByButton.setAttribute(
+							'style',
+							`bottom: ${this.display_size_desktop * 1.5}px; right: 0px;`
+						);
+					}
+				}
+			}
+			let popuUpImageContainer = document.createElement('div');
+			let popUpImage = document.createElement('img');
+			if (this.pop_up_image.length > 2) {
+				popUpImage.src = this.pop_up_image;
+
+				popUpImage.setAttribute(
+					'style',
+					`width:24px;
+          float:left;
+          height:24px;
+          margin-right: 5px;
+          margin-top:-4px;
+          border-radius: 50%;`
+				);
+			}
+
+			let closePopUp = document.createElement('img');
+			closePopUp.src =
+				'https://s3.ap-south-1.amazonaws.com/cdn.limechat.ai/packs/js/whatsapp_widget/media/LC_close.png';
+			closePopUp.setAttribute('class', 'closePopUp');
+			closePopUp.removeAttribute('href');
+
+			closePopUp.addEventListener(
+				'click',
+				function (e) {
+					poweredByButton.remove();
+					e.preventDefault();
+				},
+				false
+			);
+
+			poweredByButton.innerText = this.pop_up_message_text;
+			if (this.show_pop_up) {
+				setTimeout(function () {
+					poweredByButton.append(closePopUp);
+
+					if (popUpImage.src.length > 2) {
+						poweredByButton.prepend(popUpImage);
+					}
+					root.appendChild(poweredByButton);
+				}, this.pop_up_delay * 1000);
+			}
+		}
+	}
+}
+
+// var whatsAppBtn = new LimeChatWhatsapp2({
+// 	phone: '917600637464',
+// 	prefill_text: 'Hi',
+// 	button_message_mobile: 'Chat with us',
+// 	button_message_desktop: 'Chat with us',
+// 	display_on: 'both',
+// 	widget_type_desktop: 'widget_text',
+// 	widget_type_mobile: 'widget_text',
+// 	display_size_desktop: 120,
+// 	position_desktop: 'right',
+// 	bottom_margin_desktop: 10,
+// 	left_margin_desktop: 20,
+// 	right_margin_desktop: 20,
+// 	display_size_mobile: 140,
+// 	position_mobile: 'left',
+// 	bottom_margin_mobile: 70,
+// 	left_margin_mobile: 20,
+// 	right_margin_mobile: 20,
+// 	show_pop_up: true,
+// 	pop_up_message_position: 'top',
+// 	pop_up_message_text: 'Welcome to LimeChat',
+// 	pop_up_image: 'https://cdn-icons-png.flaticon.com/512/6521/6521443.png',
+// 	pop_up_delay: 0,
+// 	pdp_prefill_text: 'I want to buy this',
+// 	pages_to_display: ['homepage', 'cart', 'blogs', 'products', 'collections', 'checkout', 'pages'],
+// 	isShopify: true,
+// 	includeVariant: true,
+// });
+
+// whatsAppBtn.renderWidget();
