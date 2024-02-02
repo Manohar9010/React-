@@ -1,0 +1,51 @@
+@media (min-width:768px) {
+    .headermain .navbar {
+        display: block;
+      }
+      
+      .headermain .search Input {
+        display: block
+        ;
+      }
+      .headermain .search button {
+        display: block;
+      }
+      .errordiv {
+        padding: 110px 0px 0px 0px !important;
+      }
+    
+      
+    
+      /* home */
+      .homemain img {
+        height: 350px;
+        width: 100%;
+      }
+    
+      .shopcategoryinsercard {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .lurecarddiv {
+       display: grid;
+       grid-template-columns: repeat(2,1fr);
+      }
+      
+     
+      .occasiondiv {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .reallydflex {
+        display: flex;
+        flex-direction: column;
+        margin: 0px 15px;
+      }
+      .reallytext{
+          text-align: center;
+      }
+   
+      .packagemenusqure{
+        display: none;
+      }
+}

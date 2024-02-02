@@ -71,7 +71,7 @@ export default function BellaHeader() {
                   </Button>
                 </InputGroup>
 
-                <span className="package mt-3"><MenuSquare role="button" onClick={navtoggle} size={30}/></span>
+                <span className="packagemenusqure mt-3"><MenuSquare role="button" onClick={navtoggle} size={30}/></span>
                 <span className="package mt-3">
                   <Package2
                     role="button"

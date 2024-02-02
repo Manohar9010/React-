@@ -13,7 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-
+import 'swiper/css/pagination';
 let bestsellercarddata = [
   {
     image: bestsellerimg,
@@ -88,7 +88,7 @@ let bestsellercarddata = [
     percentage:"-34% ",
   },
 ];
-
+import { Pagination } from 'swiper/modules';
 export default function Bestsellers() {
   return (
     <div>
@@ -99,8 +99,32 @@ export default function Bestsellers() {
         <Swiper
           spaceBetween={20}
           slidesPerView={4}
+          
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
+          pagination={{
+            clickable: true,
+          }}
+          breakpoints={{
+            '@0.00': {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            '@0.75': {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            '@1.00': {
+              slidesPerView: 3,
+              spaceBetween: 40,
+            },
+            '@1.50': {
+              slidesPerView: 4,
+              spaceBetween: 50,
+            },
+          }}
+          modules={[Pagination]}
+          className="mySwiper"
         >
           {bestsellercarddata.map((data, i) => {
             return (

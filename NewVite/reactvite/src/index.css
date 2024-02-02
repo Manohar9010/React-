@@ -4,7 +4,10 @@ ul{
 a{
   text-decoration: none;
 }
-
+a{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

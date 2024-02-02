@@ -45,7 +45,7 @@ export default function ShopbyCategory() {
           <div className="shopcategoryinsercard">
             {shopbydata.map((data1, i) => {
               return (
-                <div className="mapshopcategory">
+                <div key={i} className="mapshopcategory">
                   <ShopCategorycard
                     shopbyimg={data1.shopbyimg}
                     shopbytitle={data1.shopbytitle}

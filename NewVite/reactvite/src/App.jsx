@@ -1,3 +1,5 @@
+import ApiPost from "./Api/ApiPost";
+import Product from "./Api/Product";
 import SimpleApi from "./Api/SimpleApi";
 import "./App.css";
 import BellaRouter from "./Bellavitaluxury/Router/BellaRouter";
@@ -7,7 +9,7 @@ import SimpleInput from "./Inputs/SingleInput";
 import ToDoList from "./Inputs/TodoList";
 import Slidercheck from "./Slidercheck";
 import TravelProjectmain from "./TravelProject/TravelProjectmain";
-import UseforPractice from './UseforPractice';
+import UseforPractice from "./UseforPractice";
 function App() {
   return (
     <>
@@ -17,8 +19,10 @@ function App() {
       {/* <TravelProjectmain /> */}
       {/* <RouteMain/> */}
       {/* <SimpleApi/> */}
+      {/* <ApiPost/> */}
+      <Product />
       {/* <UseforPractice/> */}
-      <BellaRouter/>
+      {/* <BellaRouter/> */}
       {/* <Slidercheck/> */}
     </>
   );
