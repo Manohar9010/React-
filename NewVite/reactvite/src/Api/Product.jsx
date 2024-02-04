@@ -1,5 +1,7 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import Select from "react-select";
 import {
   Button,
@@ -13,22 +15,52 @@ import {
   Table,
 } from "reactstrap";
 
-export default function Product() {
-  const [allproduct, setAllproduct] = useState([]);
-  const [product, setProduct] = useState({
-    brand: "",
-    title:"",
-    description:"",
-    price:"",
-    discount:"",
-    stock:"",
-    colour:[],
-    category:[],
-    size:[],
-    thambnail:"",
-    gender:"",
+let intialProduct = {
+  brand: "",
+  title: "",
+  description: "",
+  price: "",
+  discountPercentage: "",
+  availableStock: "",
+  color: ["Black"],
+  category: ["Casual"],
+  size: [],
+  thumbnail: "",
+  gender: "",
+};
 
-  });
+export default function Product() {
+  const [product, setProduct] = useState(intialProduct);
+  const [getproduct, setGetproduct] = useState([]);
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "http://localhost:9999/product/getAll",
+    })
+      .then((res) => {
+        console.log(res.data.data);
+        setGetproduct(res?.data?.data);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }, []);
+
+  let submitHanler = () => {
+    axios({
+      method: "post",
+      url: "http://localhost:9999/product/create",
+      data: product,
+    })
+      .then((res) => {
+        console.log(res.data.data);
+        alert("adddata");
+        //  setGetproduct(res?.data?.data)
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
 
   const options = [
     { value: "black", label: "black" },
@@ -44,44 +76,8 @@ export default function Product() {
     { value: "shorts", label: "shorts" },
     { value: "nightdress", label: "nightdress" },
   ];
-const colorhandler=(colorval)=>{
-
-    setProduct({...product,colour: colorval.map((e)=>e.value) })
-}
-const categoryhandler=(cateval)=>{
-    setProduct({...product,category: cateval.map((e)=>e.value) })
-}
-
-
-  useEffect(() => {
-    axios({
-      method: "get",
-      url: "http://localhost:9999/product/getAll",
-    })
-      .then((res) => {
-        console.log("ourdata", res.data.data);
-        setAllproduct(res.data.data);
-      })
-      .catch((error) => {
-        alert(error);
-      });
-  }, []);
-  const gridContainerStyle = {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr",
-    gap: "10px",
-  };
-
-  const [modal, setModal] = useState(false);
-
-  const toggle = () => setModal(!modal);
-
-
-  let genders=["male","female","kids"]
-
-  let sizes=["42","43","44","45"]
-  
-  const selecthandler=(item)=>{
+ 
+  const selecthandler = (item) => {
     let match = product.size.includes(item);
 
     if (match) {
@@ -90,10 +86,26 @@ const categoryhandler=(cateval)=>{
     } else {
       setProduct({ ...product, size: [...product?.size, item] });
     }
-  }
+  };
+
+  const [modal, setModal] = useState(false);
+
+  const toggle = () => setModal(!modal);
+
+  let genders = ["male", "female", "kids"];
+
+  let sizes = ["42", "43", "44", "45"];
+
+  const gridContainerStyle = {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr",
+    gap: "10px",
+  };
+  let img1 =
+    "https://marketplace.canva.com/EAFijA-Es8I/1/0/1600w/canva-beige-minimalist-stay-tuned-coming-soon-instagram-post-iv_vQnhdRkY.jpg";
+
   return (
     <div>
-      {/* modal form */}
       <div>
         <Button color="danger" onClick={toggle}>
           Click Me
@@ -101,296 +113,296 @@ const categoryhandler=(cateval)=>{
         <Modal isOpen={modal} toggle={toggle}>
           <ModalHeader toggle={toggle}>Product Form</ModalHeader>
           <ModalBody>
-          <Form>
-          <FormGroup>
-            <Label for="examplebrand">Brand</Label>
-            <Input
-              id="examplebrand"
-              name="brand"
-              placeholder="brand name"
-              type="text"
-              value={product.brand}
-              onChange={(e) =>
-                setProduct({ ...product, brand: e?.target?.value })
-              }
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampletitle">Title</Label>
-            <Input
-              id="exampletitle"
-              name="title"
-              placeholder="enter title"
-              type="text"
-              value={product.title}
-              onChange={(e) =>
-                setProduct({ ...product, title: e?.target?.value })
-              }
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampledescription">Description</Label>
-            <Input
-              id="exampledescription"
-              name="description"
-              placeholder="enter description"
-              type="text"
-              value={product.description}
-              onChange={(e) =>
-                setProduct({ ...product, description: e?.target?.value })
-              }
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleprice">Price</Label>
-            <Input
-              id="exampleprice"
-              name="price"
-              placeholder="enter price"
-              type="text"
-              value={product.price}
-              onChange={(e) =>
-                setProduct({ ...product, price: e?.target?.value })
-              }
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="examplepercentage">Discount Percentage</Label>
-            <Input
-              id="examplediscount"
-              name="discout"
-              placeholder="enter discount"
-              type="text"
-              value={product.discount}
-              onChange={(e) =>
-                setProduct({ ...product, discount: e?.target?.value })
-              }
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="examplestock">Avalilable Stock</Label>
-            <Input
-              id="examplestock"
-              name="stock"
-              placeholder="enter stock"
-              type="text"
-              value={product.stock}
-              onChange={(e) =>
-                setProduct({ ...product, stock: e?.target?.value })
-              }
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="examplecolor">Colors</Label>
+            <Form onSubmit={submitHanler}>
+              <FormGroup>
+                <Label for="examplebrand">Brand</Label>
+                <Input
+                  id="examplebrand"
+                  name="brand"
+                  placeholder="brand name"
+                  type="text"
+                  value={product.brand}
+                  onChange={(e) =>
+                    setProduct({ ...product, brand: e?.target?.value })
+                  }
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="exampletitle">Title</Label>
+                <Input
+                  id="exampletitle"
+                  name="title"
+                  placeholder="enter title"
+                  type="text"
+                  value={product.title}
+                  onChange={(e) =>
+                    setProduct({ ...product, title: e?.target?.value })
+                  }
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="exampledescription">Description</Label>
+                <Input
+                  id="exampledescription"
+                  name="description"
+                  placeholder="enter description"
+                  type="text"
+                  value={product.description}
+                  onChange={(e) =>
+                    setProduct({ ...product, description: e?.target?.value })
+                  }
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="exampleprice">Price</Label>
+                <Input
+                  id="exampleprice"
+                  name="price"
+                  placeholder="enter price"
+                  type="text"
+                  value={product.price}
+                  onChange={(e) =>
+                    setProduct({ ...product, price: e?.target?.value })
+                  }
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="examplepercentage">Discount Percentage</Label>
+                <Input
+                  id="examplediscount"
+                  name="discout"
+                  placeholder="enter discountPercentage"
+                  type="text"
+                  value={product.discountPercentage}
+                  onChange={(e) =>
+                    setProduct({
+                      ...product,
+                      discountPercentage: e?.target?.value,
+                    })
+                  }
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="examplestock">Avalilable Stock</Label>
+                <Input
+                  id="examplestock"
+                  name="availableStock"
+                  placeholder="enter availableStock"
+                  type="text"
+                  value={product.availableStock}
+                  onChange={(e) =>
+                    setProduct({ ...product, availableStock: e?.target?.value })
+                  }
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="examplecolor">Colors</Label>
 
-            <Select
-              defaultValue={[options[0], options[2]]}
-              isMulti
-              options={options}
-              onChange={(e)=>colorhandler(e)}
+                <Select
+                  defaultValue={[options[0]]}
+                  isMulti
+                  options={options}
+                  value={product.color?.map((ell) => {
+                    return { value: ell, label: ell };
+                  })}
+                  onChange={(e) =>
+                    setProduct({
+                      ...product,
+                      color: e.map(
+                        (lel) =>
+                          lel.value.charAt(0).toUpperCase() + lel.value.slice(1)
+                      ),
+                    })
+                  }
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label for="examplecategory">Category</Label>
 
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="examplecategory">Category</Label>
+                <Select
+                  defaultValue={[categoryoptions[0]]}
+                  isMulti
+                  options={categoryoptions}
+                  value={product.category?.map((ell) => {
+                    return { value: ell, label: ell };
+                  })}
+                  onChange={(e) =>
+                    setProduct({
+                      ...product,
+                      category: e.map(
+                        (ele) =>
+                          ele.value.charAt(0).toUpperCase() + ele.value.slice(1)
+                      ),
+                    })
+                  }
+                />
+              </FormGroup>
+              <Label for="examplesize">Size</Label>
+              <FormGroup className="d-flex gap-3">
+                {sizes.map((el, i) => {
+                  return (
+                    <div key={i}>
+                      <Input
+                        id="examplesize"
+                        name="size"
+                        type="checkbox"
+                        onChange={() => selecthandler(el)}
+                      />{" "}
+                      {el}
+                    </div>
+                  );
+                })}
+              </FormGroup>
 
-            <Select
-              defaultValue={[categoryoptions[0], categoryoptions[1]]}
-              isMulti
-              options={categoryoptions}
-              onChange={(e)=>categoryhandler(e)}
+              <FormGroup>
+                <Label>Thumbnail</Label>
+                <Input
+                  type="text"
+                  onChange={(e) =>
+                    setProduct({ ...product, thumbnail: e?.target?.value })
+                  }
+                />
+              </FormGroup>
 
-            />
-          </FormGroup>
-          <Label for="examplesize">Size</Label>
-          <FormGroup className="d-flex gap-3">
-            {
-              sizes.map((el,i)=>{
-                return(
-                  <div key={i}>
-                    <Input id="examplesize" name="size" type="checkbox" onChange={()=>selecthandler(el)} /> {el}
+              <FormGroup tag="fieldset">
+                <legend>Gender</legend>
+                <FormGroup className="d-flex gap-3">
+                  {genders.map((e, i) => {
+                    return (
+                      <FormGroup check>
+                        <Input
+                          type="radio"
+                          checked={product.gender === e}
+                          onChange={() => setProduct({ ...product, gender: e })}
+                        />{" "}
+                        <Label check>{e}</Label>
+                      </FormGroup>
+                    );
+                  })}
+                </FormGroup>
+              </FormGroup>
 
-                  </div>
-                )
-              })
-            }
-            
-           
-          </FormGroup>
-
-          <FormGroup>
-            <Label>Thumbnail</Label>
-            <Input type="text" 
-               onChange={(e)=>setProduct({...product,thambnail:e?.target?.value})}
-            />
-          </FormGroup>
-
-          <FormGroup tag="fieldset">
-            <legend>Gender</legend>
-            <FormGroup className="d-flex gap-3">
-           {
-            genders.map((e,i)=>{
-                return(
-                        
-              <FormGroup check>
-              <Input name="radio1" type="radio"   onChange={()=>setProduct({...product,gender: e})} /> <Label check>{e}</Label>
-            </FormGroup>
-                )
-            })
-           }
-        
-            </FormGroup>
-          </FormGroup>
-         
-          <Button>Submit</Button>
-        </Form>
-
+              <Button>Submit</Button>
+            </Form>
           </ModalBody>
         </Modal>
-        <p> {product.brand}</p>
-      <p> {product.title}</p>
-      <p> {product.description}</p>
-      <p> {product.price}</p>
-      <p> {product.discount}</p>
-      <p> {product.stock}</p>
-      <p> {product.colour}</p>
-      <p> {product.category}</p>
-      <p> {product.gender}</p>
-      <p> {product.thambnail}</p>
-      <p> {product.size}</p>
-
+        <p> {product.brand.charAt(0).toUpperCase() + product.brand.slice(1)}</p>
+        <p> {product.title}</p>
+        <p> {product.description}</p>
+        <p> {product.price}</p>
+        <p> {product.discountPercentage}</p>
+        <p> {product.availableStock}</p>
+        <p> {product.color}</p>
+        <p> {product.category}</p>
+        <p> {product.gender}</p>
+        <p> {product.thumbnail}</p>
+        <p> {product.size}</p>
       </div>
 
-      {/* <Table striped>
-        <thead>
-          <tr>
-            <th>SR.NO</th>
-            <th>iMAGE</th>
-            <th>TITLE</th>
-            <th>OFFER PRICE</th>
-            
-            <th>PRICE</th>
-            <th>COLOUR</th>
-            <th>SIZE</th>
-          </tr>
-        </thead>
-        <tbody>
-          {allproduct.map((e, i) => {
-            return (
-              <tr key={i}>
-                <th scope="row">{i + 1}</th>
-                <td>
-                  <img
-                    style={{ height: "60px", width: "80px" }}
-                    src={e?.thumbnail}
-                    alt=""
-                  />
-                </td>
-                <td>{e?.title}</td>
-                <td>{e?.price}</td>
-                <td>{e?.price}</td>
-                <td className="">
-                    <div className="d-flex gap-2">
-                    {e?.color.map((color)=>{
-                    return <div style={{height:"20px" ,width:"20px",backgroundColor:color,borderRadius:"50%",border:"1px solid black"}}></div>
-                }) }
-                    </div>
-                    </td>
-
-                <td>
-                     <div className="d-flex gap-3">
-                        
-                     
-                    {e?.size.map((size)=>{
-                    return <div style={{border:"1px solid black", borderRadius:"50%",height:"30px",width:"30px",textAlign:"center"}}> {size}
-
-                    </div>
-                }) } </div></td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </Table> */}
-
-      {/* card */}
       <div>
-        <div>
-          <div style={gridContainerStyle}>
-            {allproduct.map((e, i) => {
-              return (
-                <div key={i} style={{ margin: "0px 50px" }}>
-                  <div>
-                    <img
-                      style={{ height: "250px", width: "300px" }}
-                      src={e?.thumbnail}
-                      alt=""
-                    />
+        <div style={gridContainerStyle}>
+          {getproduct.map((e, i) => {
+            return (
+              <div key={i} style={{ margin: "0px 50px" }}>
+                <div>
+                  <img
+                    style={{ height: "250px", width: "300px" }}
+                    src={e?.thumbnail || img1}
+                    alt="image not available"
+                  />
+                </div>
+                <div>
+                  <h4>{e.brand}</h4>
+                  <h5>{e?.title || "our product"}</h5>
+                  <p style={{ fontWeight: "bold" }}>{e.description}</p>
+                  <h6>
+                    Original Price:{" "}
+                    <span style={{ color: "red" }}>{e?.price}</span>{" "}
+                  </h6>
+                  <h6>
+                    Offer Price:{" "}
+                    <span style={{ color: "green" }}>
+                      -{e.discountPercentage || 0}%{" "}
+                    </span>{" "}
+                    <span style={{ color: "red" }}>
+                      {" "}
+                      {(
+                        e.price -
+                        (e.price * e.discountPercentage || 0) / 100
+                      ).toFixed(2)}
+                    </span>{" "}
+                    <span style={{ textDecoration: "line-through" }}>
+                      {" "}
+                      {e.price}
+                    </span>{" "}
+                  </h6>
+                  <div className="d-flex gap-2">
+                    <span style={{ fontSize: "20px" }}>colors :</span>
+                    {e?.color.map((color, i) => {
+                      return (
+                        <div
+                          key={i}
+                          style={{
+                            height: "20px",
+                            width: "20px",
+                            backgroundColor: color,
+                            borderRadius: "50%",
+                            border: "1px solid black",
+                          }}
+                        ></div>
+                      );
+                    })}
                   </div>
-                  <div>
-                    <h5>{e?.title}</h5>
-                    <h6>
-                      Original Price:{" "}
-                      <span style={{ color: "red" }}>{e?.price}</span>{" "}
-                    </h6>
-                    <h6>
-                      Offer Price:{" "}
-                      <span style={{ color: "green" }}>
-                        {e.discountPercentage || 0}%{" "}
-                      </span>{" "}
-                      <span style={{ color: "red" }}>
-                        {" "}
-                        {(
-                          e.price -
-                          (e.price * e.discountPercentage || 0) / 100
-                        ).toFixed(2)}
-                      </span>{" "}
-                      <span style={{ textDecoration: "line-through" }}>
-                        {" "}
-                        {e.price}
-                      </span>{" "}
-                    </h6>
-                    <div className="d-flex gap-2">
-                      <span style={{ fontSize: "20px" }}>colors :</span>
-                      {e?.color.map((color, i) => {
-                        return (
-                          <div
-                            key={i}
-                            style={{
-                              height: "20px",
-                              width: "20px",
-                              backgroundColor: color,
-                              borderRadius: "50%",
-                              border: "1px solid black",
-                            }}
-                          ></div>
-                        );
-                      })}
-                    </div>
-                    <div className="d-flex gap-3">
-                      <span style={{ fontSize: "20px" }}>Size :</span>
-                      {e?.size.map((size, i) => {
-                        return (
-                          <div
-                            key={i}
-                            style={{
-                              border: "1px solid black",
-                              borderRadius: "50%",
-                              height: "30px",
-                              width: "30px",
-                              textAlign: "center",
-                            }}
-                          >
-                            {" "}
-                            {size}
-                          </div>
-                        );
-                      })}{" "}
-                    </div>
+                  <div className="d-flex gap-3">
+                    <span style={{ fontSize: "20px" }}>Size :</span>
+                    {e?.size.map((size, i) => {
+                      let backgroundColor;
+
+                      if (size === "42") {
+                        backgroundColor = "yellow";
+                      } else {
+                        backgroundColor = "white";
+                      }
+                      return (
+                        <div
+                          key={i}
+                          style={{
+                            border: "1px solid black",
+                            borderRadius: "50%",
+                            height: "30px",
+                            width: "30px",
+                            textAlign: "center",
+                            backgroundColor: backgroundColor,
+                          }}
+                        >
+                          {" "}
+                          {size}
+                        </div>
+                      );
+                    })}{" "}
+                  </div>
+                  <p style={{ fontWeight: "500" }}>
+                    AvalableStock:{e.availableStock}
+                  </p>
+
+                  <div className="d-flex gap-xl-5">
+                    <Button
+                      className="bg-danger"
+                      onClick={() => console.log("===>id", e._id)}
+                    >
+                      Delete
+                    </Button>
+                    <Button
+                      className="bg-warning"
+                      onClick={() => console.log("elemet", e)}
+                    >
+                      Edit
+                    </Button>
                   </div>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
