@@ -76,7 +76,7 @@ export default function Product() {
     { value: "shorts", label: "shorts" },
     { value: "nightdress", label: "nightdress" },
   ];
- 
+
   const selecthandler = (item) => {
     let match = product.size.includes(item);
 
@@ -300,6 +300,121 @@ export default function Product() {
       </div>
 
       <div>
+        <Table striped>
+          <thead>
+            <tr>
+              <th>Sr.no</th>
+              <th>Images</th>
+              <th>Brand</th>
+              <th>Title</th>
+              <th>Offer Price</th>
+              <th>Colors</th>
+              <th>size</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {getproduct.map((e, i) => {
+              return (
+                <tr>
+                  <th scope="row">1</th>
+                  <td>
+                    <img
+                      style={{ height: "50px", width: "50px" }}
+                      src={e?.thumbnail || img1}
+                      alt="image not available"
+                    />
+                  </td>
+                  <td>{e.brand}</td>
+                  <td>{e?.title || "our product"}</td>
+                  <td>
+                    <span style={{ color: "green" }}>
+                      -{e.discountPercentage || 0}%{" "}
+                    </span>{" "}
+                    <span style={{ color: "red" }}>
+                      {" "}
+                      {(
+                        e.price -
+                        (e.price * e.discountPercentage || 0) / 100
+                      ).toFixed(2)}
+                    </span>{" "}
+                    <span style={{ textDecoration: "line-through" }}>
+                      {" "}
+                      {e.price}
+                    </span>{" "}
+                  </td>
+                  <td>
+                    <div className="d-flex gap-2">
+                      {e?.color.map((color, i) => {
+                        return (
+                          <div
+                            key={i}
+                            style={{
+                              height: "20px",
+                              width: "20px",
+                              backgroundColor: color,
+                              borderRadius: "50%",
+                              border: "1px solid black",
+                            }}
+                          ></div>
+                        );
+                      })}
+                    </div>
+                  </td>
+                  <td>
+                    <div className="d-flex gap-3">
+                      <span style={{ fontSize: "20px" }}>Size :</span>
+                      {e?.size.map((size, i) => {
+                        let backgroundColor;
+
+                        if (size === "42") {
+                          backgroundColor = "yellow";
+                        } else {
+                          backgroundColor = "white";
+                        }
+                        return (
+                          <div
+                            key={i}
+                            style={{
+                              border: "1px solid black",
+                              borderRadius: "50%",
+                              height: "30px",
+                              width: "30px",
+                              textAlign: "center",
+                              backgroundColor: backgroundColor,
+                            }}
+                          >
+                            {" "}
+                            {size}
+                          </div>
+                        );
+                      })}{" "}
+                    </div>
+                  </td>
+                  <td>
+                    <div className="d-flex gap-xl-5">
+                      <Button
+                        className="bg-danger"
+                        onClick={() => console.log("===>id", e._id)}
+                      >
+                        Delete
+                      </Button>
+                      <Button
+                        className="bg-warning"
+                        onClick={() => console.log("elemet", e)}
+                      >
+                        Edit
+                      </Button>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+      </div>
+
+      {/* <div>
         <div style={gridContainerStyle}>
           {getproduct.map((e, i) => {
             return (
@@ -404,7 +519,7 @@ export default function Product() {
             );
           })}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
