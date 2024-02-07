@@ -35,7 +35,7 @@ export default function Product() {
   const [getproduct, setGetproduct] = useState([]);
   const [refetch, setRefetch] = useState(true);
   const refetchData = () => setRefetch(!refetch);
-  const [checck,setChecck]=useState([])
+  const [checck, setChecck] = useState([]);
 
   const [update, setUpdate] = useState(false);
   useEffect(() => {
@@ -46,8 +46,6 @@ export default function Product() {
       .then((res) => {
         console.log(res.data.data);
         setGetproduct(res?.data?.data);
-       
-
       })
       .catch((error) => {
         alert(error);
@@ -68,7 +66,6 @@ export default function Product() {
       .catch((error) => {
         alert(error);
       });
-      
   };
 
   const options = [
@@ -95,18 +92,21 @@ export default function Product() {
     } else {
       setProduct({ ...product, size: [...product?.size, item] });
       setChecck({ ...product, size: [...product?.size, item] });
-      
     }
   };
 
   const [modal, setModal] = useState(false);
 
-  const toggle = () => {setModal(!modal); setUpdate(false); setProduct(intialProduct)}
+  const toggle = () => {
+    setModal(!modal);
+    setUpdate(false);
+    setProduct(intialProduct);
+  };
 
   let genders = ["male", "female", "kids"];
 
   let sizes = ["42", "43", "44", "45"];
-    
+
   const gridContainerStyle = {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
@@ -132,28 +132,29 @@ export default function Product() {
   const Edithandler = (data) => {
     toggle();
     setProduct(data);
-    setUpdate(true)
-
     console.log("====>",data)
+    setUpdate(true);
+
+    console.log("====>", data);
   };
 
-  const updatehandler=()=>{
-       axios({
-        method:"put",
-        url:`http://localhost:9999/product/update/${product._id}`,
-        data:product,
-       }).then((res) => {
+  const updatehandler = () => {
+    axios({
+      method: "put",
+      url: `http://localhost:9999/product/update/${product._id}`,
+      data: product,
+    })
+      .then((res) => {
         alert("Update data....!");
         //  setGetproduct(res?.data?.data)
-        
-        toggle()
+
+        toggle();
         refetchData();
       })
       .catch((error) => {
         alert(error);
       });
-  }
-  
+  };
 
   let img1 =
     "https://marketplace.canva.com/EAFijA-Es8I/1/0/1600w/canva-beige-minimalist-stay-tuned-coming-soon-instagram-post-iv_vQnhdRkY.jpg";
@@ -164,7 +165,7 @@ export default function Product() {
         <Button color="danger" onClick={toggle}>
           Click Me
         </Button>
-        <Modal isOpen={modal} toggle={toggle}>
+        <Modal backdrop='static' isOpen={modal} toggle={toggle}>
           <ModalHeader toggle={toggle}>Product Form</ModalHeader>
           <ModalBody>
             <Form onSubmit={submitHanler}>
@@ -300,6 +301,7 @@ export default function Product() {
                         id="examplesize"
                         name="size"
                         type="checkbox"
+                        checked={product?.size?.includes?.(el)}
                         onChange={() => selecthandler(el)}
                       />{" "}
                       {el}
@@ -312,6 +314,7 @@ export default function Product() {
                 <Label>Thumbnail</Label>
                 <Input
                   type="text"
+                  value={product.thumbnail}
                   onChange={(e) =>
                     setProduct({ ...product, thumbnail: e?.target?.value })
                   }
@@ -335,7 +338,11 @@ export default function Product() {
                   })}
                 </FormGroup>
               </FormGroup>
-              {update ? (<Button onClick={updatehandler}>Update</Button> ):( <Button>Submit</Button>)}
+              {update ? (
+                <Button onClick={updatehandler}>Update</Button>
+              ) : (
+                <Button>Submit</Button>
+              )}
             </Form>
           </ModalBody>
         </Modal>
@@ -417,35 +424,29 @@ export default function Product() {
                   <td>
                     <div className="d-flex gap-3">
                       <span style={{ fontSize: "20px" }}>Size :</span>
-                        
-
-                      {
-                       
-                       
-                       [42,43,44,45].map((sizee, i) => {
+                      {[42, 43, 44, 45].map((sizee, i) => {
                         let go;
                         let deco;
-                        
+
                         if (e.size.includes(sizee.toString())) {
-                          go="black"
-                          deco= "none"
-                        }else{
-                          go="grey",
-                          deco= "line-through"
+                          go = "black";
+                          deco = "none";
+                        } else {
+                          (go = "grey"), (deco = "line-through");
                         }
-                        
+
                         return (
                           <div
                             key={i}
                             style={{
-                              textDecoration:deco,
+                              textDecoration: deco,
                               border: "1px solid",
                               borderColor: go,
                               borderRadius: "50%",
                               height: "30px",
                               width: "30px",
                               textAlign: "center",
-                              color:go,
+                              color: go,
                             }}
                           >
                             {" "}
@@ -585,6 +586,3 @@ export default function Product() {
     </div>
   );
 }
-
-
-
