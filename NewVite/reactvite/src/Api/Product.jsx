@@ -424,17 +424,21 @@ export default function Product() {
                        
                        [42,43,44,45].map((sizee, i) => {
                         let go;
+                        let deco;
                         
                         if (e.size.includes(sizee.toString())) {
                           go="black"
+                          deco= "none"
                         }else{
-                          go="grey"
+                          go="grey",
+                          deco= "line-through"
                         }
                         
                         return (
                           <div
                             key={i}
                             style={{
+                              textDecoration:deco,
                               border: "1px solid",
                               borderColor: go,
                               borderRadius: "50%",
@@ -581,3 +585,6 @@ export default function Product() {
     </div>
   );
 }
+
+
+
