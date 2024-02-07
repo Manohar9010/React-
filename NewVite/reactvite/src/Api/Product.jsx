@@ -1,4 +1,5 @@
 import axios from "axios";
+import { PencilRuler, Trash } from "lucide-react";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -32,6 +33,11 @@ let intialProduct = {
 export default function Product() {
   const [product, setProduct] = useState(intialProduct);
   const [getproduct, setGetproduct] = useState([]);
+  const [refetch, setRefetch] = useState(true);
+  const refetchData = () => setRefetch(!refetch);
+  const [checck,setChecck]=useState([])
+
+  const [update, setUpdate] = useState(false);
   useEffect(() => {
     axios({
       method: "get",
@@ -40,11 +46,13 @@ export default function Product() {
       .then((res) => {
         console.log(res.data.data);
         setGetproduct(res?.data?.data);
+       
+
       })
       .catch((error) => {
         alert(error);
       });
-  }, []);
+  }, [refetch]);
 
   let submitHanler = () => {
     axios({
@@ -53,13 +61,14 @@ export default function Product() {
       data: product,
     })
       .then((res) => {
-        console.log(res.data.data);
         alert("adddata");
+        refetchData();
         //  setGetproduct(res?.data?.data)
       })
       .catch((error) => {
         alert(error);
       });
+      
   };
 
   const options = [
@@ -85,22 +94,67 @@ export default function Product() {
       setProduct({ ...product, size: fillterdata });
     } else {
       setProduct({ ...product, size: [...product?.size, item] });
+      setChecck({ ...product, size: [...product?.size, item] });
+      
     }
   };
 
   const [modal, setModal] = useState(false);
 
-  const toggle = () => setModal(!modal);
+  const toggle = () => {setModal(!modal); setUpdate(false); setProduct(intialProduct)}
 
   let genders = ["male", "female", "kids"];
 
   let sizes = ["42", "43", "44", "45"];
-
+    
   const gridContainerStyle = {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
     gap: "10px",
   };
+
+  const deletehandler = (id) => {
+    axios({
+      method: "delete",
+      url: `http://localhost:9999/product/delete/${id}`,
+    })
+      .then((res) => {
+        alert("Delete data....!");
+        //  setGetproduct(res?.data?.data)
+        refetchData();
+        console.log(id);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
+
+  const Edithandler = (data) => {
+    toggle();
+    setProduct(data);
+    setUpdate(true)
+
+    console.log("====>",data)
+  };
+
+  const updatehandler=()=>{
+       axios({
+        method:"put",
+        url:`http://localhost:9999/product/update/${product._id}`,
+        data:product,
+       }).then((res) => {
+        alert("Update data....!");
+        //  setGetproduct(res?.data?.data)
+        
+        toggle()
+        refetchData();
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }
+  
+
   let img1 =
     "https://marketplace.canva.com/EAFijA-Es8I/1/0/1600w/canva-beige-minimalist-stay-tuned-coming-soon-instagram-post-iv_vQnhdRkY.jpg";
 
@@ -281,8 +335,7 @@ export default function Product() {
                   })}
                 </FormGroup>
               </FormGroup>
-
-              <Button>Submit</Button>
+              {update ? (<Button onClick={updatehandler}>Update</Button> ):( <Button>Submit</Button>)}
             </Form>
           </ModalBody>
         </Modal>
@@ -364,28 +417,35 @@ export default function Product() {
                   <td>
                     <div className="d-flex gap-3">
                       <span style={{ fontSize: "20px" }}>Size :</span>
-                      {e?.size.map((size, i) => {
-                        let backgroundColor;
+                        
 
-                        if (size === "42") {
-                          backgroundColor = "yellow";
-                        } else {
-                          backgroundColor = "white";
+                      {
+                       
+                       
+                       [42,43,44,45].map((sizee, i) => {
+                        let go;
+                        
+                        if (e.size.includes(sizee.toString())) {
+                          go="black"
+                        }else{
+                          go="grey"
                         }
+                        
                         return (
                           <div
                             key={i}
                             style={{
-                              border: "1px solid black",
+                              border: "1px solid",
+                              borderColor: go,
                               borderRadius: "50%",
                               height: "30px",
                               width: "30px",
                               textAlign: "center",
-                              backgroundColor: backgroundColor,
+                              color:go,
                             }}
                           >
                             {" "}
-                            {size}
+                            {sizee}
                           </div>
                         );
                       })}{" "}
@@ -393,18 +453,16 @@ export default function Product() {
                   </td>
                   <td>
                     <div className="d-flex gap-xl-5">
-                      <Button
-                        className="bg-danger"
-                        onClick={() => console.log("===>id", e._id)}
-                      >
-                        Delete
-                      </Button>
-                      <Button
-                        className="bg-warning"
-                        onClick={() => console.log("elemet", e)}
-                      >
-                        Edit
-                      </Button>
+                      <Trash
+                        color="red"
+                        role="button"
+                        onClick={() => deletehandler(e._id)}
+                      />
+                      <PencilRuler
+                        color="#3c93b0"
+                        role="button"
+                        onClick={() => Edithandler(e)}
+                      />
                     </div>
                   </td>
                 </tr>
