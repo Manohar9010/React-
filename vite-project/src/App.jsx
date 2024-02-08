@@ -64,6 +64,9 @@ import InputCheckbox from "./Inputs/InputCheckbox.jsx";
 import ToDoList from "./Inputs/Todotask.jsx";
 import ToDoListtask from "./Inputs/Check.jsx";
 import Checkicon from "./check.jsx";
+import SliderreactCrousel from "./Slidertest/SliderreactCrousel.jsx";
+import UseMemohook from "./Hooks/usestate/UseMemohook.jsx";
+import Usecallback from "./Hooks/usestate/UsecallBackhook/Usecallback.jsx";
 
 function App() {
 
@@ -135,7 +138,10 @@ function App() {
       {/* <InputCheckbox/> */}
       {/* <ToDoList/> */}
       {/* <ToDoListtask/> */}
-      <Checkicon/>
+      {/* <Checkicon/> */}
+      {/* <SliderreactCrousel/> */}
+      {/* <UseMemohook/> */}
+      <Usecallback/>
       <ToastContainer />
     </>
   );
