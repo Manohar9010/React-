@@ -132,7 +132,7 @@ export default function Product() {
   const Edithandler = (data) => {
     toggle();
     setProduct(data);
-    console.log("====>",data)
+    console.log("====>", data);
     setUpdate(true);
 
     console.log("====>", data);
@@ -155,7 +155,31 @@ export default function Product() {
         alert(error);
       });
   };
-
+  const CustomColorOption = ({ innerProps, label, dta }) => (
+    <div
+      {...innerProps}
+      style={{
+        padding: "0px 10px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        borderBottom: "1px solid #dee2e6",
+        background: "#dee9",
+        cursor: "pointer",
+      }}
+    >
+      {label}
+      <div
+        style={{
+          backgroundColor: data.value,
+          width: "20px",
+          height: "20px",
+          marginRight: "8px",
+          borderRadius: "50%",
+        }}
+      ></div>
+    </div>
+  );
   let img1 =
     "https://marketplace.canva.com/EAFijA-Es8I/1/0/1600w/canva-beige-minimalist-stay-tuned-coming-soon-instagram-post-iv_vQnhdRkY.jpg";
 
@@ -165,7 +189,7 @@ export default function Product() {
         <Button color="danger" onClick={toggle}>
           Click Me
         </Button>
-        <Modal backdrop='static' isOpen={modal} toggle={toggle}>
+        <Modal backdrop="static" isOpen={modal} toggle={toggle}>
           <ModalHeader toggle={toggle}>Product Form</ModalHeader>
           <ModalBody>
             <Form onSubmit={submitHanler}>
@@ -257,6 +281,7 @@ export default function Product() {
                   defaultValue={[options[0]]}
                   isMulti
                   options={options}
+                  components={{ Option: CustomColorOption }}
                   value={product.color?.map((ell) => {
                     return { value: ell, label: ell };
                   })}
@@ -377,7 +402,7 @@ export default function Product() {
             {getproduct.map((e, i) => {
               return (
                 <tr>
-                  <th scope="row">1</th>
+                  <th scope="row">{i + 1}</th>
                   <td>
                     <img
                       style={{ height: "50px", width: "50px" }}
