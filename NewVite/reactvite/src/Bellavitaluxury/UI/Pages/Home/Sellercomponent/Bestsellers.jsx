@@ -128,8 +128,8 @@ export default function Bestsellers() {
         >
           {bestsellercarddata.map((data, i) => {
             return (
-              <SwiperSlide>
-                <div key={i} className="cardmain ">
+              <SwiperSlide key={i}>
+                <div  className="cardmain ">
                   <BestSellercard
                     imag1={data.image}
                     type={data.type}

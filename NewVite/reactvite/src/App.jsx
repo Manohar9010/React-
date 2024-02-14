@@ -4,9 +4,11 @@ import SimpleApi from "./Api/SimpleApi";
 import "./App.css";
 import BellaRouter from "./Bellavitaluxury/Router/BellaRouter";
 import Checkbox from "./Inputs/Checkbox";
+import MainLogin from "./Inputs/FilterUser/MainLogin";
 import RouteMain from "./Inputs/Rigister&Login/RouteMain";
 import SimpleInput from "./Inputs/SingleInput";
 import ToDoList from "./Inputs/TodoList";
+import AppRedux from "./Redux/AppRedux";
 import Slidercheck from "./Slidercheck";
 import TravelProjectmain from "./TravelProject/TravelProjectmain";
 import UseforPractice from "./UseforPractice";
@@ -20,10 +22,13 @@ function App() {
       {/* <RouteMain/> */}
       {/* <SimpleApi/> */}
       {/* <ApiPost/> */}
-      <Product />
+      {/* <Product /> */}
       {/* <UseforPractice/> */}
       {/* <BellaRouter/> */}
       {/* <Slidercheck/> */}
+      {/* <MainLogin/>   */}
+      {/* =======redux====== */}
+      <AppRedux />
     </>
   );
 }

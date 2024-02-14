@@ -40,7 +40,7 @@ export default function Shopbyoccasion() {
         {
             Occionbydata.map((dataoccion,i)=>{
                 return(
-        <div >
+        <div  key={i}>
         <ShopCategorycard shopbyimg={dataoccion.shopbyimg} shopbytitle={dataoccion. shopbytitle}/>
 
         </div>

@@ -102,10 +102,10 @@ export default function Bestsellers() {
     <div>
       <div className="bestsellermain">
         <Slider {...settings}>
-          {bestsellercarddata.map((data) => {
+          {bestsellercarddata.map((data,i) => {
             return (
-              <div className="cardmain ">
-                <BestSellercard
+              <div key={i} className="cardmain ">
+                <BestSellercard 
                   imag1={data.image}
                   type={data.type}
                   brandname={data.brandname}

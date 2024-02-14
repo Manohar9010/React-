@@ -1,4 +1,4 @@
-import { X } from "lucide-react";
+import { User, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { toast } from "react-toastify";
@@ -181,6 +181,7 @@ export default function RegisterModel({ rectmodal, restoggle }) {
                   </FormGroup>
                   <FormGroup>
                     <Select
+                    value={User.usertype}
                       onChange={(e) =>
                         setUserdata({ ...userdata, usertype: e?.value })
                       }

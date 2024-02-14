@@ -43,7 +43,7 @@ export default function Featured() {
       <div className="featuredflex">
         {faturedata.map((feauredata, i) => {
           return (
-            <div>
+            <div key={i}>
               <Featuredcard
                 featuredimg={feauredata.featuredimg}
                 feauretext={feauredata.feauretext}

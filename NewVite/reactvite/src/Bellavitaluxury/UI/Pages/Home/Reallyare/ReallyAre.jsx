@@ -14,13 +14,13 @@ export default function ReallyAre() {
             <img src={reallyimg1} alt="" />
          </div>
          <div className='reallytext'>
-            <img src={reallyimg2} alt="" />
+            <img className='reallyimg2' src={reallyimg2} alt="" />
             <p>The inception of Bella Vita Luxury stems from <br/>one unified purpose of the brand - To bring you <br/>luxury in a bottle. The Bella Vita Luxury blends <br/>are our hardworking workmanship, built on the<br/> crux of prestige, value & celebration. We take<br/>pride in our creations, carefully crafted through <br/>years of research & aspiration.</p>
          </div>
         </div> 
        <br/>
        <div className='downapp'>
-        <img src={downloadapp} alt="" />
+        <img  src={downloadapp} alt="" />
        </div>
     </div>
   )

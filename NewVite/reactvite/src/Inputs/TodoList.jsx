@@ -85,7 +85,7 @@ export default function ToDoList() {
       const normaldata = JSON.parse(jsondata);
 
       let jsondata1 = localStorage.getItem("pendindata") || "[]";
-      const normal1 = JSON.parse(jsondata1);
+      const normal1 = JSON.parse(jsondata1);  
       if (normaldata || normal1) {
         setDonetask(normaldata);
         setPendingdata(normal1);

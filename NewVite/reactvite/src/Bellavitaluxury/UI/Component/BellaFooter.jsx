@@ -105,7 +105,7 @@ export default function BellaFooter() {
           <div>
             <div className="footersecure"><img src={footerimg1} alt="" />  </div>
          <ul>
-          <li> <img src={footerimg2} alt="" /></li>
+          <li> <img className="images3" src={footerimg2} alt="" /></li>
          
          </ul>
           </div>
