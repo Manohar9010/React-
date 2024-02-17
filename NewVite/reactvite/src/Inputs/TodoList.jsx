@@ -124,7 +124,7 @@ export default function ToDoList() {
           setDonetask([...donetask, ...filldata]);
           setPendingdata(empty);
           setSelectindex([]);
-          ``;
+          
           localStorage.setItem("pendindata", JSON.stringify(empty));
           localStorage.setItem(
             "passdata",

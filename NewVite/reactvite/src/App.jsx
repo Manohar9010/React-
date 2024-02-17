@@ -12,6 +12,7 @@ import AppRedux from "./Redux/AppRedux";
 import Slidercheck from "./Slidercheck";
 import TravelProjectmain from "./TravelProject/TravelProjectmain";
 import UseforPractice from "./UseforPractice";
+import ReduxMain from "./rrrrr/ReduxMain";
 function App() {
   return (
     <>
@@ -29,6 +30,7 @@ function App() {
       {/* <MainLogin/>   */}
       {/* =======redux====== */}
       <AppRedux />
+      {/* <ReduxMain/> */}
     </>
   );
 }

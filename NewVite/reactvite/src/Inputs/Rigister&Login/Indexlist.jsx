@@ -39,9 +39,7 @@ export default function Indexlist() {
         setPendingdata(normal1);
       }
     } catch (error) {
-      // Handle the error, e.g. log it or set a default value for donetask
-      console.error("Error parsing JSON data:", error);
-      // Set a default value for donetask if parsing fails
+      console.error("Error :", error);
       setDonetask([]);
       setPendingdata([]);
     }

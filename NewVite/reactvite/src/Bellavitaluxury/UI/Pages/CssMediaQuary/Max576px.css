@@ -50,6 +50,7 @@
   .lurecarddiv {
     display: flex;
     flex-direction: column;
+    margin: 0px 0px ;
   }
   .mostlovedmain {
     display: flex;
@@ -99,6 +100,13 @@
  }
  .footersoc p{
   width: 75%;
+ }
+ .footermain .lastimg{
+  margin: 0px;
+  padding: 0px ;
+ }
+ .footermain .lastimg .images3{
+  width: 100%;
  }
 
 }

@@ -19,15 +19,11 @@ export default function CountUpdate() {
       <Button className="bg-danger me-5" onClick={() => dispach(inten())}>
         inc+10
       </Button>
-      <Button className="bg-danger me-5" onClick={() => dispach(inamount())}>
-        inc+10
-      </Button>
-      <Button className="bg-danger me-5" onClick={() => dispach(inpointer())}>
-        inc+.5
-      </Button>
-      <Button className="bg-danger" onClick={() => dispach(lessamoutn())}>
-        inc----
-      </Button>
+
+
+      <div>
+      </div>
+     
     </div>
   );
 }

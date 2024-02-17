@@ -8,8 +8,7 @@ export default function CountDisplay() {
   return (
     <div className="d-flex justify-content-center gap-5">
       <h1>Count: {data.count}</h1>
-      <h1>Amount:{data.amount}</h1>
-      <h1>Pointer:{data.point}</h1>
+     
     </div>
   );
 }
