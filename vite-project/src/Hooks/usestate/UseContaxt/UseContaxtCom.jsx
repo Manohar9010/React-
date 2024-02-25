@@ -1,30 +1,23 @@
-import React, { createContext, useState } from 'react'
-import ComA from './ComA'
-import ComB from './ComB'
+import React, { createContext, useState } from "react";
+import ComA from "./ComA";
+import ComB from "./ComB";
 
-export const ValueChange=createContext()
-export const CityChage=createContext() 
+export const ValueChange = createContext();
+export const CityChage = createContext();
 export default function UseContaxtCom() {
-const[names,SetNames]=useState({
-  usename:"shivam",
-  Age:"25",
-})
-const [city,setCity]=useState("surat")
+  const [names, SetNames] = useState({
+    usename: "shivam",
+    Age: "25",
+  });
+  const [city, setCity] = useState("surat");
   return (
     <div>
-    
-    
-        
       <ValueChange.Provider value={names}>
-
-        <ComA/>
+        <ComA />
         <CityChage.Provider value={city}>
-          <ComB/>
+          <ComB />
         </CityChage.Provider>
-
       </ValueChange.Provider>
-        
-      
-      </div>
-  )
+    </div>
+  );
 }

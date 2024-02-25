@@ -67,9 +67,13 @@ import Checkicon from "./check.jsx";
 import SliderreactCrousel from "./Slidertest/SliderreactCrousel.jsx";
 import UseMemohook from "./Hooks/usestate/UseMemohook.jsx";
 import Usecallback from "./Hooks/usestate/UsecallBackhook/Usecallback.jsx";
+import ToDoList1 from "./Inputs1/TodoList1.jsx";
+import SimpleInputt1 from "./Inputs1/SingleInput1.jsx";
+import Checkbox1 from "./Inputs1/Checkbox1.jsx";
+import RouteMain1 from "./Inputs1/Rigister&Login/RouteMain1.jsx";
+import LoginPage1 from "./Inputs1/FilterUser/LoginPage1.jsx";
 
 function App() {
-
   return (
     <>
       {/* <FunCom /> */}
@@ -95,7 +99,7 @@ function App() {
       {/* <Classprops/>    */}
       {/* <Propspro1/> */}
       {/* <PropsChange name="shivam"/> */}
-      {/* <Use_State_Class_Task/> */}
+      <Use_State_Class_Task/>
       {/* <LifecycleMethod/>   */}
       {/* <UseFor/> */}
       {/* <ExpApp/> */}
@@ -141,7 +145,14 @@ function App() {
       {/* <Checkicon/> */}
       {/* <SliderreactCrousel/> */}
       {/* <UseMemohook/> */}
-      <Usecallback/>
+      {/* <Usecallback/> */}
+      {/* ==========inputs1==== */}
+      {/* <ToDoList1/> */}
+      {/* <SimpleInputt1/> */}
+      {/* <RouteMain1/> */}
+      {/* <Checkbox1/> */}
+      {/* <LoginPage1 /> */}
+
       <ToastContainer />
     </>
   );
