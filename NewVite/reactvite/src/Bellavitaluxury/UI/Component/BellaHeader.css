@@ -96,7 +96,7 @@ a{
 
 .menubar{
     position: fixed;
-    top: 30px;
+    top: 100px;
     right: 0;
     /* transform: translate(100px,-20px); */
     background-color: aliceblue;
@@ -107,12 +107,14 @@ a{
    z-index: 5;
 }
 .closebtn{
-    transform: translate(10px ,-100px);
+    transform: translate(10px ,0px);
     /* transform: rotate(180deg); */
 
 }
 .menutext{
-    margin: 70px 60px 0px 0px;
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
 }
 .menutext h5{
     margin: 20px 0px;

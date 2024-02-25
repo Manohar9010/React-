@@ -22,14 +22,10 @@
     margin: 0px 15px;
   }
   /* footer */
-  .footermain{
-    padding: 30px 0px 30px 0px
-  }
   .footerdflex {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin: 20px 5px;
-    padding: 0;
   }
 
   .footersoc {
@@ -45,23 +41,22 @@
 
   .shopcategoryinsercard {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .lurecarddiv {
     display: flex;
     flex-direction: column;
-    margin: 0px 0px ;
   }
   .mostlovedmain {
     display: flex;
     flex-direction: column;
   }
   .mostlovedsmall {
-    transform: translateX(30px);
+    transform: translateX(100px);
   }
   .occasiondiv {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .reallydflex {
     display: flex;
@@ -73,40 +68,14 @@
 }
   .featuredflex {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
-  .reallytext .reallyimg2{
-    width:100%;
-  }
+}
 
-
-  /* footer */
-  .footermain{
-    padding: 20px !important;
-  }
-
-  .footerdflex{
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-    margin: 0px 0px;
-  }
-  .footermoretypes p{
-   
-    line-height: 20px;
-   
- }
- .footersecure{
-  justify-content: flex-start;
- }
- .footersoc p{
-  width: 75%;
- }
- .footermain .lastimg{
-  margin: 0px;
-  padding: 0px ;
- }
- .footermain .lastimg .images3{
-  width: 100%;
- }
-
+/* ABOUT */
+.bellabout{
+  display: grid;
+grid-template-columns: repeat(1, 1fr);
+/* gap: 1010px; */
+margin: 30px 10px;
 }

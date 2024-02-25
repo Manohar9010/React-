@@ -94,13 +94,13 @@ export default function BellaHeader() {
                 <li>
                   {" "}
                   <NavLink style={{ color: "black" }} to={"/bellabout"}>
-                    About
+                    CreyDeals
                   </NavLink>{" "}
                 </li>
                 <li>
                   {" "}
                   <NavLink style={{ color: "black" }} to={"/bellcontact"}>
-                    Contact Us
+                    Shop All
                   </NavLink>
                 </li>
                 <li className="fragreceli">

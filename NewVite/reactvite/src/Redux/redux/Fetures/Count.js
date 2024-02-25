@@ -17,13 +17,12 @@ const countselecter = createSlice({
     // inpointer: (state, action) => {
     //   state.point += 0.5;
     // },
-    // lessamoutn: (state, action) => {  
+    // lessamoutn: (state, action) => {
     //   state.count -= 5;
     //   state.amount -= 10;
     //   state.point -= 0.5;
     // },
   },
- 
 });
 
 export default countselecter.reducer;

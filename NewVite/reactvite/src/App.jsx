@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import ApiPost from "./Api/ApiPost";
 import Product from "./Api/Product";
 import SimpleApi from "./Api/SimpleApi";
@@ -8,10 +9,12 @@ import MainLogin from "./Inputs/FilterUser/MainLogin";
 import RouteMain from "./Inputs/Rigister&Login/RouteMain";
 import SimpleInput from "./Inputs/SingleInput";
 import ToDoList from "./Inputs/TodoList";
+import ToDoList1 from "./Inputs1/TodoList1";
 import AppRedux from "./Redux/AppRedux";
 import Slidercheck from "./Slidercheck";
 import TravelProjectmain from "./TravelProject/TravelProjectmain";
 import UseforPractice from "./UseforPractice";
+import IndexDisplay from "./inputdd/indexdisplay";
 import ReduxMain from "./rrrrr/ReduxMain";
 function App() {
   return (
@@ -24,13 +27,19 @@ function App() {
       {/* <SimpleApi/> */}
       {/* <ApiPost/> */}
       {/* <Product /> */}
-      {/* <UseforPractice/> */}
+      <UseforPractice/>
       {/* <BellaRouter/> */}
       {/* <Slidercheck/> */}
       {/* <MainLogin/>   */}
       {/* =======redux====== */}
-      <AppRedux />
+      {/* <AppRedux /> */}
       {/* <ReduxMain/> */}
+   
+
+   
+      {/* <IndexDisplay/> */}
+      <ToastContainer />
+
     </>
   );
 }

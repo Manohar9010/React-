@@ -76,7 +76,6 @@ var settings = {
         slidesToShow: 3,
         slidesToScroll: 3,
         infinite: true,
-        dots: true,
       },
     },
     {
@@ -102,10 +101,10 @@ export default function Bestsellers() {
     <div>
       <div className="bestsellermain">
         <Slider {...settings}>
-          {bestsellercarddata.map((data,i) => {
+          {bestsellercarddata.map((data) => {
             return (
-              <div key={i} className="cardmain ">
-                <BestSellercard 
+              <div className="cardmain ">
+                <BestSellercard
                   imag1={data.image}
                   type={data.type}
                   brandname={data.brandname}
