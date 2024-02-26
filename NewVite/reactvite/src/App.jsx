@@ -27,12 +27,12 @@ function App() {
       {/* <SimpleApi/> */}
       {/* <ApiPost/> */}
       {/* <Product /> */}
-      <UseforPractice/>
+      {/* <UseforPractice/> */}
       {/* <BellaRouter/> */}
       {/* <Slidercheck/> */}
       {/* <MainLogin/>   */}
       {/* =======redux====== */}
-      {/* <AppRedux /> */}
+      <AppRedux />
       {/* <ReduxMain/> */}
    
 
