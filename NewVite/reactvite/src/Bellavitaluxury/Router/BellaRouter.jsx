@@ -14,8 +14,9 @@ import '../UI/Pages/CssMediaQuary/Min768px.css'
 import '../UI/Pages/CssMediaQuary/Min992px.css'
 import '../UI/Pages/CssMediaQuary/Min1200px.css'
 import '../UI/Pages/CssMediaQuary/Min1400px.css'
-import ProtectedRoute from './ProtectedRoute'
+import {ProtectedRoute,  ProtectedRouteuser } from './ProtectedRoute'
 import ProfilePage from '../UI/Pages/ProfilePage/ProfilePage'
+import WishList from '../UI/Pages/Wishlist/WishList'
 export default function BellaRouter() {
   return (
     <div>
@@ -28,7 +29,8 @@ export default function BellaRouter() {
     <Route path='/bellrigister' element={<BellRegistetion/>} />
     <Route path='/bellabout' element={<BellaAboutus/>} />
     <Route path='/bellcontact' element={<BellaContact/>} />
-    <Route path='/profile' element={<ProtectedRoute  Componentprofile={<ProfilePage/>} />}/>
+    <Route path='/wishlist' element={<ProtectedRouteuser  Componentuser={<WishList/>}/>    } />
+    <Route path='/profile' element={<ProtectedRoute  Componentuser={<WishList/>} Componentprofile={<ProfilePage/>} />}/>
     <Route path='*' element={<BellError/>} />
    </Routes>
    <BellaFooter/>

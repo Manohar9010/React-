@@ -139,7 +139,10 @@ export default function BellaHeader() {
                   <NavLink to={"/profile"} style={{ color: "black" }} >  Profile</NavLink>
                   
                 </li>
-                <li>Wishlist</li>
+                <li>
+
+                  <NavLink to={"/wishlist"} style={{ color: "black" }}>Wishlist</NavLink>
+                </li>
               </ul>
             </div>
           </div>

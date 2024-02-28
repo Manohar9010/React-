@@ -2,25 +2,35 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export default function ProtectedRoute({ Componentprofile }) {
+export const ProtectedRoute = ({ Componentprofile, Componentuser }) => {
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   let josndata = localStorage.getItem("userType");
-  //   let normaldata = JSON.parse(josndata);
-  //   if (!normaldata || normaldata?.usertyep !== "admin") {
-  //     navigate("/");
-  //   }
 
-  // })
   useEffect(() => {
-    let normaldata =JSON.parse (localStorage.getItem("userType"));
-    console.log("first===>",normaldata)
+    let normaldata = JSON.parse(localStorage.getItem("userType"));
+
     if (!normaldata || normaldata?.usertype !== "Admin") {
       navigate("/belllogin");
-      toast.warning("plese login")
     }
   });
 
-  
-  return <div>{Componentprofile}</div>;
-}
+  return (
+    <div>
+      {Componentprofile} {Componentuser}
+    </div>
+  );
+};
+
+export const ProtectedRouteuser = ({ Componentuser }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    let normaldata = JSON.parse(localStorage.getItem("userType"));
+
+    if (!normaldata || normaldata?.usertype !== "User") {
+      navigate("/belllogin");
+      toast.warning("plese login");
+    }
+  });
+
+  return <div>{Componentuser}</div>;
+};
