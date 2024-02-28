@@ -7,31 +7,29 @@ export default function Admin() {
       gender: "Male",
     },
     {
-        gender: "Femal",
+      gender: "Femal",
     },
     {
-        gender: "Kids",
+      gender: "Kids",
     },
   ];
   return (
     <div>
       <Form>
- 
-     
-  <FormGroup tag="fieldset">
-    {
-        Radioarry.map((e,i)=>{
-            return   <FormGroup check>
-            <Input
-                    onClick={() => ChackChange("Reading")}
-                    id="checkbox2"
-                    type="checkbox"
-                  />{" "}
-                  <Label check>Reading</Label>
-          </FormGroup>
-        })
-    }
-    {/* <FormGroup check>
+        <FormGroup tag="fieldset">
+          {Radioarry.map((e, i) => {
+            return (
+              <FormGroup check>
+                <Input
+                  onClick={() => ChackChange("Reading")}
+                  id="checkbox2"
+                  type="checkbox"
+                />{" "}
+                <Label check>Reading</Label>
+              </FormGroup>
+            );
+          })}
+          {/* <FormGroup check>
       <Input
         name="radio1"
         type="radio"
@@ -41,12 +39,8 @@ export default function Admin() {
         Male
       </Label>
     </FormGroup> */}
-   
-    
-  </FormGroup>
- 
-  
-</Form>
+        </FormGroup>
+      </Form>
     </div>
   );
 }

@@ -12,7 +12,7 @@ export const Protector = ({ Component }) => {
   });
 
   return (
-    <div>
+    <div> 
       Protector
       {Component}
     </div>

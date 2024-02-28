@@ -99,7 +99,7 @@ function App() {
       {/* <Classprops/>    */}
       {/* <Propspro1/> */}
       {/* <PropsChange name="shivam"/> */}
-      <Use_State_Class_Task/>
+      {/* <Use_State_Class_Task/> */}
       {/* <LifecycleMethod/>   */}
       {/* <UseFor/> */}
       {/* <ExpApp/> */}
@@ -126,7 +126,7 @@ function App() {
       {/* <UseoneReduser/> */}
       {/* <RoutingCom/> */}
       {/* <Routing/> */}
-      {/* <ProtectRoute /> */}
+      <ProtectRoute />
       {/* <ProtectRoutTask1/> */}
       {/* <RadioButton/> */}
       {/* <TaskUseffce/> */}
