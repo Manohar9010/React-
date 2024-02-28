@@ -28,11 +28,11 @@ function App() {
       {/* <ApiPost/> */}
       {/* <Product /> */}
       {/* <UseforPractice/> */}
-      {/* <BellaRouter/> */}
+      <BellaRouter/>
       {/* <Slidercheck/> */}
       {/* <MainLogin/>   */}
       {/* =======redux====== */}
-      <AppRedux />
+      {/* <AppRedux /> */}
       {/* <ReduxMain/> */}
    
 

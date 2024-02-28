@@ -4,3 +4,9 @@
 .bellaclogon{
     padding: 50px 0px;
 }
+.homebutton{
+    position: absolute;
+    top: 200px;
+    left: 25px;
+
+}

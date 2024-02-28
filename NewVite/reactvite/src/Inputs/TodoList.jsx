@@ -79,25 +79,26 @@ export default function ToDoList() {
     }
   };
 
-  useEffect(() => {
-    try {
-      let jsondata = localStorage.getItem("passdata") || "[]";
-      const normaldata = JSON.parse(jsondata);
+  // useEffect(() => {
+   
+  //     let jsondata = localStorage.getItem("passdata") || "[]";
+  //     const normaldata = JSON.parse(jsondata);
 
-      let jsondata1 = localStorage.getItem("pendindata") || "[]";
-      const normal1 = JSON.parse(jsondata1);  
-      if (normaldata || normal1) {
-        setDonetask(normaldata);
-        setPendingdata(normal1);
-      }
-    } catch (error) {
-      // Handle the error, e.g. log it or set a default value for donetask
-      console.error("Error parsing JSON data:", error);
-      // Set a default value for donetask if parsing fails
-      setDonetask([]);
-      setPendingdata([]);
-    }
-  }, []);
+  //     let jsondata1 = localStorage.getItem("pendindata") || "[]";
+  //     const normal1 = JSON.parse(jsondata1);  
+  //     if (normaldata || normal1) {
+  //       setDonetask(normaldata);
+  //       setPendingdata(normal1);
+  //     }
+   
+  //     // Handle the error, e.g. log it or set a default value for donetask
+  //     console.error("Error parsing JSON data:", error);
+  //     // Set a default value for donetask if parsing fails
+  //     setDonetask([]);
+  //     setPendingdata([]);
+  
+  // }, []);
+
 
   const pendingcheckfun = (index) => {
     let avalible = selectindex.includes(index);

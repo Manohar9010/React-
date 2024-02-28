@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./BellaRegistaion.css";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import Select from "react-select";
+import { NavLink } from "react-router-dom";
 export default function BellRegistetion() {
   const [userdata, setUserdata] = useState({
     username: "",
@@ -171,6 +172,14 @@ export default function BellRegistetion() {
                 </FormGroup>
                 <Button className="bg-secondary   text-white fs-5 fw-medium">
                   Submit
+                </Button>
+                <Button className="ms-3">
+                  <NavLink
+                    className="text-white fs-5 fw-medium "
+                    to={"/belllogin"}
+                  >
+                    Login
+                  </NavLink>
                 </Button>
               </Form>
             </div>
