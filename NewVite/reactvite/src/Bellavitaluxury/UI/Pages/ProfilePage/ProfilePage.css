@@ -1,3 +1,7 @@
 .profilemain{
-    padding: 250px 0px 0px 0px;
+    padding: 210px 0px 0px 0px;
+    margin: 0px 25px;
+}
+.profilemain h1{
+    font-family: ' ui-rounded';
 }

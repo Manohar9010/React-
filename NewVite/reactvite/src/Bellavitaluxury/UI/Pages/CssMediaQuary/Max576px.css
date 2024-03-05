@@ -6,7 +6,7 @@
   .headermain .headtitle {
     margin: 0px;
     padding: 0px;
-    width: 100%;
+    width: 70%;
     height: 100%;
   }
   .headermain .search Input {
@@ -78,4 +78,11 @@
 grid-template-columns: repeat(1, 1fr);
 /* gap: 1010px; */
 margin: 30px 10px;
+}
+
+
+
+.shopcategorycard{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
 }

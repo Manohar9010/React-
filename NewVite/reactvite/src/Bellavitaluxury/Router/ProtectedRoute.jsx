@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export const ProtectedRoute = ({ Componentprofile, Componentuser }) => {
+export const ProtectedRoute = ({ Componentprofile }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,10 +15,12 @@ export const ProtectedRoute = ({ Componentprofile, Componentuser }) => {
 
   return (
     <div>
-      {Componentprofile} {Componentuser}
+      {Componentprofile} 
     </div>
   );
 };
+
+
 
 export const ProtectedRouteuser = ({ Componentuser }) => {
   const navigate = useNavigate();
@@ -26,7 +28,7 @@ export const ProtectedRouteuser = ({ Componentuser }) => {
   useEffect(() => {
     let normaldata = JSON.parse(localStorage.getItem("userType"));
 
-    if (!normaldata || normaldata?.usertype !== "User") {
+    if (!normaldata || normaldata?.usertype !== "User" && normaldata?.usertype !== "Admin") {
       navigate("/belllogin");
       toast.warning("plese login");
     }

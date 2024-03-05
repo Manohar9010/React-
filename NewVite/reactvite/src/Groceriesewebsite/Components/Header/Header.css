@@ -1,0 +1,70 @@
+header {
+  padding: 20px;
+}
+
+.headdisplayflex {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.headdisplayflex .headimgdiv {
+  transform: scale(0.7);
+  flex: 0.7;
+}
+.headdisplayflex .search {
+  border: 1px solid #ace2ac;
+  border-radius: 5px;
+  height: 40px;
+  padding: 1px 10px;
+  display: flex;
+  margin: auto 0px;
+  flex: 0.9;
+}
+.headdisplayflex .search .allcat {
+  margin-top: 25px;
+  position: relative;
+  cursor: pointer;
+  width: 80%;
+}
+.headdisplayflex .search .allcat::after {
+  position: absolute;
+  content: "";
+  top: -12px;
+  /* left: 0; */
+  right: -10px;
+  width: 1px;
+  height: 100%;
+  background-color: #8ed58e;
+}
+
+.headdisplayflex .search input {
+  border: none;
+}
+.headdisplayflex .headlocation {
+  display: flex;
+  margin: auto 0px;
+  padding-top: 15px;
+  color: #8ed58e;
+}
+.headlocation {
+  position: relative;
+  flex: 0.5;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 20%);
+}
+.headlocation .selecttwo {
+  position: absolute;
+  top: 15px;
+  left: 30px;
+  width: 60%;
+}
+.headlocation .headlicaflex{
+  display: flex;
+  
+}
+.headdisplayflex .headlocation {
+  padding: 5px;
+}
+
+.help {
+  flex: 0.8;
+}

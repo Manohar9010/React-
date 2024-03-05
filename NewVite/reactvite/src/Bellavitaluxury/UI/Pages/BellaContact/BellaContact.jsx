@@ -103,7 +103,7 @@ export default function BellaContact() {
 
   return (
     <div style={{ padding: "200px 0px 50px 0px",  textAlign: "center" }}>
-      <h1>BellaContact</h1>
+      <h1 style={{fontFamily:"ui-rounded",textAlign:"left",paddingLeft:"25px"}}>Shop All <hr /></h1>
 <div  className="d-flex justify-content-center  flex-wrap  gap-5">
       {bestsellercarddata.map((datalue, i) => {
         return (
