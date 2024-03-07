@@ -1,19 +1,11 @@
 .allcategore{
     position: relative;
     display: flex;
-    top: -11px;
+   
 }
 .selectdropdown{
-    position: absolute;
-    top: 19px;
-    left: -10px;
-    right: 0px;
-    bottom: 0px;
-    background-color: white;
-    height: 200px;
-    width: 200%;
-    box-shadow: 0 3px 6px rgb(0 0 0 / 20%);
-    padding: 0px 5px;
+background-color: antiquewhite;    
+    
     
 
 }
@@ -34,7 +26,6 @@
 .dropscroll .active{
     color: white !important;
     background-color: #ccc;
-    border-radius: 5px;
 }
 .dropscroll::-webkit-scrollbar{
     width: 5px;

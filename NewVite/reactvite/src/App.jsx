@@ -17,6 +17,8 @@ import UseforPractice from "./UseforPractice";
 import IndexDisplay from "./inputdd/indexdisplay";
 import ReduxMain from "./rrrrr/ReduxMain";
 import GrocerieseMain from "./Groceriesewebsite/Routing/GrocerieseMain";
+import FormDetails from "./Formvalidation/FormDetails";
+import GetApidata from "./Formvalidation/GetApidata";
 function App() {
   return (
     <>
@@ -29,14 +31,16 @@ function App() {
       {/* <ApiPost/> */}
       {/* <Product /> */}
       {/* <UseforPractice/> */}
-      <BellaRouter/>
+      {/* <BellaRouter/> */}
       {/* <Slidercheck/> */}
       {/* <MainLogin/>   */}
       {/* =======redux====== */}
       {/* <AppRedux /> */}
       {/* <ReduxMain/> */}
-      {/* <GrocerieseMain/> */}
+      <GrocerieseMain/>
       {/* <IndexDisplay/> */}
+      {/* <FormDetails/> */}
+      {/* <GetApidata/> */}
       <ToastContainer />
 
     </>

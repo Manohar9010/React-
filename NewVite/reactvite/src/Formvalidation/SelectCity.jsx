@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
-import "./Selectdrop.css";
+import React, { useState } from "react";
+import "./SelectCity.css";
 import { Input } from "reactstrap";
 import { ChevronDown } from "lucide-react";
 
-export default function Selectdrop({ categories ,placeholder}) {
+export default function Selectcity({ city,setUserdata,userdata}) {
   const [opendrop, setOpendrop] = useState(false);
   const [selectindex, setSelectindex] = useState(0);
-  const [iteval, setItemval] = useState(placeholder);
-  const [search,setSearch]=useState("")
-  const [serachdata,setSearchdata]=useState(categories)
+  const [iteval, setItemval] = useState("city");
   const opendrapfun = () => {
     setOpendrop(!opendrop);
   };
@@ -17,28 +15,14 @@ export default function Selectdrop({ categories ,placeholder}) {
     setOpendrop(false);
     setSelectindex(index);
     setItemval(item);
-    setSearch("")
+      setUserdata({...userdata,city:item})
   };
-  useEffect(()=>{ 
-     const list=serachdata.filter((item)=>{
-      return(
-        item .toLocaleLowerCase().includes(search.toLocaleLowerCase())
-      )
-     })
-    let list2=[...new Set(list)]
-    setSearchdata(list2)
-   
-    if(search.length ===0){
-      setSearchdata(categories)
-    }
-  })
-
   return (
     <div>
       <div className="allcategore d-flex justify-content-evenly" onClick={opendrapfun}>
         <div style={{flex:"2"}}>
 
-        {iteval.length >14 ?iteval.substr(0,14)+"...":iteval}
+        {iteval}
         </div>
         <div>
        <ChevronDown color="#191a19" />
@@ -47,15 +31,13 @@ export default function Selectdrop({ categories ,placeholder}) {
       
 
       {opendrop === true && (
-        <div className="selectdropdown">
-          <div className="searchinput">
+        <div className="">
+          <div className="">
             <div>
-              <div>
-                <Input type="text" onChange={(e)=>setSearch(e?.target?.value)} placeholder="Search item.." />
-              </div>
+              
               <div className="dropscroll">
                 <ul>
-                  {serachdata.map((e, i) => {
+                  {city.map((e, i) => {
                     return (
                       <li
                         key={i}

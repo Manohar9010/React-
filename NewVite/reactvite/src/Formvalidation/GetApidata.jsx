@@ -30,7 +30,7 @@ let intialProduct = {
   gender: "",
 };
 
-export default function Product() {
+export default function GetApidata() {
   const [product, setProduct] = useState(intialProduct);
   const [getproduct, setGetproduct] = useState([]);
   const [refetch, setRefetch] = useState(true);
@@ -41,7 +41,7 @@ export default function Product() {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:9999/product/getAll",
+      url: "http://exam.antimtechnologies.com/SelectUser.php/getAll",
     })
       .then((res) => {
         console.log(res.data.data);
@@ -61,7 +61,7 @@ export default function Product() {
       .then((res) => {
         alert("adddata");
         refetchData();
-         setGetproduct(res?.data?.data)
+        //  setGetproduct(res?.data?.data)
       })
       .catch((error) => {
         alert(error);

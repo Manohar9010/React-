@@ -41,7 +41,7 @@ export default function Product() {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://localhost:9999/product/getAll",
+      url: "http://exam.antimtechnologies.com/SelectUser.php/getall",
     })
       .then((res) => {
         console.log(res.data.data);
@@ -55,7 +55,7 @@ export default function Product() {
   let submitHanler = () => {
     axios({
       method: "post",
-      url: "http://localhost:9999/product/create",
+      url: "http://exam.antimtechnologies.com/SelectUser.php/create",
       data: product,
     })
       .then((res) => {

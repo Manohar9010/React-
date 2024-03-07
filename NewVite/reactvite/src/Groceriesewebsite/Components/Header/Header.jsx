@@ -3,10 +3,17 @@ import "./Header.css";
 import iconimg from "../../images/logo.svg";
 import { Link, NavLink } from "react-router-dom";
 import { Input } from "reactstrap";
-import { ChevronDown, MapPin, Search } from "lucide-react";
+import { ChevronDown, Heart, LogOut, MapPin, Search, SlidersHorizontal, User } from "lucide-react";
 import Selectdrop from "../Selectdrop/Selectdrop";
 import axios from "axios";
+
+import compareimg from "../../images/icon-compare.svg";
+import heartimg from "../../images/icon-heart.svg";
+import cartimg from "../../images/icon-cart.svg";
+import userimg from "../../images/icon-user.svg";
 export default function Header() {
+
+  const [openacdrop,setacdrop]=useState (false)
   let categories = [
     " All Categories",
     "Milks and Dairies",
@@ -23,7 +30,6 @@ export default function Header() {
     "Clothing & beauty",
     "Fresh Seafood",
   ];
-  // https://countriesnow.space/api/v0.1/countries/
   const countrylist = [];
   useEffect(() => {
     axios({
@@ -34,7 +40,6 @@ export default function Header() {
         if (res !== null) {
           res.data.data.map((item, index) => {
             countrylist.push(item.country);
-            console.log(countrylist);
           });
         }
       })
@@ -42,7 +47,9 @@ export default function Header() {
         console.log(error);
       });
   }, []);
-
+const actopenfun=()=>{
+  setacdrop(!openacdrop)
+}
   return (
     <div>
       <header>
@@ -61,9 +68,9 @@ export default function Header() {
               <Input type="text" placeholder="Search for items..." />
               <Search color="#9ea39f" size={35} style={{ cursor: "pointer" }} />
             </div>
-            <div className="headlocation">
+            <div className="headlocation" style={{}}>
               <div className="headlicaflex">
-                <div className="">
+                <div>
                   <MapPin color="#8ed58e" />
                 </div>
                 <div className="selecttwo">
@@ -74,7 +81,41 @@ export default function Header() {
                 </div>
               </div>
             </div>
-            <div className="help">hellp</div>
+            <div className="help">
+            
+              <div className="options ">
+                <ul className="d-flex gap-3 ">
+                  <li className="d-flex gap-1 align-items: baseline;">
+                    <img src={compareimg} alt="" /> 
+                    <span className="optioncircle">3</span>
+                    <p>Compare</p>
+                  </li>
+                  <li className="d-flex gap-1 align-items: baseline;">
+                    <img src={heartimg} alt="" />
+                    <span className="optioncircle">4</span>
+                    <p>wishlist</p>
+                  </li>
+                  <li className="d-flex gap-1 align-items: baseline;">
+                    <img src={cartimg} alt="" />
+                    <span className="optioncircle">6</span>
+                    <p>Cart</p>
+                  </li>
+                  <li className="d-flex gap-1 align-items: baseline;"  style={{cursor:"pointer"}}>
+                    <img onClick={actopenfun} src={userimg} alt="" />
+                    <p className="account">Account</p>
+                    { openacdrop &&
+                    <ul className="actlist">
+                      <li ><User size={18}/> My Account</li>
+                      <li ><MapPin size={18} /> Order Tracking</li>
+                      <li ><Heart size={18}/> My Wishlist</li>
+                      <li ><SlidersHorizontal size={18}/> Setting</li>
+                      <li ><LogOut size={18}/> Sign Out</li>
+                    </ul>
+}
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </header>

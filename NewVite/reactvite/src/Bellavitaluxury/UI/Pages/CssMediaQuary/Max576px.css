@@ -41,7 +41,7 @@
 
   .shopcategoryinsercard {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   .lurecarddiv {
     display: flex;
@@ -52,11 +52,11 @@
     flex-direction: column;
   }
   .mostlovedsmall {
-    transform: translateX(100px);
+    transform: translateX(10px);
   }
   .occasiondiv {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   .reallydflex {
     display: flex;
@@ -68,7 +68,7 @@
 }
   .featuredflex {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -82,7 +82,3 @@ margin: 30px 10px;
 
 
 
-.shopcategorycard{
-  display: grid;
-  grid-template-columns: repeat(1,1fr);
-}
