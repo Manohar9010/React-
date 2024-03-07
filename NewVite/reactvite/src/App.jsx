@@ -31,13 +31,13 @@ function App() {
       {/* <ApiPost/> */}
       {/* <Product /> */}
       {/* <UseforPractice/> */}
-      {/* <BellaRouter/> */}
+      <BellaRouter/>
       {/* <Slidercheck/> */}
       {/* <MainLogin/>   */}
       {/* =======redux====== */}
       {/* <AppRedux /> */}
       {/* <ReduxMain/> */}
-      <GrocerieseMain/>
+      {/* <GrocerieseMain/> */}
       {/* <IndexDisplay/> */}
       {/* <FormDetails/> */}
       {/* <GetApidata/> */}

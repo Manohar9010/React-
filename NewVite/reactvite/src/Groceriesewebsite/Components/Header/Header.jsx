@@ -3,7 +3,15 @@ import "./Header.css";
 import iconimg from "../../images/logo.svg";
 import { Link, NavLink } from "react-router-dom";
 import { Input } from "reactstrap";
-import { ChevronDown, Heart, LogOut, MapPin, Search, SlidersHorizontal, User } from "lucide-react";
+import {
+  ChevronDown,
+  Heart,
+  LogOut,
+  MapPin,
+  Search,
+  SlidersHorizontal,
+  User,
+} from "lucide-react";
 import Selectdrop from "../Selectdrop/Selectdrop";
 import axios from "axios";
 
@@ -12,8 +20,6 @@ import heartimg from "../../images/icon-heart.svg";
 import cartimg from "../../images/icon-cart.svg";
 import userimg from "../../images/icon-user.svg";
 export default function Header() {
-
-  const [openacdrop,setacdrop]=useState (false)
   let categories = [
     " All Categories",
     "Milks and Dairies",
@@ -47,9 +53,7 @@ export default function Header() {
         console.log(error);
       });
   }, []);
-const actopenfun=()=>{
-  setacdrop(!openacdrop)
-}
+
   return (
     <div>
       <header>
@@ -82,11 +86,10 @@ const actopenfun=()=>{
               </div>
             </div>
             <div className="help">
-            
               <div className="options ">
                 <ul className="d-flex gap-3 ">
                   <li className="d-flex gap-1 align-items: baseline;">
-                    <img src={compareimg} alt="" /> 
+                    <img src={compareimg} alt="" />
                     <span className="optioncircle">3</span>
                     <p>Compare</p>
                   </li>
@@ -100,19 +103,38 @@ const actopenfun=()=>{
                     <span className="optioncircle">6</span>
                     <p>Cart</p>
                   </li>
-                  <li className="d-flex gap-1 align-items: baseline;"  style={{cursor:"pointer"}}>
-                    <img onClick={actopenfun} src={userimg} alt="" />
-                    <p className="account">Account</p>
-                    { openacdrop &&
-                    <ul className="actlist">
-                      <li ><User size={18}/> My Account</li>
-                      <li ><MapPin size={18} /> Order Tracking</li>
-                      <li ><Heart size={18}/> My Wishlist</li>
-                      <li ><SlidersHorizontal size={18}/> Setting</li>
-                      <li ><LogOut size={18}/> Sign Out</li>
-                    </ul>
-}
+
+                  <li className="showdrop d-flex gap-1 align-items: baseline;">
+                    <img
+                      style={{ cursor: "pointer" }}
+                      className="divshow"
+                      src={userimg}
+                      alt=""
+                    />
+                    <p
+                      style={{ cursor: "pointer" }}
+                      className="account divshow"
+                    >
+                      Account
+                    </p>
                   </li>
+                  <ul className="actlist">
+                    <li>
+                      <User size={18} /> My Account
+                    </li>
+                    <li>
+                      <MapPin size={18} /> Order Tracking
+                    </li>
+                    <li>
+                      <Heart size={18} /> My Wishlist
+                    </li>
+                    <li>
+                      <SlidersHorizontal size={18} /> Setting
+                    </li>
+                    <li>
+                      <LogOut size={18} /> Sign Out
+                    </li>
+                  </ul>
                 </ul>
               </div>
             </div>
