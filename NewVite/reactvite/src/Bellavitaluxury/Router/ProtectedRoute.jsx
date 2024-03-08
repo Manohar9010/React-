@@ -8,7 +8,7 @@ export const ProtectedRoute = ({ Componentprofile }) => {
   useEffect(() => {
     let normaldata = JSON.parse(localStorage.getItem("userType"));
 
-    if (!normaldata || normaldata?.usertype !== "Admin") {
+    if (!normaldata || normaldata?.usertype !== "admin") {
       navigate("/belllogin");
     }
   });
@@ -28,9 +28,9 @@ export const ProtectedRouteuser = ({ Componentuser }) => {
   useEffect(() => {
     let normaldata = JSON.parse(localStorage.getItem("userType"));
 
-    if (!normaldata || normaldata?.usertype !== "User" && normaldata?.usertype !== "Admin") {
+    if (!normaldata || normaldata?.usertype !== "User" && normaldata?.usertype !== "admin") {
       navigate("/belllogin");
-      toast.warning("plese login");
+      alert("plese login")
     }
   });
 

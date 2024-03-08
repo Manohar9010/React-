@@ -193,41 +193,42 @@
 //   );
 // }
 
-
-
 import React, { useEffect, useState } from "react";
 import "./BellaRegistaion.css";
-import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { Button, Col, Form, FormGroup, Input, Label, Row } from "reactstrap";
 import Select from "react-select";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { register } from "../../../Redux/Fetures/SingupSlice";
 export default function BellRegistetion() {
   const [userdata, setUserdata] = useState({
     name: "",
     age: "",
     email: "",
     password: "",
+    conpassword:"",
     // gender: "",
     // hobbys: [],
-    // usertype: "",
-    address:[],
-    
-    
-    
+    userType: "",
+    address: [],
   });
-
-  const [addval,setaddval]=useState({
-    add:"",
-    city:"",
-    state:"",
-    pincode:"",
-  })
-
-  // const options = [
-  //   { value: "User", label: "User" },
-  //   { value: "Admin", label: "Admin" },
-  //   { value: "Employee", label: "Employee" },
-  // ];
+   
+  const [check,setCheck]=useState(false)
+  const [addval, setaddval] = useState({
+    add: "",
+    city: "",
+    state: "",
+    pincode: "",
+  });
+   
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const options = [
+    { value: "user", label: "User" },
+    { value: "admin", label: "Admin" },
+    { value: "customer", label: "customer" },
+  ];
   // let genders = ["Male", "Female", "Kids"];
   // let hobby = ["Reading", "Dancing", "Singing", "Cycling"];
 
@@ -244,6 +245,7 @@ export default function BellRegistetion() {
 
   const getdata = (e) => {
     e.preventDefault();
+    if(userdata.password !==userdata.conpassword)return alert("Check Confom password")
     if (userdata.name.length > 0 && userdata.email.length > 0) {
       let josndata = localStorage.getItem("bellregisterdata");
       let normal = JSON?.parse(josndata || "[]");
@@ -252,39 +254,38 @@ export default function BellRegistetion() {
       //   JSON.stringify([...normal, {...userdata,address:[addval]}])
       // );
 
-
-
       axios({
-        method:"post",
-        url:"http://localhost:9999/user/signup",
-        data:{...userdata,address:[addval]},
+        method: "post",
+        url: "http://localhost:9999/user/signup",
+        data: [{ ...userdata, address: [addval] }],
       })
-      .then((res)=>{
-          console.log(res.data)
-      })
-      .catch((error)=>{
-             console.log(error)
-      })
+        .then((res) => {
+          console.log(res.data);
+          dispatch(register(res.data))
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       // localStorage.setItem(
       //   "bellregisterdata",
       //   JSON.stringify([...normal,[ {userdata,address:addval}]])
-        
+
       // );
-      
-    
+
       setUserdata({
         name: "",
         age: "",
         email: "",
         password: "",
-       
+        conpassword:"",
+        userType:""
       });
       setaddval({
-        add:"",
-        city:"",
-        state:"",
-        pincode:"",
-      })
+        add: "",
+        city: "",
+        state: "",
+        pincode: "",
+      });
       // restoggle();
       // toast.success("Your Detailes Submited");
     } else {
@@ -296,12 +297,7 @@ export default function BellRegistetion() {
     let normal = JSON?.parse(josndata || "[]");
     console.log(" details", normal);
   });
-
   
-    
-
- 
-
   return (
     <div>
       <div className="registermain">
@@ -311,7 +307,10 @@ export default function BellRegistetion() {
           </div>
           <div className="bellaregister">
             <div>
+             
               <Form onSubmit={getdata}>
+              <Row>
+                <Col md={6}>
                 <FormGroup>
                   <Label for="exampleEmail">User Name</Label>
                   <Input
@@ -325,6 +324,8 @@ export default function BellRegistetion() {
                     }
                   />
                 </FormGroup>
+                </Col>
+                <Col md={6}>
                 <FormGroup>
                   <Label for="exampleEmail">Age</Label>
                   <Input
@@ -338,6 +339,11 @@ export default function BellRegistetion() {
                     }
                   />
                 </FormGroup>
+                </Col>
+
+                </Row>
+                <Row>
+                  <Col md={6}>
                 <FormGroup>
                   <Label for="exampleEmail">Email</Label>
                   <Input
@@ -351,21 +357,50 @@ export default function BellRegistetion() {
                     }
                   />
                 </FormGroup>
+                </Col>
+                <Col md={6}>
                 <FormGroup>
                   <Label for="examplePassword">Password</Label>
                   <Input
                     id="examplePassword"
                     name="password"
                     placeholder="password"
-                    type="password"
+                    type={check ? "text" : "password"} 
                     value={userdata.password}
                     onChange={(e) =>
                       setUserdata({ ...userdata, password: e?.target?.value })
                     }
                   />
                 </FormGroup>
+                </Col>
+                </Row>
+                <Row>
+                 
+                 <Col md={6}>
+                <FormGroup>
+                  <Label for="ConformPassword">Conform Password</Label>
+                  <Input
+                    id="exampleConformPassword"
+                    name="Conformpassword"
+                    placeholder="Conform password"
+                    type="password" 
+                    value={userdata.conpassword}
+                    onChange={(e) =>
+                      setUserdata({ ...userdata, conpassword: e?.target?.value })
+                    }
+                  />
+                </FormGroup>
+                </Col>
+                <Col md={6} className="mt-4">
+                <FormGroup>
+                  <Input type="checkbox"  checked={check} onChange={()=>setCheck(!check)}/>
 
-                 {/* <FormGroup>
+                <Label className="ms-2">ShowPassword</Label>
+
+                </FormGroup>
+                 </Col>
+                </Row>
+                {/* <FormGroup>
                   <legend>Gender</legend>
                   <FormGroup className="d-flex gap-4 ">
                     {genders.map((e, i) => {
@@ -409,38 +444,89 @@ export default function BellRegistetion() {
                     />
                    </FormGroup> 
                   </FormGroup>  */}
-               <FormGroup>
-                 <Label>Add</Label>
-                   <Input type="text" value={addval.add} onChange={(e)=>setaddval({...addval,add:e?.target.value})} />
-                </FormGroup>
-               <FormGroup>
-                   <Label>City</Label>
-                  <Input type="text" value={addval.city} onChange={(e)=>setaddval({...addval,city:e?.target.value})} />
-               </FormGroup>
+
+                  <Row>
+                    <Col md={6}>
                 <FormGroup>
-                 <Label>State</Label>
-                  <Input type="text" value={addval.state} onChange={(e)=>setaddval({...addval,state:e?.target.value})} />
-              </FormGroup>
+                  <Label>Add</Label>
+                  <Input
+                    type="text"
+                    value={addval.add}
+                    placeholder="Address"
+                    onChange={(e) =>
+                      setaddval({ ...addval, add: e?.target.value })
+                    }
+                  />
+                </FormGroup>
+                </Col>
+                <Col md={6}>
+                <FormGroup>
+                  <Label>City</Label>
+                  <Input
+                    type="text"
+                    value={addval.city}
+                    placeholder="City"
+                    onChange={(e) =>
+                      setaddval({ ...addval, city: e?.target.value })
+                    }
+                  />
+                </FormGroup>
+                </Col>
+                </Row>
+                <Row>
+                  <Col md={6}>
+                <FormGroup>
+                  <Label>State</Label>
+                  <Input
+                    type="text"
+                    value={addval.state}
+                    placeholder="State"
+                    onChange={(e) =>
+                      setaddval({ ...addval, state: e?.target.value })
+                    }
+                  />
+                </FormGroup>
+                </Col>
+                <Col md={6}>
                 <FormGroup>
                   <Label>pinCone</Label>
-                  <Input type="text" value={addval.pincode} onChange={(e)=>setaddval({...addval,pincode:e?.target.value})} />
+                  <Input
+                    type="text"
+                    value={addval.pincode}
+                    placeholder="Pincode"
+                    onChange={(e) =>
+                      setaddval({ ...addval, pincode: e?.target.value })
+                    }
+                  />
                 </FormGroup>
-                <Button className="bg-secondary   text-white fs-5 fw-medium">
+                </Col>
+                </Row>
+                <FormGroup>
+                    <Select
+                      onChange={(e) =>
+                        setUserdata({ ...userdata, userType: e?.value })
+                      }
+                      options={options}
+                    />
+                   </FormGroup> 
+                <Button className="bg-dark  w-100 text-white fs-5 fw-medium">
                   Submit
-                </Button>
-                <Button className="ms-3">
+                </Button> 
+                <div className="mt-2">
+                If You Have Alredy Account ? &nbsp;&nbsp;
                   <NavLink
-                    className="text-white fs-5 fw-medium "
+                    className="text-dark fs-6 fw-medium "
                     to={"/belllogin"}
                   >
                     Login
-                  </NavLink>
-                </Button>
+                  </NavLink> 
+                </div>
+             
               </Form>
             </div>
           </div>
         </div>
-         <p>{addval.add}</p>
+        <p>{addval.add}</p>
         <p>{addval.city}</p>
         <p>{addval.state}</p>
       </div>

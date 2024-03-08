@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 export default function BellaHeader() {
   const [togleopen, setTogleope] = useState(false);
   const [navuse,setNavuse]=useState(false)
+  const [navoption,setNavoption]=useState("normal")
   const navtoggle =()=>{
     setNavuse(!navuse)
   }
@@ -19,7 +20,7 @@ export default function BellaHeader() {
     <div className="headermain" >
       <div children="headpost">
         <div>
-          <div className="bg-black" style={{ height: "30px", color: "white" }}>
+          {/* <div className="bg-black" style={{ height: "30px", color: "white" }}>
             <span>
               <marquee
                 width="100%"
@@ -46,7 +47,7 @@ export default function BellaHeader() {
                 scrollamount="20"
               ></marquee>
             </span>
-          </div>
+          </div> */}
            
           <div style={{backgroundColor:"white",paddingBottom:"10px"}}>
             <div className="headtitle">
@@ -86,6 +87,7 @@ export default function BellaHeader() {
             
             <div className="navbar">
               <ul className="d-flex justify-content-center gap-5  ">
+                 
                 <li>
                   <NavLink style={{ color: "black" }} to={"/"}>
                     Home
@@ -134,7 +136,7 @@ export default function BellaHeader() {
                     Registration
                   </NavLink>{" "}
                 </li>
-
+                  
                 <li>
                   <NavLink to={"/profile"} style={{ color: "black" }} >  Profile</NavLink>
                   
@@ -146,6 +148,10 @@ export default function BellaHeader() {
                 <li>
 
                   <NavLink to={"/product"} style={{ color: "black" }}>Product</NavLink>
+                </li>
+                <li>
+
+                  <NavLink to={"/dashbord"} style={{ color: "black" }}>Dashbord</NavLink>
                 </li>
               </ul>
             </div>

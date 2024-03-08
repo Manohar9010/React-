@@ -438,7 +438,7 @@ export default function ProductPage() {
           <tbody>
             {getproduct.map((e, i) => {
               return (
-                <tr>
+                <tr key={i}>
                   <th scope="row">{i + 1}</th>
                   <td>
                     <img

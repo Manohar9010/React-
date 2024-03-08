@@ -116,16 +116,16 @@ export default function Bestsellers() {
           })}
         </Slider>
 
-        <img src={bestsellerimg} alt="" />
+        {/* <img src={bestsellerimg} alt="" />
         <img src={bestsellerimg1} alt="" />
         <img src={bestsellerimg2} alt="" />
         <img src={bestsellerimg3} alt="" />
         <img src={bestsellerimg4} alt="" />
         <img src={bestsellerimg5} alt="" />
         <img src={bestsellerimg6} alt="" />
-        <img src={bestsellerimg7} alt="" />
+        <img src={bestsellerimg7} alt="" /> */}
       </div>
     </div>
   );
 }
-7;
+;

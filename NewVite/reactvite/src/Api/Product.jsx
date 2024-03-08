@@ -388,8 +388,8 @@ export default function Product() {
                 <FormGroup className="d-flex gap-3">
                   {genders.map((e, i) => {
                     return (
-                      <FormGroup check>
-                        <Input
+                      <FormGroup key={i} check>
+                        <Input 
                           type="radio"
                           checked={product.gender === e}
                           onChange={() => setProduct({ ...product, gender: e })}
@@ -438,7 +438,7 @@ export default function Product() {
           <tbody>
             {getproduct.map((e, i) => {
               return (
-                <tr>
+                <tr key={i}>
                   <th scope="row">{i + 1}</th>
                   <td>
                     <img

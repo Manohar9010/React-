@@ -6,7 +6,7 @@ export default function ProfilePage() {
 
   useEffect(() => {
     let normaldata = JSON.parse(
-      localStorage.getItem("bellregisterdata") || "[]"
+      localStorage.getItem("userlogin") || "[]"
     );
     setDatapro(normaldata);
   }, []);
@@ -32,7 +32,7 @@ export default function ProfilePage() {
               return (
                 <tr key={i}>
                   <th scope="row">{i + 1}</th>
-                  <td>{e.username}</td>
+                  <td>{e.name}</td>
                   <td>{e.age}</td>
                   <td>{e.email}</td>
                   <td>{e.password}</td>

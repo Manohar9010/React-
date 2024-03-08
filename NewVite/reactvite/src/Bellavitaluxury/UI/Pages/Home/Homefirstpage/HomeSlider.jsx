@@ -14,8 +14,8 @@ export default function HomeSlider() {
         <Swiper
       spaceBetween={0}
       slidesPerView={2}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
+      onSlideChange={() =>('slide change')}
+      onSwiper={(swiper) =>(swiper)}
     >
       <SwiperSlide><img src={homeslideimg1} alt="" /></SwiperSlide>
       <SwiperSlide><img src={homeslideimg2} alt="" /></SwiperSlide>

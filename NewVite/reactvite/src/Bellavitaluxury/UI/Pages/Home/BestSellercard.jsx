@@ -9,7 +9,7 @@ export default function BestSellercard(props) {
   const [datain,setDatain]=useState(props)
   const addwishlist=()=>{
   
-    console.log("Updated datain:", datain);
+    // console.log("Updated datain:", datain);
   }
     
   return (
