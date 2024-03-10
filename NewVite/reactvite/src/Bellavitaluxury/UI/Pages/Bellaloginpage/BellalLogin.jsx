@@ -4,138 +4,54 @@ import { CircleUserRound, LockKeyhole, User } from "lucide-react";
 import { Button, Input } from "reactstrap";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, login } from "../../../Redux/Fetures/SingupSlice";
 
 export default function BellalLogin() {
   const [user, setUser] = useState({
-    username: "",
+    email: "",
     password: "",
   });
+  const navigate = useNavigate();
+  const dispach = useDispatch();
+  const data=useSelector(state=>state.singupdataslice)
+  const [logbutton, setLogbutton] = useState(true);
+  
 
-  const [logbutton, setLogbutton] = useState(false);
-  // const getlogindata = () => {
-  //   if (user.username.length > 0 && user.password.length > 0) {
-  //     let jsondata = localStorage.getItem("bellalogin");
-  //     let loginormar = JSON.parse(jsondata || "[]");
-  //     localStorage.setItem("bellalogin", JSON.stringify([...loginormar, user]));
-  //     setUser({
-  //       username: "",
-  //       password: "",
-  //     });
-  //     toggle();
-  //   } else {
-  //     alert("Enter UserName & Password");
-  //   }
-  // };
-  // const getlogindata = () => {d
-  //   if (user.username.length > 0 && user.password.length > 0) {
-  //     let loginormar = JSON.parse (localStorage.getItem("bellregisterdata") || "[]");
+  const getlogindata = (e) => {
+    e.preventDefault();
 
-  //     setUser({
-  //       username: "",
-  //       password: "",
-  //     });
-  //     // toggle();
-  //   } else {
-  //     alert("Enter UserName & Password");
-  //   }
-  // };
-
-  // const getlogindata = () => {
-  //   if (user.username.length > 0 && user.password.length > 0) {
-  //     let loginormar = JSON.parse(localStorage.getItem("userlogin") || "[]");
-
-  //     const matchingUser = loginormar.find(
-  //       (savedUser) =>
-  //         savedUser.name === user.username &&
-  //         savedUser.password === user.password
-  //     );
-
-  //     if (matchingUser) {
-  //       localStorage.setItem(
-  //         "userType",
-  //         JSON.stringify({ login: true, usertype: matchingUser.userType })
-  //       );
-       
-
-  //       console.log("Login successful");
-  //     } else {
-  //       alert("Invalid Username or Password");
-  //     }
-
-  //     setUser({
-  //       username: "",
-  //       password: "",
-  //     });
-  //   } else {
-  //     alert("Enter UserName & Password");
-  //   }
-  // };
-
-
-  const getlogindata = () => {
-    if (user.username.length > 0 && user.password.length > 0) {
-
-       
-      let loginormar = JSON.parse(localStorage.getItem("userlogin") || "[]");
-
-      const matchingUser = loginormar.find(
-        (savedUser) =>
-          savedUser.name === user.username &&
-          savedUser.password === user.password
-      );
-
-      if (matchingUser) {
-        localStorage.setItem(
-          "userType",
-          JSON.stringify({ login: true, usertype: matchingUser.userType })
-        );
-       
-
-        console.log("Login successful");
-      } else {
-        alert("Invalid Username or Password");
-      }
-
-      setUser({
-        username: "",
-        password: "",
+    axios({
+      method: "post",
+      url: "http://localhost:9999/user/signin",
+      data: user,
+    })
+      .then((res) => {
+        dispach(login(res.data));
+        console.log(res.data.token);
+        setLogbutton(res.data.token)
+        if (res.data.data.userType == "admin") {
+          navigate("/dashbord");
+        }else{
+          navigate("/")
+        }
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    } else {
-      alert("Enter UserName & Password");
-    }
   };
 
-  // const checkfun=()=>{
-
-  //   axios({
-  //     method:"post",
-  //     url:"http://localhost:9999/user/login",
-  //     data: [{ ...user}],
-  //    })
-  //    .then((res)=>{
-  //     console.log("getdata",res.data)
-  //    })
-  //    .catch((error)=>{
-  //       console.log(error.message)
-  //    })
-  // }
-
-
+ 
   const logoutfun = () => {
-    localStorage.removeItem("userType");
+    dispach(logout());
+    // localStorage.clear("userType");
     setLogbutton(false);
     navigate("/");
   };
-  // useEffect(() => {
-  //   let josndata = localStorage.getItem("userlogin");
-  //   let normal = JSON?.parse(josndata || "[]");
-  //   console.log("Login details", normal);
-  // });
+ 
   useEffect(() => {
-    let userTypeData = localStorage.getItem("userType");
-    let userType = JSON?.parse(userTypeData || "{}");
-
-    if (userType && userType.login) {
+   
+    if (data.token) {
       setLogbutton(true);
     } else {
       setLogbutton(false);
@@ -158,7 +74,6 @@ export default function BellalLogin() {
             </NavLink>
           </Button>
         </div>
-           {/* <Button onClick={checkfun}>check</Button> */}
         <div className="text-dark">
           <div className=" d-flex justify-content-center mt-4">
             <div
@@ -173,14 +88,14 @@ export default function BellalLogin() {
           </div>
           <div className="mx-auto" style={{ width: "280px" }}>
             <label htmlFor="" className="mb-2">
-              <CircleUserRound /> User name
+              <CircleUserRound /> Email
             </label>
             <Input
               style={{ width: "280px", marginBottom: "30px" }}
-              type="text"
-              placeholder="User Name"
-              value={user.username}
-              onChange={(e) => setUser({ ...user, username: e?.target.value })}
+              type="email"
+              placeholder="Enter Your Email"
+              value={user.email}
+              onChange={(e) => setUser({ ...user, email: e?.target.value })}
             />
             <label htmlFor="" className="mb-2">
               <LockKeyhole /> Password
@@ -211,9 +126,7 @@ export default function BellalLogin() {
           </div>
 
           <div className="d-flex justify-content-center mb-5 mt-3">
-            {/* {
-              user.usertype.length>0 ?
-            } */}
+          
 
             {!logbutton ? (
               <Button
@@ -233,6 +146,7 @@ export default function BellalLogin() {
               </Button>
             )}
           </div>
+         
         </div>
         <div className="d-flex justify-content-center">
           <div className=" border border-dark w-25 rounded d-flex justify-content-center">

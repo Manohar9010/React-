@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "../ProfilePage/ProfilePage.css";
 import { Table } from "reactstrap";
+import { useSelector } from "react-redux";
 export default function ProfilePage() {
-  const [datapro, setDatapro] = useState([]);
-
-  useEffect(() => {
-    let normaldata = JSON.parse(
-      localStorage.getItem("userlogin") || "[]"
-    );
-    setDatapro(normaldata);
-  }, []);
+  const {user}= useSelector(state=>state.singupdataslice)
+//  console.log(data.user)
+   
   return (
     <div>
       <div className="profilemain">
@@ -28,20 +24,18 @@ export default function ProfilePage() {
             </tr>
           </thead>
           <tbody>
-            {datapro.map((e, i) => {
-              return (
-                <tr key={i}>
-                  <th scope="row">{i + 1}</th>
-                  <td>{e.name}</td>
-                  <td>{e.age}</td>
-                  <td>{e.email}</td>
-                  <td>{e.password}</td>
-                  <td>{e.gender}</td>
-                  <td>{e.usertype}</td>
-                  <td>{e.hobbys}</td>
+           
+                <tr >
+                  <th scope="row">sr</th>
+                  <td>{user.name}</td>
+                  <td>{user.age}</td>
+                  <td>{user.email}</td>
+                  <td>{user.password}</td>
+                  <td>{user.gende}</td>
+                  <td>{user.usertype}</td>
+                  <td>{user.hobbys}</td>
                 </tr>
-              );
-            })}
+            
           </tbody>
         </Table>
 

@@ -1,25 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./BellaHeader.css";
-import { ChevronDown, MenuSquare, Package2, Search, UserRound, X } from "lucide-react";
+import {
+  ChevronDown,
+  MenuSquare,
+  Package2,
+  Search,
+  UserRound,
+  X,
+} from "lucide-react";
 import { Button, InputGroup } from "reactstrap";
 import { Input } from "reactstrap";
 import logoimg from "../Images/logoimage.avif";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 export default function BellaHeader() {
   const [togleopen, setTogleope] = useState(false);
-  const [navuse,setNavuse]=useState(false)
-  const [navoption,setNavoption]=useState("normal")
-  const navtoggle =()=>{
-    setNavuse(!navuse)
-  }
-  
+  const [navuse, setNavuse] = useState(false);
+  const [navoption, setNavoption] = useState("normal");
+  const data= useSelector(state=>state.singupdataslice)
+  const navtoggle = () => {
+    setNavuse(!navuse);
+  };
+
   const toglefun = () => {
     setTogleope(!togleopen);
   };
+
+  useEffect(()=>{
+    
+   
+    setNavoption(data.user.userType ||"normal") 
+    if(!data.user.userType ){
+      setNavoption("normal")
+    }
+  })  
   return (
-    <div className="headermain" >
+    <div className="headermain">
       <div children="headpost">
-        <div>
+        <div> 
           {/* <div className="bg-black" style={{ height: "30px", color: "white" }}>
             <span>
               <marquee
@@ -48,8 +66,8 @@ export default function BellaHeader() {
               ></marquee>
             </span>
           </div> */}
-           
-          <div style={{backgroundColor:"white",paddingBottom:"10px"}}>
+
+          <div style={{ backgroundColor: "white", paddingBottom: "10px" }}>
             <div className="headtitle">
               <div className="user mt-1">
                 <NavLink style={{ color: "black" }} to={"/belllogin"}>
@@ -72,7 +90,9 @@ export default function BellaHeader() {
                   </Button>
                 </InputGroup>
 
-                <span className="packagemenusqure mt-3"><MenuSquare role="button" onClick={navtoggle} size={30}/></span>
+                <span className="packagemenusqure mt-3">
+                  <MenuSquare role="button" onClick={navtoggle} size={30} />
+                </span>
                 <span className="package mt-3">
                   <Package2
                     role="button"
@@ -84,75 +104,90 @@ export default function BellaHeader() {
                 </span>
               </div>
             </div>
-            
+
             <div className="navbar">
               <ul className="d-flex justify-content-center gap-5  ">
-                 
-                <li>
-                  <NavLink style={{ color: "black" }} to={"/"}>
-                    Home
+                {navoption ==="normal" && (
+                  <>
+                    <li>
+                      <NavLink style={{ color: "black" }} to={"/"}>
+                        Home
+                      </NavLink>
+                    </li>
+
+                    <li>
+                      {" "}
+                      <NavLink style={{ color: "black" }} to={"/bellcontact"}>
+                        Shop All
+                      </NavLink>
+                    </li>
+
+                    <li className="fragreceli">
+                      Fragrance{" "}
+                      <ChevronDown size={20} color="grey" className="arrow" />
+                      <div className="frageacesub">
+                        <ul>
+                          <li>
+                            <a href="">All Perfumes</a>
+                          </li>
+                          <li>
+                            <a href="">Men</a>
+                          </li>
+                          <li>
+                            <a href="">Women</a>
+                          </li>
+                          <li>
+                            <a href="">Unisex</a>
+                          </li>
+                          <li>
+                            <a href="">Oud Collection</a>
+                          </li>
+                          <li>
+                            <a href="">Little Luxuries</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li>
+                      <NavLink style={{ color: "black" }} to={"/bellrigister"}>
+                        Registration
+                      </NavLink>{" "}
+                    </li>
+                  </>
+                )}
+                {
+                  navoption === "user" && (
+                    <>
+                    <li>
+                  <NavLink to={"/wishlist"} style={{ color: "black" }}>
+                    Wishlist
                   </NavLink>
                 </li>
-                <li>
-                  {" "}
-                  <NavLink style={{ color: "black" }} to={"/bellabout"}>
-                    CreyDeals
-                  </NavLink>{" "}
-                </li>
-                <li>
-                  {" "}
-                  <NavLink style={{ color: "black" }} to={"/bellcontact"}>
-                    Shop All
-                  </NavLink>
-                </li>
-                <li className="fragreceli">
-                  Fragrance{" "}
-                  <ChevronDown size={20} color="grey" className="arrow" />
-                  <div className="frageacesub">
-                    <ul>
-                      <li>
-                        <a href="">All Perfumes</a>
-                      </li>
-                      <li>
-                        <a href="">Men</a>
-                      </li>
-                      <li>
-                        <a href="">Women</a>
-                      </li>
-                      <li>
-                        <a href="">Unisex</a>
-                      </li>
-                      <li>
-                        <a href="">Oud Collection</a>
-                      </li>
-                      <li>
-                        <a href="">Little Luxuries</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <NavLink style={{ color: "black" }} to={"/bellrigister"}>
-                    Registration
-                  </NavLink>{" "}
-                </li>
-                  
-                <li>
-                  <NavLink to={"/profile"} style={{ color: "black" }} >  Profile</NavLink>
-                  
-                </li>
-                <li>
+                    </>
+                  )
+                }
+                
+                {navoption === "admin" && (
+                  <>
+                    <li>
+                      <NavLink to={"/profile"} style={{ color: "black" }}>
+                        {" "}
+                        Profile
+                      </NavLink>
+                    </li>
 
-                  <NavLink to={"/wishlist"} style={{ color: "black" }}>Wishlist</NavLink>
-                </li>
-                <li>
-
-                  <NavLink to={"/product"} style={{ color: "black" }}>Product</NavLink>
-                </li>
-                <li>
-
-                  <NavLink to={"/dashbord"} style={{ color: "black" }}>Dashbord</NavLink>
-                </li>
+                    <li>
+                      <NavLink to={"/product"} style={{ color: "black" }}>
+                        Product
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to={"/dashbord"} style={{ color: "black" }}>
+                        Dashbord
+                      </NavLink>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </div>
@@ -190,62 +225,62 @@ export default function BellaHeader() {
         </section>
       )}
 
-{   navuse && (
-       <div className="navbar_toggle">
-              <ul className=" ">
-                <li>
-                  <NavLink style={{ color: "black" }} to={"/"}>
-                    Home
-                  </NavLink>
-                </li>
-                <li>
-                  {" "}
-                  <NavLink style={{ color: "black" }} to={"/bellabout"}>
-                    About
-                  </NavLink>{" "}
-                </li>
-                <li>
-                  {" "}
-                  <NavLink style={{ color: "black" }} to={"/bellcontact"}>
-                    Contact Us
-                  </NavLink>
-                </li>
-                <li className="fragreceli">
-                  Fragrance{" "}
-                  <ChevronDown size={20} color="grey" className="arrow" />
-                  <div className="frageacesub">
-                    <ul>
-                      <li>
-                        <a href="">All Perfumes</a>
-                      </li>
-                      <li>
-                        <a href="">Men</a>
-                      </li>
-                      <li>
-                        <a href="">Women</a>
-                      </li>
-                      <li>
-                        <a href="">Unisex</a>
-                      </li>
-                      <li>
-                        <a href="">Oud Collection</a>
-                      </li>
-                      <li>
-                        <a href="">Little Luxuries</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <NavLink style={{ color: "black" }} to={"/bellrigister"}>
-                    Registration
-                  </NavLink>{" "}
-                </li>
+      {navuse && (
+        <div className="navbar_toggle">
+          <ul className=" ">
+            <li>
+              <NavLink style={{ color: "black" }} to={"/"}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={{ color: "black" }} to={"/bellabout"}>
+                About
+              </NavLink>{" "}
+            </li>
+            <li>
+              {" "}
+              <NavLink style={{ color: "black" }} to={"/bellcontact"}>
+                Contact Us
+              </NavLink>
+            </li>
+            <li className="fragreceli">
+              Fragrance <ChevronDown size={20} color="grey" className="arrow" />
+              <div className="frageacesub">
+                <ul>
+                  <li>
+                    <a href="">All Perfumes</a>
+                  </li>
+                  <li>
+                    <a href="">Men</a>
+                  </li>
+                  <li>
+                    <a href="">Women</a>
+                  </li>
+                  <li>
+                    <a href="">Unisex</a>
+                  </li>
+                  <li>
+                    <a href="">Oud Collection</a>
+                  </li>
+                  <li>
+                    <a href="">Little Luxuries</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <NavLink style={{ color: "black" }} to={"/bellrigister"}>
+                Registration
+              </NavLink>{" "}
+            </li>
 
-                <li>Profile</li>
-                <li>Wishlist</li>
-              </ul>
-            </div>)}
+            <li>Profile</li>
+            <li>Wishlist</li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

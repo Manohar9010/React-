@@ -200,7 +200,7 @@ import Select from "react-select";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { register } from "../../../Redux/Fetures/SingupSlice";
+import { login } from "../../../Redux/Fetures/SingupSlice";
 export default function BellRegistetion() {
   const [userdata, setUserdata] = useState({
     name: "",
@@ -247,8 +247,8 @@ export default function BellRegistetion() {
     e.preventDefault();
     if(userdata.password !==userdata.conpassword)return alert("Check Confom password")
     if (userdata.name.length > 0 && userdata.email.length > 0) {
-      let josndata = localStorage.getItem("bellregisterdata");
-      let normal = JSON?.parse(josndata || "[]");
+      // let josndata = localStorage.getItem("bellregisterdata");
+      // let normal = JSON?.parse(josndata || "[]");
       // localStorage.setItem(
       //   "bellregisterdata",
       //   JSON.stringify([...normal, {...userdata,address:[addval]}])
@@ -257,11 +257,12 @@ export default function BellRegistetion() {
       axios({
         method: "post",
         url: "http://localhost:9999/user/signup",
-        data: [{ ...userdata, address: [addval] }],
+        data: { ...userdata, address: [addval] },
       })
         .then((res) => {
           console.log(res.data);
-          dispatch(register(res.data))
+          dispatch(login(res.data))
+          navigator("/")
         })
         .catch((error) => {
           console.log(error);
@@ -292,11 +293,11 @@ export default function BellRegistetion() {
       alert("fill the form");
     }
   };
-  useEffect(() => {
-    let josndata = localStorage.getItem("bellregisterdata");
-    let normal = JSON?.parse(josndata || "[]");
-    console.log(" details", normal);
-  });
+  // useEffect(() => {
+  //   let josndata = localStorage.getItem("bellregisterdata");
+  //   let normal = JSON?.parse(josndata || "[]");
+  //   console.log(" details", normal);
+  // });
   
   return (
     <div>
