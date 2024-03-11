@@ -1,7 +1,34 @@
 .profilemain{
-    padding: 210px 0px 0px 0px;
-    margin: 0px 25px;
+    padding: 210px 0px 50px 0px;
+    margin: 0px 100px;
 }
 .profilemain h1{
     font-family: ' ui-rounded';
+}
+.profilemain .userdata{
+    display: grid;
+    
+    place-content: center;
+    flex: 1;
+
+
+}
+.profilemain .profilbox{
+
+    display: flex;
+    width: 60%;
+}
+.profilemain .profilbox .userimg{
+    flex: 1;
+}
+.profilemain .userdata .databoder{
+    border: 1px solid ;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
+.profilemain img{
+    width: 100%;
+    height: 91%;
+    object-fit: cover;
+    border-radius: 10px;
 }

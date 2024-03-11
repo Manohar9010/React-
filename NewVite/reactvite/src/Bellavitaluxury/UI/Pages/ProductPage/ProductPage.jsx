@@ -15,6 +15,10 @@ import {
   ModalHeader,
   Table,
 } from "reactstrap";
+import PreviewData from "./PreviewData";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { prevew } from "../../../Redux/Fetures/PreviewSlice";
 
 let intialProduct = {
   brand: "",
@@ -38,13 +42,15 @@ export default function ProductPage() {
   const [checck, setChecck] = useState([]);
 
   const [update, setUpdate] = useState(false);
+   const dispach =useDispatch()
+   const navigate=useNavigate()
   useEffect(() => {
     axios({
       method: "get",
       url: "http://localhost:9999/product/getAll",
     })
       .then((res) => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         setGetproduct(res?.data?.data);
       })
       .catch((error) => {
@@ -126,7 +132,7 @@ export default function ProductPage() {
         alert("Delete data....!");
         //  setGetproduct(res?.data?.data)
         refetchData();
-        console.log(id);
+        // console.log(id);
       })
       .catch((error) => {
         alert(error);
@@ -136,10 +142,10 @@ export default function ProductPage() {
   const Edithandler = (data) => {
     toggle();
     setProduct(data);
-    console.log("====>", data);
+    // console.log("====>", data);
     setUpdate(true);
 
-    console.log("====>", data);
+    // console.log("====>", data);
   };
 
   const updatehandler = () => {
@@ -211,9 +217,25 @@ export default function ProductPage() {
   let img1 =
     "https://marketplace.canva.com/EAFijA-Es8I/1/0/1600w/canva-beige-minimalist-stay-tuned-coming-soon-instagram-post-iv_vQnhdRkY.jpg";
 
+
+   const showpreview=(id)=>{
+    axios({
+      method:"get",
+      url:`http://localhost:9999/product/getProductById/${id}`
+
+    })  
+    .then((res)=>{
+      console.log(res.data.data)
+      dispach(prevew(res.data.data))
+          navigate("/preview")
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+   }
   return (
     <div>
-      <div style={{padding:"200px 0px 0px 0px"}}>
+      <div style={{ padding: "200px 0px 0px 0px" }}>
         <Button color="danger" onClick={toggle}>
           Product Crud
         </Button>
@@ -388,7 +410,7 @@ export default function ProductPage() {
                 <FormGroup className="d-flex gap-3">
                   {genders.map((e, i) => {
                     return (
-                      <FormGroup check>
+                      <FormGroup key={i} check>
                         <Input
                           type="radio"
                           checked={product.gender === e}
@@ -408,17 +430,6 @@ export default function ProductPage() {
             </Form>
           </ModalBody>
         </Modal>
-        {/* <p> {product.brand.charAt(0).toUpperCase() + product.brand.slice(1)}</p>
-        <p> {product.title}</p>
-        <p> {product.description}</p>
-        <p> {product.price}</p>
-        <p> {product.discountPercentage}</p>
-        <p> {product.availableStock}</p>
-        <p> {product.color}</p>
-        <p> {product.category}</p>
-        <p> {product.gender}</p>
-        <p> {product.thumbnail}</p>
-        <p> {product.size}</p> */}
       </div>
 
       <div>
@@ -430,8 +441,7 @@ export default function ProductPage() {
               <th>Brand</th>
               <th>Title</th>
               <th>Offer Price</th>
-              <th>Colors</th>
-              <th>size</th>
+
               <th>Action</th>
             </tr>
           </thead>
@@ -465,59 +475,7 @@ export default function ProductPage() {
                       {e.price}
                     </span>{" "}
                   </td>
-                  <td>
-                    <div className="d-flex gap-2">
-                      {e?.color.map((color, i) => {
-                        return (
-                          <div
-                            key={i}
-                            style={{
-                              height: "20px",
-                              width: "20px",
-                              backgroundColor: color,
-                              borderRadius: "50%",
-                              border: "1px solid black",
-                            }}
-                          ></div>
-                        );
-                      })}
-                    </div>
-                  </td>
-                  <td>
-                    <div className="d-flex gap-3">
-                      <span style={{ fontSize: "20px" }}>Size :</span>
-                      {[42, 43, 44, 45].map((sizee, i) => {
-                        let go;
-                        let deco;
 
-                        if (e.size.includes(sizee.toString())) {
-                          go = "black";
-                          deco = "none";
-                        } else {
-                          (go = "grey"), (deco = "line-through");
-                        }
-
-                        return (
-                          <div
-                            key={i}
-                            style={{
-                              textDecoration: deco,
-                              border: "1px solid",
-                              borderColor: go,
-                              borderRadius: "50%",
-                              height: "30px",
-                              width: "30px",
-                              textAlign: "center",
-                              color: go,
-                            }}
-                          >
-                            {" "}
-                            {sizee}
-                          </div>
-                        );
-                      })}{" "}
-                    </div>
-                  </td>
                   <td>
                     <div className="d-flex gap-xl-5">
                       <Trash
@@ -532,119 +490,18 @@ export default function ProductPage() {
                       />
                     </div>
                   </td>
+                  <td>
+                     <Button onClick={()=>showpreview(e._id) }>
+
+                       show
+                     </Button>
+                  </td>
                 </tr>
               );
             })}
           </tbody>
         </Table>
       </div>
-
-      {/* <div>
-        <div style={gridContainerStyle}>
-          {getproduct.map((e, i) => {
-            return (
-              <div key={i} style={{ margin: "0px 50px" }}>
-                <div>
-                  <img
-                    style={{ height: "250px", width: "300px" }}
-                    src={e?.thumbnail || img1}
-                    alt="image not available"
-                  />
-                </div>
-                <div>
-                  <h4>{e.brand}</h4>
-                  <h5>{e?.title || "our product"}</h5>
-                  <p style={{ fontWeight: "bold" }}>{e.description}</p>
-                  <h6>
-                    Original Price:{" "}
-                    <span style={{ color: "red" }}>{e?.price}</span>{" "}
-                  </h6>
-                  <h6>
-                    Offer Price:{" "}
-                    <span style={{ color: "green" }}>
-                      -{e.discountPercentage || 0}%{" "}
-                    </span>{" "}
-                    <span style={{ color: "red" }}>
-                      {" "}
-                      {(
-                        e.price -
-                        (e.price * e.discountPercentage || 0) / 100
-                      ).toFixed(2)}
-                    </span>{" "}
-                    <span style={{ textDecoration: "line-through" }}>
-                      {" "}
-                      {e.price}
-                    </span>{" "}
-                  </h6>
-                  <div className="d-flex gap-2">
-                    <span style={{ fontSize: "20px" }}>colors :</span>
-                    {e?.color.map((color, i) => {
-                      return (
-                        <div
-                          key={i}
-                          style={{
-                            height: "20px",
-                            width: "20px",
-                            backgroundColor: color,
-                            borderRadius: "50%",
-                            border: "1px solid black",
-                          }}
-                        ></div>
-                      );
-                    })}
-                  </div>
-                  <div className="d-flex gap-3">
-                    <span style={{ fontSize: "20px" }}>Size :</span>
-                    {e?.size.map((size, i) => {
-                      let backgroundColor;
-
-                      if (size === "42") {
-                        backgroundColor = "yellow";
-                      } else {
-                        backgroundColor = "white";
-                      }
-                      return (
-                        <div
-                          key={i}
-                          style={{
-                            border: "1px solid black",
-                            borderRadius: "50%",
-                            height: "30px",
-                            width: "30px",
-                            textAlign: "center",
-                            backgroundColor: backgroundColor,
-                          }}
-                        >
-                          {" "}
-                          {size}
-                        </div>
-                      );
-                    })}{" "}
-                  </div>
-                  <p style={{ fontWeight: "500" }}>
-                    AvalableStock:{e.availableStock}
-                  </p>
-
-                  <div className="d-flex gap-xl-5">
-                    <Button
-                      className="bg-danger"
-                      onClick={() => console.log("===>id", e._id)}
-                    >
-                      Delete
-                    </Button>
-                    <Button
-                      className="bg-warning"
-                      onClick={() => console.log("elemet", e)}
-                    >
-                      Edit
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div> */}
     </div>
   );
 }

@@ -21,6 +21,7 @@ import ProductPage from '../UI/Pages/ProductPage/ProductPage'
 import Store from '../Redux/App/Store'
 import { Provider } from 'react-redux'
 import Dashbord from '../UI/Pages/Dashbord/Dashbord'
+import PreviewData from '../UI/Pages/ProductPage/PreviewData'
 export default function BellaRouter() {
   return (
     <div>
@@ -38,7 +39,8 @@ export default function BellaRouter() {
     <Route path='/wishlist' element={<ProtectedRoute  Componentprofile={<WishList/>}/>    } />
     <Route path='/profile' element={<ProtectedRoute   Componentprofile={<ProfilePage/>} />}/>
     <Route path='/product' element={<ProtectedRoute Componentprofile={<ProductPage/>}/>}/>
-     <Route path='dashbord'  element={<ProtectedRoute  Componentprofile={<Dashbord/>} />}  />     
+     <Route path='dashbord'  element={<ProtectedRoute  Componentprofile={<Dashbord/>} />}  />
+     <Route path="/preview" element={<PreviewData/>} />     
     <Route path='*' element={<BellError/>} />
     {/* <Route
             path='/wishlist'

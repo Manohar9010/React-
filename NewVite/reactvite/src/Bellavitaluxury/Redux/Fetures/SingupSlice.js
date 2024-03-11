@@ -20,9 +20,11 @@ let singupdataslice= createSlice({
             state.user={}
             state.token=""
             localStorage.clear();
-        }
+        },
+       
+
     }
 })
 
 export default singupdataslice.reducer;
-export const {login,logout}=singupdataslice.actions
+export const {login,logout,prevew}=singupdataslice.actions
