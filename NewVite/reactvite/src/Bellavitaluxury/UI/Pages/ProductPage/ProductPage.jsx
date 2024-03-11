@@ -44,6 +44,9 @@ export default function ProductPage() {
   const [update, setUpdate] = useState(false);
    const dispach =useDispatch()
    const navigate=useNavigate()
+
+   const [detailModal, setDetailModal] = useState(false)
+   const [selectedProductDetails, setSelectedProductDetails] = useState(null)
   useEffect(() => {
     axios({
       method: "get",
@@ -226,6 +229,7 @@ export default function ProductPage() {
     })  
     .then((res)=>{
       console.log(res.data.data)
+
       dispach(prevew(res.data.data))
           navigate("/preview")
     })
@@ -493,7 +497,7 @@ export default function ProductPage() {
                   <td>
                      <Button onClick={()=>showpreview(e._id) }>
 
-                       show
+                      show me
                      </Button>
                   </td>
                 </tr>
@@ -501,6 +505,7 @@ export default function ProductPage() {
             })}
           </tbody>
         </Table>
+        {/* <PreviewData isOpen={detailModal} toggle={() => setDetailModal(false)} /> */}
       </div>
     </div>
   );

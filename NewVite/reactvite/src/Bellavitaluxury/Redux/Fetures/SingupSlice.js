@@ -21,6 +21,7 @@ let singupdataslice= createSlice({
             state.token=""
             localStorage.clear();
         },
+        
        
 
     }
