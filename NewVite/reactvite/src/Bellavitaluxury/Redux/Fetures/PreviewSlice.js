@@ -11,7 +11,7 @@ const userpreviwSlice = createSlice({
     prevew: (state, { payload }) => {
       state.userpre = payload;
         
-      // console.log("first============>", payload);
+      console.log("first============>", payload);
       console.log("first",state.userpre)
     },
   },
