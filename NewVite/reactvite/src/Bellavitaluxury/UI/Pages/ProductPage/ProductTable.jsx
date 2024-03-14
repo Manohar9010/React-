@@ -1,50 +1,20 @@
 import React, { useState } from "react";
 import { Button, Table } from "reactstrap";
 import { PencilRuler, Trash } from "lucide-react";
-import Example from "./ModelCheck";
-import PreviewData from "./PreviewData";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import { prevew } from "../../../Redux/Fetures/PreviewSlice";
+
 export default function ProductTable({
   getproduct,
-  setGetproduct,
-  product,
   setProduct,
   setUpdate,
-  update,
   deletehandler,
   toggle,
+  showpreview,
 }) {
   const Edithandler = (data) => {
     toggle();
     setProduct(data);
     setUpdate(true);
   };
- 
-  const [modal1, setModal1] = useState(false);
-
-  const toggle1 = () => setModal1(!modal1);
-
-  // const showpreview = (id) => {
-  //   axios({
-  //     method: "get",
-  //     url: `http://localhost:9999/product/getProductById/${id}`,
-  //   })
-  //     .then((res) => {
-  //       console.log(res.data.data);
-
-  //       // dispach(prevew(res.data.data));
-  //       setModaldata(res.data.data)
-  //       // navigate("/preview");
-      
-  //       toggle1()
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
   return (
     <div>
       <div>
@@ -107,20 +77,11 @@ export default function ProductTable({
                   </td>
                   <td>
                     <Button
-                      // style={{ backgroundColor: "black" }}
-                      // onClick={() => showpreview(e._id)}
-
+                      style={{ backgroundColor: "black" }}
+                      onClick={() => showpreview(e._id)}
                     >
-                      
                       Preview
                     </Button>
-
-                    {/* <PreviewData
-                      modadaldata={modadaldata}
-                      item={e._id}
-                      showpreview={() => showpreview(e._id)}
-                    /> */}
-                    <PreviewData toggle1={toggle1} setModal1={setModal1} modal1={modal1}/>
                   </td>
                 </tr>
               );

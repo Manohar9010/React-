@@ -2,27 +2,24 @@ import axios from "axios";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { prevew } from "../../../Redux/Fetures/PreviewSlice";
 import ProductForm from "./ProductForm";
 import { intialProduct } from "../../../../Utils/IntialState";
 import ProductTable from "./ProductTable";
-
+import { getAllproduct } from "../../../Redux/Fetures/ProductSlice/ProductSlice";
 export default function ProductPage() {
   const [getproduct, setGetproduct] = useState([]);
   const [refetch, setRefetch] = useState(true);
   const refetchData = () => setRefetch(!refetch);
-  const [checck, setChecck] = useState([]);
   const [product, setProduct] = useState(intialProduct);
   const [update, setUpdate] = useState(false);
   const dispach = useDispatch();
   const navigate = useNavigate();
   const [modal, setModal] = useState(false);
-    
-   
-  
+  const [modal1, setModal1] = useState(false);
+  const toggle1 = () => setModal1(!modal1);
   useEffect(() => {
     axios({
       method: "get",
@@ -36,14 +33,21 @@ export default function ProductPage() {
       });
   }, [refetch]);
 
+  useEffect(()=>{
+     dispach(getAllproduct())
+  },[refetch])
   
+   let data=  useSelector(state=>state.ProductSlice)
+   useEffect(()=>{
+
+     console.log("uuuuuu",data)
+   },[])
 
   const toggle = () => {
     setModal(!modal);
     setUpdate(false);
     setProduct(intialProduct);
   };
-
   const gridContainerStyle = {
     display: "grid",
     gridTemplateColumns: "1fr 1fr 1fr",
@@ -57,9 +61,7 @@ export default function ProductPage() {
     })
       .then((res) => {
         alert("Delete data....!");
-        //  setGetproduct(res?.data?.data)
         refetchData();
-        // console.log(id);
       })
       .catch((error) => {
         alert(error);
@@ -92,10 +94,27 @@ export default function ProductPage() {
       .then((res) => {
         alert("adddata");
         refetchData();
-        //  setGetproduct(res?.data?.data)
       })
       .catch((error) => {
         alert(error);
+      });
+  };
+
+  const showpreview = (id) => {
+    axios({
+      method: "get",
+      url: `http://localhost:9999/product/getProductById/${id}`,
+    })
+      .then((res) => {
+        console.log(res.data.data);
+
+        dispach(prevew(res.data.data));
+        navigate("/preview");
+
+        toggle1();
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 
@@ -122,9 +141,11 @@ export default function ProductPage() {
         update={update}
         deletehandler={deletehandler}
         toggle={toggle}
+        modal1={modal1}
+        setModal1={setModal1}
+        toggle1={toggle1}
+        showpreview={showpreview}
       />
     </div>
   );
 }
-
-

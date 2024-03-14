@@ -19,6 +19,7 @@ import ReduxMain from "./rrrrr/ReduxMain";
 import GrocerieseMain from "./Groceriesewebsite/Routing/GrocerieseMain";
 import FormDetails from "./Formvalidation/FormDetails";
 import GetApidata from "./Formvalidation/GetApidata";
+import ModelDisplay from "./ModelCheck/ModelDisplay";
 function App() {
   return (
     <>
@@ -41,6 +42,7 @@ function App() {
       {/* <IndexDisplay/> */}
       {/* <FormDetails/> */}
       {/* <GetApidata/> */}
+      {/* <ModelDisplay/> */}
       <ToastContainer />
 
     </>

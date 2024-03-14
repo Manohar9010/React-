@@ -11,7 +11,6 @@ import {
 } from "reactstrap";
 import { categoryoptions, options } from "../../../../Utils/Constants";
 import Select from "react-select";
-
 export default function ProductForm({
   product,
   setProduct,
