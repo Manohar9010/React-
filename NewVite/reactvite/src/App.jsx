@@ -20,6 +20,7 @@ import GrocerieseMain from "./Groceriesewebsite/Routing/GrocerieseMain";
 import FormDetails from "./Formvalidation/FormDetails";
 import GetApidata from "./Formvalidation/GetApidata";
 import ModelDisplay from "./ModelCheck/ModelDisplay";
+import CheckboxTask from "./CheckboxTask";
 function App() {
   return (
     <>
@@ -32,8 +33,8 @@ function App() {
       {/* <ApiPost/> */}
       {/* <Product /> */}
       {/* <UseforPractice/> */}
-      <BellaRouter/>
-      {/* <Slidercheck/> */}
+      {/* <BellaRouter/> */}
+      <Slidercheck/>
       {/* <MainLogin/>   */}
       {/* =======redux====== */}
       {/* <AppRedux /> */}
@@ -43,6 +44,7 @@ function App() {
       {/* <FormDetails/> */}
       {/* <GetApidata/> */}
       {/* <ModelDisplay/> */}
+      {/* <CheckboxTask/> */}
       <ToastContainer />
 
     </>

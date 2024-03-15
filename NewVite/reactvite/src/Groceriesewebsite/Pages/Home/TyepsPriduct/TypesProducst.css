@@ -1,0 +1,16 @@
+.typemain {
+  justify-content: space-around;
+  overflow-x: hidden;
+}
+
+.typemain .item:hover img {
+  transform: scale(1.1);
+  object-fit: cover;
+}
+.typemain .item {
+  overflow: hidden;
+  border-radius: 20px;
+}
+.typemain .item img {
+  transition: 0.5s ease-in-out;
+}

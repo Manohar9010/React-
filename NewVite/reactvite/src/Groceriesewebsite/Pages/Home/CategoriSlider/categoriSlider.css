@@ -1,0 +1,45 @@
+.catmain {
+  margin: 0px 10px;
+}
+.catmain .swiper-slide img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+}
+.catmain .swiper {
+  padding-bottom: 20px;
+}
+.catmain .swiper-slide {
+  margin-top: 40px;
+  transition: 0.5s ease-in-out;
+}
+.catmain .swiper-slide p {
+  font-size: 15px;
+  color: grey;
+  padding-bottom: 15px !important;
+}
+
+.catmain .swiper-slide:hover {
+  box-shadow: 0 3px 6px rgb(0 0 0 / 20%);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.catmain .swiper-button-prev:after,
+.catmain .swiper-button-next:after {
+  font-size: 10px !important;
+  font-weight: 900;
+  color: grey;
+  background-color: aliceblue;
+  padding: 8px;
+
+  border-radius: 50%;
+}
+.catmain .swiper-button-prev {
+  top: 20px;
+  /* right:20px !important;  */
+  left: 1250px;
+}
+.catmain .swiper-button-next {
+  top: 20px;
+}

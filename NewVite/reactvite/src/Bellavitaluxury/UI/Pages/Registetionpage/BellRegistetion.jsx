@@ -208,8 +208,6 @@ export default function BellRegistetion() {
     email: "",
     password: "",
     conpassword:"",
-    // gender: "",
-    // hobbys: [],
     userType: "",
     address: [],
   });
@@ -229,30 +227,13 @@ export default function BellRegistetion() {
     { value: "admin", label: "Admin" },
     { value: "customer", label: "customer" },
   ];
-  // let genders = ["Male", "Female", "Kids"];
-  // let hobby = ["Reading", "Dancing", "Singing", "Cycling"];
-
-  // const getcheckvalue = (item) => {
-  //   let match = userdata.hobbys.includes(item);
-
-  //   if (match) {
-  //     let fillterdata = userdata?.hobbys?.filter((e) => e !== item);
-  //     setUserdata({ ...userdata, hobbys: fillterdata });
-  //   } else {
-  //     setUserdata({ ...userdata, hobbys: [...userdata?.hobbys, item] });
-  //   }
-  // };
+ 
 
   const getdata = (e) => {
     e.preventDefault();
     if(userdata.password !==userdata.conpassword)return alert("Check Confom password")
     if (userdata.name.length > 0 && userdata.email.length > 0) {
-      // let josndata = localStorage.getItem("bellregisterdata");
-      // let normal = JSON?.parse(josndata || "[]");
-      // localStorage.setItem(
-      //   "bellregisterdata",
-      //   JSON.stringify([...normal, {...userdata,address:[addval]}])
-      // );
+      
 
       axios({
         method: "post",
@@ -267,11 +248,7 @@ export default function BellRegistetion() {
         .catch((error) => {
           console.log(error);
         });
-      // localStorage.setItem(
-      //   "bellregisterdata",
-      //   JSON.stringify([...normal,[ {userdata,address:addval}]])
-
-      // );
+     
 
       setUserdata({
         name: "",
@@ -287,18 +264,12 @@ export default function BellRegistetion() {
         state: "",
         pincode: "",
       });
-      // restoggle();
-      // toast.success("Your Detailes Submited");
+     
     } else {
       alert("fill the form");
     }
   };
-  // useEffect(() => {
-  //   let josndata = localStorage.getItem("bellregisterdata");
-  //   let normal = JSON?.parse(josndata || "[]");
-  //   console.log(" details", normal);
-  // });
-  
+
   return (
     <div>
       <div className="registermain">
@@ -401,51 +372,7 @@ export default function BellRegistetion() {
                 </FormGroup>
                  </Col>
                 </Row>
-                {/* <FormGroup>
-                  <legend>Gender</legend>
-                  <FormGroup className="d-flex gap-4 ">
-                    {genders.map((e, i) => {
-                      return (
-                        <FormGroup key={i} check>
-                          <Input
-                            name="radio1"
-                            type="radio"
-                            value={userdata.gender}
-                            onChange={() =>
-                              setUserdata({ ...userdata, gender: e })
-                            }
-                          />{" "}
-                          <Label check>{e}</Label>
-                        </FormGroup>
-                      );
-                    })}
-                  </FormGroup>
-                </FormGroup>
-                <FormGroup>
-                  <legend>Hoddys</legend>
-                  <FormGroup className="d-flex gap-3">
-                    {hobby.map((e, i) => {
-                      return (
-                        <FormGroup key={i} check>
-                          <Input
-                            type="checkbox"
-                            onChange={() => getcheckvalue(e)}
-                          />{" "}
-                          <Label check>{e}</Label>
-                        </FormGroup>
-                      );
-                    })}
-                  </FormGroup>
-                  <FormGroup>
-                    <Select
-                      onChange={(e) =>
-                        setUserdata({ ...userdata, usertype: e?.value })
-                      }
-                      options={options}
-                    />
-                   </FormGroup> 
-                  </FormGroup>  */}
-
+                
                   <Row>
                     <Col md={6}>
                 <FormGroup>

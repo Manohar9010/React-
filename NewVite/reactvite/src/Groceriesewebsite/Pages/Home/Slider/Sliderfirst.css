@@ -1,0 +1,97 @@
+/* #app {
+    height: 100%;
+  }
+  html,
+  body {
+    position: relative;
+    height: 100%;
+  }
+  
+  body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  } */
+  
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+     border-radius: 5px;  
+
+  }
+  
+  .swiper {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative !important;
+  }
+ .swipertext{
+  position: absolute !important;
+   top: 50px;
+   left: 70px;
+   z-index: 1;
+}
+.swiperinput{
+  position: absolute;
+ top: 250px;
+ left: 70px;
+  z-index: 1;
+}
+.swiperinput input{
+  /* border-radius: 10px; */
+   border-top-left-radius: 20px;
+   border-bottom-left-radius: 20px;
+   border-top-right-radius: 0px !important;
+   border-bottom-right-radius: 0px !important;
+   box-shadow: none !important;
+   border: none !important;
+   padding: 10px 0px 10px 40px;
+}
+.swiperinput button{
+  border-radius: 50px;
+   background-color: rgb(78, 175, 78);
+    border: none;
+   transform: translatex(-50px);
+
+}
+.swiperinput .sendicon{
+  transform: translate(30px ,12px);
+}
+.swipertext h1{
+  font-size: 45px;
+  font-family: serif;
+}
+.swipertext p{
+  font-family: serif;
+  margin-top: 15px !important;
+  color: rgb(92, 73, 51);
+}
+ .swipermain .swiper-button-prev:after,.swipermain .swiper-button-next:after {
+    font-size: 10px !important;
+    background-color: rgba(240, 232, 232, 0.596);
+    color: black;
+    font-weight: bolder;
+    padding: 10px;
+    border-radius: 50%;
+  }

@@ -3,15 +3,7 @@ import "./Header.css";
 import iconimg from "../../images/logo.svg";
 import { Link, NavLink } from "react-router-dom";
 import { Input } from "reactstrap";
-import {
-  ChevronDown,
-  Heart,
-  LogOut,
-  MapPin,
-  Search,
-  SlidersHorizontal,
-  User,
-} from "lucide-react";
+import { ChevronDown, MapPin, Search } from "lucide-react";
 import Selectdrop from "../Selectdrop/Selectdrop";
 import axios from "axios";
 
@@ -19,7 +11,9 @@ import compareimg from "../../images/icon-compare.svg";
 import heartimg from "../../images/icon-heart.svg";
 import cartimg from "../../images/icon-cart.svg";
 import userimg from "../../images/icon-user.svg";
+import Nav from "./Nav";
 export default function Header() {
+  const [opendrap,setOpendrap]=useState(true)
   let categories = [
     " All Categories",
     "Milks and Dairies",
@@ -86,10 +80,11 @@ export default function Header() {
               </div>
             </div>
             <div className="help">
+            
               <div className="options ">
                 <ul className="d-flex gap-3 ">
                   <li className="d-flex gap-1 align-items: baseline;">
-                    <img src={compareimg} alt="" />
+                    <img src={compareimg} alt="" /> 
                     <span className="optioncircle">3</span>
                     <p>Compare</p>
                   </li>
@@ -103,44 +98,31 @@ export default function Header() {
                     <span className="optioncircle">6</span>
                     <p>Cart</p>
                   </li>
-
-                  <li className="showdrop d-flex gap-1 align-items: baseline;">
-                    <img
-                      style={{ cursor: "pointer" }}
-                      className="divshow"
-                      src={userimg}
-                      alt=""
-                    />
-                    <p
-                      style={{ cursor: "pointer" }}
-                      className="account divshow"
-                    >
-                      Account
-                    </p>
+                  <li className="acutli d-flex gap-1 align-items: baseline;" onClick={()=>setOpendrap(!opendrap)}>
+                    <img src={userimg} alt="" />
+                    <p>Account</p>
+              
                   </li>
-                  <ul className="actlist">
-                    <li>
-                      <User size={18} /> My Account
-                    </li>
-                    <li>
-                      <MapPin size={18} /> Order Tracking
-                    </li>
-                    <li>
-                      <Heart size={18} /> My Wishlist
-                    </li>
-                    <li>
-                      <SlidersHorizontal size={18} /> Setting
-                    </li>
-                    <li>
-                      <LogOut size={18} /> Sign Out
-                    </li>
-                  </ul>
+                        {/* { opendrap &&
+                   <ul className="actdtop">
+                     <li>Account</li>
+                     <li>Whishlist</li>
+                     <li>traking</li>
+                     <li>setting</li>
+                     <li>sighup</li>
+
+                   </ul>
+                  } */}
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </header>
+
+      <section>
+        <Nav/>
+      </section>
     </div>
   );
 }
