@@ -33,8 +33,8 @@ function App() {
       {/* <ApiPost/> */}
       {/* <Product /> */}
       {/* <UseforPractice/> */}
-      {/* <BellaRouter/> */}
-      <Slidercheck/>
+      <BellaRouter/>
+      {/* <Slidercheck/> */}
       {/* <MainLogin/>   */}
       {/* =======redux====== */}
       {/* <AppRedux /> */}

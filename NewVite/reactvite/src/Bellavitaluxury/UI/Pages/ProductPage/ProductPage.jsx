@@ -8,7 +8,7 @@ import { prevew } from "../../../Redux/Fetures/PreviewSlice";
 import ProductForm from "./ProductForm";
 import { intialProduct } from "../../../../Utils/IntialState";
 import ProductTable from "./ProductTable";
-import { getAllproduct } from "../../../Redux/Fetures/ProductSlice/ProductSlice";
+// import { getAllproduct } from "../../../Redux/Fetures/ProductSlice/ProductSlice";
 export default function ProductPage() {
   const [getproduct, setGetproduct] = useState([]);
   const [refetch, setRefetch] = useState(true);
@@ -20,28 +20,30 @@ export default function ProductPage() {
   const [modal, setModal] = useState(false);
   const [modal1, setModal1] = useState(false);
   const toggle1 = () => setModal1(!modal1);
-  useEffect(() => {
-    axios({
-      method: "get",
-      url: "http://localhost:9999/product/getAll",
-    })
-      .then((res) => {
-        setGetproduct(res?.data?.data);
-      })
-      .catch((error) => {
-        alert(error);
-      });
-  }, [refetch]);
 
-  useEffect(()=>{
-     dispach(getAllproduct())
-  },[refetch])
+
+  // useEffect(() => {
+  //   axios({
+  //     method: "get",
+  //     url: "http://localhost:9999/product/getAll",
+  //   })
+  //     .then((res) => {
+  //       setGetproduct(res?.data?.data);
+  //     })
+  //     .catch((error) => {
+  //       alert(error);
+  //     });
+  // }, [refetch]);
+
+  // useEffect(()=>{
+  //    dispach(getAllproduct())
+  // },[refetch])
   
-   let data=  useSelector(state=>state.ProductSlice)
-   useEffect(()=>{
+  //  let data=  useSelector(state=>state.ProductSlice)
+  //  useEffect(()=>{
 
-     console.log("uuuuuu",data)
-   },[])
+  //    console.log("uuuuuu",data)
+  //  },[])
 
   const toggle = () => {
     setModal(!modal);
@@ -54,19 +56,7 @@ export default function ProductPage() {
     gap: "10px",
   };
 
-  const deletehandler = (id) => {
-    axios({
-      method: "delete",
-      url: `http://localhost:9999/product/delete/${id}`,
-    })
-      .then((res) => {
-        alert("Delete data....!");
-        refetchData();
-      })
-      .catch((error) => {
-        alert(error);
-      });
-  };
+ 
 
   const updatehandler = () => {
     axios({
@@ -120,6 +110,8 @@ export default function ProductPage() {
 
   return (
     <div>
+
+     
       <ProductForm
         product={product}
         setProduct={setProduct}
@@ -139,12 +131,16 @@ export default function ProductPage() {
         setProduct={setProduct}
         setUpdate={setUpdate}
         update={update}
-        deletehandler={deletehandler}
+        
         toggle={toggle}
         modal1={modal1}
         setModal1={setModal1}
         toggle1={toggle1}
         showpreview={showpreview}
+        refetch={refetch}
+        refetchData={refetchData}
+        
+
       />
     </div>
   );

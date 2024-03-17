@@ -120,76 +120,93 @@
 
 // export default Slidercheck;
 
-import React, { useEffect, useState } from "react";
-import { Input } from "reactstrap";
+import { useFormik } from 'formik'
+import React from 'react'
+import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap'
+
+
+const inpuvals={
+  email:"",
+  password:"",
+  city:"",
+  state:"",
+}
 
 export default function Slidercheck() {
-  let data = [
-    "hello1",
-    "hello2",
-    "hello3",
-    "hello4",
-    "hello5",
-    "hello6",
-    "hello7",
-    "hello8",
-    "hello10",
-    "hello11",
-    "hello12",
-    "hello13",
-    "hello14",
-    "hello15",
-    "hello16",
-    "hello17",
-    "hello18",
-    "hello19",
-  ];
+useFormik({
+  initialValues:inpuvals,
 
-  const [userdata, setUserdata] = useState(data);
-  const [inputval, setInputval] = useState("");
-  const [allcat, setAllcat] = useState("allcat");
-  const [opendrop, setOpendrop] = useState(false);
+})
 
-  const dropopefun = () => {
-    setOpendrop(!opendrop);
-  };
-
-  const livalufun = (item, indexx) => {
-    setAllcat(item);
-    setOpendrop(false);
-  };
-
-
-
-  useEffect(()=>{
-     
-  })
   return (
-    <div
-      
-    >
+    <div>Slidercheck
+     <Form>
+  <Row>
+    <Col md={6}>
+      <FormGroup>
+        <Label for="exampleEmail">
+          Email
+        </Label>
+        <Input
+          id="exampleEmail"
+          name="email"
+          placeholder="with a placeholder"
+          type="email"
+        />
+      </FormGroup>
+    </Col>
+    <Col md={6}>
+      <FormGroup>
+        <Label for="examplePassword">
+          Password
+        </Label>
+        <Input
+          id="examplePassword"
+          name="password"
+          placeholder="password placeholder"
+          type="password"
+        />
+      </FormGroup>
+    </Col>
+  </Row>
 
-      <div style={{ border: "1px solid ", marginTop: "25px" }}
-      onClick={dropopefun}>
-{allcat}
-      </div>
-      
-      <div>
-        <div>
-          <Input type="text" onChange={(e) => setInputval(e?.target?.value)} />
-        </div>
-        {opendrop && (
-          <div className="" style={{ height: "200px", overflow: "scroll" }}>
-            {userdata.map((e, i) => {
-              return (
-                <li key={i} onClick={() => livalufun(e, i)}>
-                  {e}
-                </li>
-              );
-            })}
-          </div>
-        )}
-      </div>
+  <Row>
+    <Col md={6}>
+      <FormGroup>
+        <Label for="exampleCity">
+          City
+        </Label>
+        <Input
+          id="exampleCity"
+          name="city"
+        />
+      </FormGroup>
+    </Col>
+    <Col md={4}>
+      <FormGroup>
+        <Label for="exampleState">
+          State
+        </Label>
+        <Input
+          id="exampleState"
+          name="state"
+        />
+      </FormGroup>
+    </Col>
+    <Col md={2}>
+
+    </Col>
+  </Row>
+
+  <Button>
+    Sign in
+  </Button>
+</Form>
+
+
+
+
+
     </div>
-  );
+  )
 }

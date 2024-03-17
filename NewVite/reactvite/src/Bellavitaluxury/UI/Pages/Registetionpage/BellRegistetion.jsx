@@ -225,7 +225,7 @@ export default function BellRegistetion() {
   const options = [
     { value: "user", label: "User" },
     { value: "admin", label: "Admin" },
-    { value: "customer", label: "customer" },
+    { value: "customer", label: "Customer" },
   ];
  
 
@@ -241,9 +241,9 @@ export default function BellRegistetion() {
         data: { ...userdata, address: [addval] },
       })
         .then((res) => {
-          console.log(res.data);
+          console.log("====--=-==-=-=-==",res.data);
           dispatch(login(res.data))
-          navigator("/")
+          navigate("/")
         })
         .catch((error) => {
           console.log(error);

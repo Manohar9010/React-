@@ -156,7 +156,7 @@ export default function BellaHeader() {
                   </>
                 )}
                 {
-                  navoption === "user" && (
+                  navoption === "customer" && (
                     <>
                     <li>
                   <NavLink to={"/wishlist"} style={{ color: "black" }}>

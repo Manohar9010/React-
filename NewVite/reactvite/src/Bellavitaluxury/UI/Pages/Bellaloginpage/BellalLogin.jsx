@@ -27,6 +27,7 @@ export default function BellalLogin() {
       data: user,
     })
       .then((res) => {
+        
         dispach(login(res.data));
         console.log(res.data.token);
         setLogbutton(res.data.token)

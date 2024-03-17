@@ -1,0 +1,33 @@
+.paginate li:nth-child(1) {
+  border: none !important;
+  width: 100px;
+}
+.paginate li:nth-last-of-type(1) {
+  border: none !important;
+  width: 100px;
+}
+.paginate .break {
+  border: none;
+}
+.paginate li {
+  border: 1px solid black;
+  padding: 5px;
+  display: grid;
+  place-content: center;
+  width: 29px;
+  height: 29px;
+
+  border-radius: 50%;
+  
+}
+
+
+.dropdownmenu ul li{
+    text-align: center;
+    /* background-color: #f1e9e9; */
+    width:97px;
+    /* border-radius: 5px; */
+    border: 1px solid;
+
+}
+

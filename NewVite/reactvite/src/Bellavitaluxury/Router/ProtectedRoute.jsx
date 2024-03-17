@@ -28,7 +28,7 @@ export const ProtectedRouteuser = ({ Componentuser }) => {
   const data= useSelector(state=>state.singupdataslice)
   useEffect(() => {
 
-    if (!data || data.user.userType !== "User" && data.user.userType !== "admin") {
+    if (!data || data.user.userType !== "customer" && data.user.userType !== "admin") {
       navigate("/belllogin");
       alert("plese login")
     }

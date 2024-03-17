@@ -74,8 +74,7 @@ export default function ProductForm({
       </div>
     );
   };
-  let img1 =
-    "https://marketplace.canva.com/EAFijA-Es8I/1/0/1600w/canva-beige-minimalist-stay-tuned-coming-soon-instagram-post-iv_vQnhdRkY.jpg";
+
 
   const selecthandler = (item) => {
     let match = product.size.includes(item);

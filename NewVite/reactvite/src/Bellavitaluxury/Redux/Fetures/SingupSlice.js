@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
   const user=JSON.parse(localStorage.getItem("userlogin") || "{}")
+//   const jsonUser=localStorage?.getItem("userlogin")
+//   const user = jsonUser ? JSON?.parse(jsonUser) : "{}"
 
   const jsontoken=localStorage.getItem("token")
   const token =jsontoken ? JSON.parse(jsontoken) : ""
@@ -10,7 +12,6 @@ let singupdataslice= createSlice({
         login:(state,{payload})=>{
             state.user=payload.data;
             state.token=payload.token;
-            
             localStorage.setItem("userlogin",JSON.stringify(payload.data));
             localStorage.setItem("token",JSON.stringify(payload.token))
         },

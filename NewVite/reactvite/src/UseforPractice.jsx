@@ -1,5 +1,5 @@
 // import React, { useState } from 'react';
-// // import './MenuBar.css'; // Import your CSS file for styling
+// import './MenuBar.css'; // Import your CSS file for styling
 
 // export default  UseforPractice = () => {
 //   const [isMenuOpen, setIsMenuOpen] = useState(false);
