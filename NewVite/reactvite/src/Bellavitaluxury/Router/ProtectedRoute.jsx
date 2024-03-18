@@ -23,7 +23,7 @@ export const ProtectedRoute = ({ Componentprofile }) => {
 
 
 
-export const ProtectedRouteuser = ({ Componentuser }) => {
+export const ProtectedRouteuser = ({ Componentuser}) => {
   const navigate = useNavigate();
   const data= useSelector(state=>state.singupdataslice)
   useEffect(() => {
@@ -34,5 +34,5 @@ export const ProtectedRouteuser = ({ Componentuser }) => {
     }
   });
 
-  return <div>{Componentuser}</div>;
+  return <div>{Componentuser} </div>;
 };

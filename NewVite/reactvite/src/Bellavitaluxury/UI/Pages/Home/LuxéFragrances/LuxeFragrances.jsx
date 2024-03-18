@@ -53,7 +53,7 @@ export default function LuxeFragrances() {
 
         {lurexdata.map((datalue, i) => {
           return (
-            <div className="" key={i}>
+            <div className=" text-center" key={i}>
               <BestSellercard
                 imag1={datalue.lureimg}
                 type={datalue.luretype}

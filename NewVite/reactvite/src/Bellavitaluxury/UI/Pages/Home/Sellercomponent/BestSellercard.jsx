@@ -17,10 +17,13 @@ export default function BestSellercard({imag1,type,brandname,rating,oldprice,pri
         <div className='bestsellartext'>
                <p className='m-0 p-0'>{type}</p>
                <h6 >{brandname}</h6>
-               <p><Star fill='#f2eb07' color="#f2eb07" />
+               <div className=' d-flex gap-3 justify-center'>
+               <Star fill='#f2eb07' color="#f2eb07" />
                 { rating}
                 <BadgeCheck color="#16d1e9" />
-               </p>
+
+               </div>
+               <p>               </p>
                <p><span style={{color:"green"}}>{percentage}</span> <span style={{color:"red"}}>{price}</span>  <span style={{textDecoration:"line-through"}}>{oldprice}</span></p>
                <Button  className='w-100 '>ADD TO CARAT</Button>
         </div>

@@ -9,6 +9,7 @@ import bestsellerimg5 from "../../Images/bestsellerimg5.webp";
 import bestsellerimg6 from "../../Images/bestsellerimg6.webp";
 import bestsellerimg7 from "../../Images/bestsellerimg7.webp";
 import Slider from "react-slick";
+import "./Bestsellers.css"
 let bestsellercarddata = [
   {
     image: bestsellerimg,
@@ -63,7 +64,7 @@ let bestsellercarddata = [
 ];
 
 var settings = {
-  dots: true,
+  dots: false,
   infinite: true,
   speed: 500,
   slidesToShow: 4,

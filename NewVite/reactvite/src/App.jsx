@@ -21,6 +21,7 @@ import FormDetails from "./Formvalidation/FormDetails";
 import GetApidata from "./Formvalidation/GetApidata";
 import ModelDisplay from "./ModelCheck/ModelDisplay";
 import CheckboxTask from "./CheckboxTask";
+import Fromikfrom from "./Formikfrom/Fromikfrom";
 function App() {
   return (
     <>
@@ -45,6 +46,7 @@ function App() {
       {/* <GetApidata/> */}
       {/* <ModelDisplay/> */}
       {/* <CheckboxTask/> */}
+      {/* <Fromikfrom/> */}
       <ToastContainer />
 
     </>

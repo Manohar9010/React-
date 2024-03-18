@@ -8,3 +8,6 @@
     margin: 0px 30px;
     
 }
+.bestsellermain .swiper-pagination{
+    display: none;
+}

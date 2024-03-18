@@ -21,8 +21,8 @@ export default function HomeSlider() {
       <SwiperSlide><img src={homeslideimg2} alt="" /></SwiperSlide>
       <SwiperSlide><img src={homeslideimg3} alt="" /></SwiperSlide>
       <SwiperSlide><img src={homeslideimg4} alt="" /></SwiperSlide>
-      <SwiperSlide><img src={homeslideimg5} alt="" /></SwiperSlide>
-      ...
+      <SwiperSlide><img style={{height:"460px"}} src={homeslideimg5} alt="" /></SwiperSlide>
+      
     </Swiper>
 
     </div>

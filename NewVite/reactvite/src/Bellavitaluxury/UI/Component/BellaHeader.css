@@ -2,6 +2,10 @@
    position: relative;
 
 } */
+
+.upperslide .swiper-pagination-bullet{
+    display: none;
+}
 .NavLink-custom {
     color: black;
   }

@@ -73,35 +73,68 @@ export default function ProductTable({
   let img1 =
     "https://marketplace.canva.com/EAFijA-Es8I/1/0/1600w/canva-beige-minimalist-stay-tuned-coming-soon-instagram-post-iv_vQnhdRkY.jpg";
   const dropdownfun = (item) => {
-    setPaginate({ ...paginate, limit: item });
+    // setPaginate({ ...paginate, limit: item });
     refetchData();
     setOpendropdown(!opendropdown);
+    setPaginate({ ...paginate, limit: item, page: 1 });
   };
 
   return (
     <div>
-      <div className="dropdownmenu" style={{display:"flex", justifyContent:"end",position:"relative"}} >
+      <div
+        className="dropdownmenu"
+        style={{ display: "flex", justifyContent: "end", position: "relative" }}
+      >
         <h6>Set Page Limit :</h6>
-        <div style={{border:"1px solid " ,width:"100px",borderRadius:"5px",display:"flex",justifyContent:"center",background:"white" }}>
-          
-          <div style={{display:"flex", justifyContent:"space-around",width:"100px"}} onClick={() => setOpendropdown(!opendropdown)}>
+        <div
+          style={{
+            border: "1px solid ",
+            width: "100px",
+            borderRadius: "5px",
+            display: "flex",
+            justifyContent: "center",
+            background: "white",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-around",
+              width: "100px",
+            }}
+            onClick={() => setOpendropdown(!opendropdown)}
+          >
+            <div>{paginate.limit}</div>
             <div>
-
-            {paginate.limit} 
-            </div>
-            <div>
-
-            <ChevronDown />
+              <ChevronDown />
             </div>
           </div>
           {opendropdown && (
-            <div style={{position:"absolute",zIndex:10,border:"1px solid",top:"26px",width:"98px",borderRadius:"5px",background:"white",height:"102px"}}> 
-            <ul className="" style={{display:"grid",placeContent:"center",padding:"0px",}}>
-              <li onClick={() => dropdownfun(5)}>5</li>
-              <li onClick={() => dropdownfun(10)}>10</li>
-              <li onClick={() => dropdownfun(20)}>20</li>
-              <li onClick={() => dropdownfun(25)}>25</li>
-            </ul>
+            <div
+              style={{
+                position: "absolute",
+                zIndex: 10,
+                border: "1px solid",
+                top: "26px",
+                width: "98px",
+                borderRadius: "5px",
+                background: "white",
+                height: "102px",
+              }}
+            >
+              <ul
+                className=""
+                style={{
+                  display: "grid",
+                  placeContent: "center",
+                  padding: "0px",
+                }}
+              >
+                <li onClick={() => dropdownfun(5)}>5</li>
+                <li onClick={() => dropdownfun(10)}>10</li>
+                <li onClick={() => dropdownfun(20)}>20</li>
+                <li onClick={() => dropdownfun(25)}>25</li>
+              </ul>
             </div>
           )}
         </div>

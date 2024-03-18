@@ -36,6 +36,7 @@ export default function BellaRouter() {
     <Route path='/bellabout' element={<BellaAboutus/>} />
     <Route path='/bellcontact' element={<BellaContact/>} />
     <Route path='/wishlist' element={<ProtectedRouteuser   Componentuser={<WishList/>} /> } />
+    <Route path='/profile' element={<ProtectedRouteuser   Componentuser={<ProfilePage/>} />}/>
     <Route path='/wishlist' element={<ProtectedRoute  Componentprofile={<WishList/>}/>    } />
     <Route path='/profile' element={<ProtectedRoute   Componentprofile={<ProfilePage/>} />}/>
     <Route path='/product' element={<ProtectedRoute Componentprofile={<ProductPage/>}/>}/>
