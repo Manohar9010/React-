@@ -18,35 +18,42 @@ export default function ProductTable({
   const Edithandler = (data) => {
     toggle();
     setProduct(data);
-    setUpdate(true);
+    setUpdate(true)
   };
   const [opendropdown, setOpendropdown] = useState(false);
   const [dropvalue, setDropvalue] = useState(10);
-
+  const [search,setSearch]=useState("")
   const [paginate, setPaginate] = useState({
     limit: 10,
     page: 1,
     totalproduct: 0,
   });
+
+
+
+
   useEffect(() => {
+   
     axios({
       method: "get",
       url: "http://localhost:9999/product/getAllPaginate",
       params: {
         limit: paginate.limit,
         page: paginate.page,
-      },
+        search,
+        
+    },
+      
     })
-      .then((res) => {
-        console.log("==>my", res.data.count);
-        setGetproduct(res.data.data);
-        setPaginate({ ...paginate, totalproduct: res.data.count });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    .then((res) => {
+      console.log("==>my", res.data.count);
+      setGetproduct(res.data.data);
+      setPaginate({ ...paginate, totalproduct: res.data.count });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   }, [refetch]);
-
   const deletehandler = (id) => {
     axios({
       method: "delete",
@@ -58,7 +65,6 @@ export default function ProductTable({
         if (getproduct.length === 1) {
           setPaginate({ ...paginate, page: paginate.page - 1 });
         }
-        // setGetproduct(res?.data?.data)
       })
       .catch((error) => {
         alert(error);
@@ -73,19 +79,45 @@ export default function ProductTable({
   let img1 =
     "https://marketplace.canva.com/EAFijA-Es8I/1/0/1600w/canva-beige-minimalist-stay-tuned-coming-soon-instagram-post-iv_vQnhdRkY.jpg";
   const dropdownfun = (item) => {
-    // setPaginate({ ...paginate, limit: item });
     refetchData();
     setOpendropdown(!opendropdown);
     setPaginate({ ...paginate, limit: item, page: 1 });
   };
 
+
+  
+    const searchfun = (e) => {
+      setSearch(e?.target?.value);
+    };
+    
+    useEffect(() => {
+      const delaySearch = setTimeout(() => {
+        refetchData();
+      }, 1000); 
+      return () => clearTimeout(delaySearch);
+    }, [search]);
+    
+    
+
+
   return (
     <div>
+       
       <div
         className="dropdownmenu"
-        style={{ display: "flex", justifyContent: "end", position: "relative" }}
-      >
+        style={{ display: "flex",justifyContent: "end", position: "relative" }}
+      > 
+       <Input
+          type="text"
+          onChange={(e)=>searchfun(e)}
+          placeholder="Search Product .... "
+          style={{ width: "220px", marginRight: "100px" }}
+        />
+     
+     
+
         <h6>Set Page Limit :</h6>
+      
         <div
           style={{
             border: "1px solid ",

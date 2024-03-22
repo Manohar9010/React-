@@ -8,7 +8,7 @@ import { prevew } from "../../../Redux/Fetures/PreviewSlice";
 import ProductForm from "./ProductForm";
 import { intialProduct } from "../../../../Utils/IntialState";
 import ProductTable from "./ProductTable";
-// import { getAllproduct } from "../../../Redux/Fetures/ProductSlice/ProductSlice";
+import { getAllproduct } from "../../../Redux/Fetures/ProductSlice/ProductSlice";
 export default function ProductPage() {
   const [getproduct, setGetproduct] = useState([]);
   const [refetch, setRefetch] = useState(true);
@@ -35,26 +35,26 @@ export default function ProductPage() {
   //     });
   // }, [refetch]);
 
-  // useEffect(()=>{
-  //    dispach(getAllproduct())
-  // },[refetch])
+  useEffect(()=>{
+     dispach(getAllproduct())
+  },[refetch])
   
-  //  let data=  useSelector(state=>state.ProductSlice)
-  //  useEffect(()=>{
+   let data=  useSelector(state=>state.ProductSlice)
+   useEffect(()=>{
 
-  //    console.log("uuuuuu",data)
-  //  },[])
+     console.log("uuuuuu",data.product)
+   },[])
 
   const toggle = () => {
     setModal(!modal);
     setUpdate(false);
     setProduct(intialProduct);
   };
-  const gridContainerStyle = {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr",
-    gap: "10px",
-  };
+  // const gridContainerStyle = {
+  //   display: "grid",
+  //   gridTemplateColumns: "1fr 1fr 1fr",
+  //   gap: "10px",
+  // };
 
  
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./BellaLogin.css";
-import { CircleUserRound, LockKeyhole, User } from "lucide-react";
-import { Button, Input } from "reactstrap";
+import { CircleUserRound, Eye, LockKeyhole, User } from "lucide-react";
+import { Button, FormGroup, Input } from "reactstrap";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,9 +14,8 @@ export default function BellalLogin() {
   });
   const navigate = useNavigate();
   const dispach = useDispatch();
-  const data=useSelector(state=>state.singupdataslice)
+  const data = useSelector((state) => state.singupdataslice);
   const [logbutton, setLogbutton] = useState(true);
-  
 
   const getlogindata = (e) => {
     e.preventDefault();
@@ -27,14 +26,13 @@ export default function BellalLogin() {
       data: user,
     })
       .then((res) => {
-        
         dispach(login(res.data));
         console.log(res.data.token);
-        setLogbutton(res.data.token)
+        setLogbutton(res.data.token);
         if (res.data.data.userType == "admin") {
           navigate("/dashbord");
-        }else{
-          navigate("/")
+        } else {
+          navigate("/");
         }
       })
       .catch((error) => {
@@ -42,23 +40,21 @@ export default function BellalLogin() {
       });
   };
 
- 
   const logoutfun = () => {
     dispach(logout());
     // localStorage.clear("userType");
     setLogbutton(false);
     navigate("/");
   };
- 
+
   useEffect(() => {
-   
     if (data.token) {
       setLogbutton(true);
     } else {
       setLogbutton(false);
     }
   });
-
+  const [chek, setCheck] = useState(false);
   return (
     <div className="bellaloginmain">
       <div
@@ -101,12 +97,17 @@ export default function BellalLogin() {
             <label htmlFor="" className="mb-2">
               <LockKeyhole /> Password
             </label>
-            <Input
-              type="password"
-              placeholder="Password"
-              value={user.password}
-              onChange={(e) => setUser({ ...user, password: e?.target?.value })}
-            />
+            <FormGroup className="d-flex">
+              <Input
+                type={chek ? "text" : "password"}
+                placeholder="Password"
+                value={user.password}
+                onChange={(e) =>
+                  setUser({ ...user, password: e?.target?.value })
+                }
+              />
+              <Eye className="eyee" size={30} onClick={() => setCheck(!chek)} />
+            </FormGroup>
           </div>
           <div
             className="d-flex justify-content-center gap-3 mt-4"
@@ -127,8 +128,6 @@ export default function BellalLogin() {
           </div>
 
           <div className="d-flex justify-content-center mb-5 mt-3">
-          
-
             {!logbutton ? (
               <Button
                 onClick={getlogindata}
@@ -147,7 +146,6 @@ export default function BellalLogin() {
               </Button>
             )}
           </div>
-         
         </div>
         <div className="d-flex justify-content-center">
           <div className=" border border-dark w-25 rounded d-flex justify-content-center">

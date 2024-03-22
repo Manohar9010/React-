@@ -1,9 +1,15 @@
 .bestsellermain{
     margin: 0px 50px;
+
+
 }
 .cardmain{
     margin: 0px px;
 }
+/* .bestselarmain{
+    display: flex;
+    flex-direction: row;
+} */
 
 .bestsellertitle{
     text-align: center;
@@ -20,6 +26,7 @@
     border-radius: none!important;
     
 }
+
 .bestsellartext button:hover{
     background-color: black;
 }

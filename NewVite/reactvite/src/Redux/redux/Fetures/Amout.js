@@ -15,7 +15,9 @@ let amountSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase("pointer/inpointers", (state, action) => {
       state.amount += 15;
-    });
+    }).addCase("loginuser/fulfilled",(state,action)=>{
+        state.amount++
+    })
   },
 });
 

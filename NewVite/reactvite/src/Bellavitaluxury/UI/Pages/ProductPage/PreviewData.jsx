@@ -19,7 +19,7 @@ export default function PreviewData() {
 })
   return (
     <div>
-      <div style={{ marginTop: "130px", marginBottom: "15px" }}>
+      <div style={{ marginTop: "150px", marginBottom: "15px" }}>
         <div
           className="d-flex"
           style={{

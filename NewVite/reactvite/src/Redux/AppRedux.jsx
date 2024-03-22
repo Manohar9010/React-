@@ -5,15 +5,17 @@ import store from "./redux/App/Store";
 import Amount from "./Ui/Amount/Amount";
 import Pointer from "./Ui/Pointer/Pointer";
 import User from "./Ui/User/User";
+import LoginUser from "./Ui/LoginUser/LoginUser";
 
 export default function AppRedux() {
   return (
     <div>
       <Provider store={store}>
-        <Count />
+        {/* <Count /> */}
         <Amount />
-        <Pointer />
-        <User />
+        {/* <Pointer /> */}
+        {/* <User /> */}
+        <LoginUser/>
       </Provider>
     </div>
   );

@@ -207,19 +207,19 @@ export default function BellRegistetion() {
     age: "",
     email: "",
     password: "",
-    conpassword:"",
+    conpassword: "",
     userType: "",
     address: [],
   });
-   
-  const [check,setCheck]=useState(false)
+
+  const [check, setCheck] = useState(false);
   const [addval, setaddval] = useState({
     add: "",
     city: "",
     state: "",
     pincode: "",
   });
-   
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const options = [
@@ -227,36 +227,33 @@ export default function BellRegistetion() {
     { value: "admin", label: "Admin" },
     { value: "customer", label: "Customer" },
   ];
- 
 
   const getdata = (e) => {
     e.preventDefault();
-    if(userdata.password !==userdata.conpassword)return alert("Check Confom password")
+    if (userdata.password !== userdata.conpassword)
+      return alert("Check Confom password");
     if (userdata.name.length > 0 && userdata.email.length > 0) {
-      
-
       axios({
         method: "post",
         url: "http://localhost:9999/user/signup",
         data: { ...userdata, address: [addval] },
       })
         .then((res) => {
-          console.log("====--=-==-=-=-==",res.data);
-          dispatch(login(res.data))
-          navigate("/")
+          console.log("====--=-==-=-=-==", res.data);
+          dispatch(login(res.data));
+          navigate("/");
         })
         .catch((error) => {
           console.log(error);
         });
-     
 
       setUserdata({
         name: "",
         age: "",
         email: "",
         password: "",
-        conpassword:"",
-        userType:""
+        conpassword: "",
+        userType: "",
       });
       setaddval({
         add: "",
@@ -264,7 +261,6 @@ export default function BellRegistetion() {
         state: "",
         pincode: "",
       });
-     
     } else {
       alert("fill the form");
     }
@@ -279,177 +275,182 @@ export default function BellRegistetion() {
           </div>
           <div className="bellaregister">
             <div>
-             
               <Form onSubmit={getdata}>
-              <Row>
-                <Col md={6}>
-                <FormGroup>
-                  <Label for="exampleEmail">User Name</Label>
-                  <Input
-                    id="Username"
-                    name="name"
-                    placeholder="Enter Your Name"
-                    type="text"
-                    value={userdata.name}
-                    onChange={(e) =>
-                      setUserdata({ ...userdata, name: e?.target?.value })
-                    }
-                  />
-                </FormGroup>
-                </Col>
-                <Col md={6}>
-                <FormGroup>
-                  <Label for="exampleEmail">Age</Label>
-                  <Input
-                    id="UserAge"
-                    name="Age"
-                    placeholder="Enter Your Age"
-                    type="Number"
-                    value={userdata.age}
-                    onChange={(e) =>
-                      setUserdata({ ...userdata, age: e?.target?.value })
-                    }
-                  />
-                </FormGroup>
-                </Col>
-
+                <Row>
+                  <Col md={6}>
+                    <FormGroup>
+                      <Label for="exampleEmail">User Name</Label>
+                      <Input
+                        id="Username"
+                        name="name"
+                        placeholder="Enter Your Name"
+                        type="text"
+                        value={userdata.name}
+                        onChange={(e) =>
+                          setUserdata({ ...userdata, name: e?.target?.value })
+                        }
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col md={6}>
+                    <FormGroup>
+                      <Label for="exampleEmail">Age</Label>
+                      <Input
+                        id="UserAge"
+                        name="Age"
+                        placeholder="Enter Your Age"
+                        type="Number"
+                        value={userdata.age}
+                        onChange={(e) =>
+                          setUserdata({ ...userdata, age: e?.target?.value })
+                        }
+                      />
+                    </FormGroup>
+                  </Col>
                 </Row>
                 <Row>
                   <Col md={6}>
-                <FormGroup>
-                  <Label for="exampleEmail">Email</Label>
-                  <Input
-                    id="exampleEmail"
-                    name="email"
-                    placeholder="Enter Your Email"
-                    type="email"
-                    value={userdata.email}
-                    onChange={(e) =>
-                      setUserdata({ ...userdata, email: e?.target?.value })
-                    }
-                  />
-                </FormGroup>
-                </Col>
-                <Col md={6}>
-                <FormGroup>
-                  <Label for="examplePassword">Password</Label>
-                  <Input
-                    id="examplePassword"
-                    name="password"
-                    placeholder="password"
-                    type={check ? "text" : "password"} 
-                    value={userdata.password}
-                    onChange={(e) =>
-                      setUserdata({ ...userdata, password: e?.target?.value })
-                    }
-                  />
-                </FormGroup>
-                </Col>
-                </Row>
-                <Row>
-                 
-                 <Col md={6}>
-                <FormGroup>
-                  <Label for="ConformPassword">Conform Password</Label>
-                  <Input
-                    id="exampleConformPassword"
-                    name="Conformpassword"
-                    placeholder="Conform password"
-                    type="password" 
-                    value={userdata.conpassword}
-                    onChange={(e) =>
-                      setUserdata({ ...userdata, conpassword: e?.target?.value })
-                    }
-                  />
-                </FormGroup>
-                </Col>
-                <Col md={6} className="mt-4">
-                <FormGroup>
-                  <Input type="checkbox"  checked={check} onChange={()=>setCheck(!check)}/>
-
-                <Label className="ms-2">ShowPassword</Label>
-
-                </FormGroup>
-                 </Col>
-                </Row>
-                
-                  <Row>
-                    <Col md={6}>
-                <FormGroup>
-                  <Label>Add</Label>
-                  <Input
-                    type="text"
-                    value={addval.add}
-                    placeholder="Address"
-                    onChange={(e) =>
-                      setaddval({ ...addval, add: e?.target.value })
-                    }
-                  />
-                </FormGroup>
-                </Col>
-                <Col md={6}>
-                <FormGroup>
-                  <Label>City</Label>
-                  <Input
-                    type="text"
-                    value={addval.city}
-                    placeholder="City"
-                    onChange={(e) =>
-                      setaddval({ ...addval, city: e?.target.value })
-                    }
-                  />
-                </FormGroup>
-                </Col>
+                    <FormGroup>
+                      <Label for="exampleEmail">Email</Label>
+                      <Input
+                        id="exampleEmail"
+                        name="email"
+                        placeholder="Enter Your Email"
+                        type="email"
+                        value={userdata.email}
+                        onChange={(e) =>
+                          setUserdata({ ...userdata, email: e?.target?.value })
+                        }
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col md={6}>
+                    <FormGroup>
+                      <Label for="examplePassword">Password</Label>
+                      <Input
+                        id="examplePassword"
+                        name="password"
+                        placeholder="password"
+                        type={check ? "text" : "password"}
+                        value={userdata.password}
+                        onChange={(e) =>
+                          setUserdata({
+                            ...userdata,
+                            password: e?.target?.value,
+                          })
+                        }
+                      />
+                    </FormGroup>
+                  </Col>
                 </Row>
                 <Row>
                   <Col md={6}>
-                <FormGroup>
-                  <Label>State</Label>
-                  <Input
-                    type="text"
-                    value={addval.state}
-                    placeholder="State"
-                    onChange={(e) =>
-                      setaddval({ ...addval, state: e?.target.value })
-                    }
-                  />
-                </FormGroup>
-                </Col>
-                <Col md={6}>
-                <FormGroup>
-                  <Label>pinCone</Label>
-                  <Input
-                    type="text"
-                    value={addval.pincode}
-                    placeholder="Pincode"
-                    onChange={(e) =>
-                      setaddval({ ...addval, pincode: e?.target.value })
-                    }
-                  />
-                </FormGroup>
-                </Col>
+                    <FormGroup>
+                      <Label for="ConformPassword">Conform Password</Label>
+                      <Input
+                        id="exampleConformPassword"
+                        name="Conformpassword"
+                        placeholder="Conform password"
+                        type="password"
+                        value={userdata.conpassword}
+                        onChange={(e) =>
+                          setUserdata({
+                            ...userdata,
+                            conpassword: e?.target?.value,
+                          })
+                        }
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col md={6} className="mt-4">
+                    <FormGroup>
+                      <Input
+                        type="checkbox"
+                        checked={check}
+                        onChange={() => setCheck(!check)}
+                      />
+
+                      <Label className="ms-2">ShowPassword</Label>
+                    </FormGroup>
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col md={6}>
+                    <FormGroup>
+                      <Label>Add</Label>
+                      <Input
+                        type="text"
+                        value={addval.add}
+                        placeholder="Address"
+                        onChange={(e) =>
+                          setaddval({ ...addval, add: e?.target.value })
+                        }
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col md={6}>
+                    <FormGroup>
+                      <Label>City</Label>
+                      <Input
+                        type="text"
+                        value={addval.city}
+                        placeholder="City"
+                        onChange={(e) =>
+                          setaddval({ ...addval, city: e?.target.value })
+                        }
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col md={6}>
+                    <FormGroup>
+                      <Label>State</Label>
+                      <Input
+                        type="text"
+                        value={addval.state}
+                        placeholder="State"
+                        onChange={(e) =>
+                          setaddval({ ...addval, state: e?.target.value })
+                        }
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col md={6}>
+                    <FormGroup>
+                      <Label>pinCone</Label>
+                      <Input
+                        type="text"
+                        value={addval.pincode}
+                        placeholder="Pincode"
+                        onChange={(e) =>
+                          setaddval({ ...addval, pincode: e?.target.value })
+                        }
+                      />
+                    </FormGroup>
+                  </Col>
                 </Row>
                 <FormGroup>
-                    <Select
-                      onChange={(e) =>
-                        setUserdata({ ...userdata, userType: e?.value })
-                      }
-                      options={options}
-                    />
-                   </FormGroup> 
+                  <Select
+                    onChange={(e) =>
+                      setUserdata({ ...userdata, userType: e?.value })
+                    }
+                    options={options}
+                  />
+                </FormGroup>
                 <Button className="bg-dark  w-100 text-white fs-5 fw-medium">
                   Submit
-                </Button> 
+                </Button>
                 <div className="mt-2">
-                If You Have Alredy Account ? &nbsp;&nbsp;
+                  If You Have Alredy Account ? &nbsp;&nbsp;
                   <NavLink
                     className="text-dark fs-6 fw-medium "
                     to={"/belllogin"}
                   >
                     Login
-                  </NavLink> 
+                  </NavLink>
                 </div>
-             
               </Form>
             </div>
           </div>
