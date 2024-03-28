@@ -1,6 +1,5 @@
 .typemain {
   justify-content: space-around;
-  overflow-x: hidden;
 }
 
 .typemain .item:hover img {

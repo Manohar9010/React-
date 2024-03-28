@@ -1,0 +1,22 @@
+.popularitems ul {
+  display: flex;
+  margin-left: auto;
+  gap: 25px;
+}
+.popularitems ul li a {
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.popularitems ul li a:hover{
+    color:rgb(41, 192, 74);
+    transform: translateY(-20);
+}
+.popularitems {
+  align-items: baseline;
+}
+.productrow{
+  display: flex;
+}

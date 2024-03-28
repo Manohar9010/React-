@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../ProfilePage/ProfilePage.css";
-import { Table } from "reactstrap";
+import { Button, Table } from "reactstrap";
 import { useSelector } from "react-redux";
 import { CircleUserRound } from "lucide-react";
 import imgsideshow from '../../Images/sideshow.jpg'
@@ -52,6 +52,7 @@ export default function ProfilePage() {
               <h4>User Age: {user.age}</h4>
               <h4>Email: {user.email}</h4>
               <h4>User Type: {user.userType}</h4>
+            <div><Button className="bg-dark w-100">LogOut</Button></div>
             </div>
             </div>
              

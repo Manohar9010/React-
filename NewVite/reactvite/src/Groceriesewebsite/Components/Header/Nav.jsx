@@ -9,7 +9,7 @@ export default function Nav() {
       <div className="container-fluid">
         <nav className="navmain">
           <div className="navnutton">
-            <Button>
+            <Button className="d-flex">
               <LayoutGrid /> Browse All Categories <ChevronDown />
             </Button>
           </div>
@@ -74,7 +74,7 @@ export default function Nav() {
                     </ul>
                   </div>
                   <div>
-                    <img src="https://wp.alithemes.com/html/nest/demo/assets/imgs/banner/banner-menu.png" alt="" />
+                    <img src="" alt="" />
                   </div>
                 </div>
               </div>
@@ -88,7 +88,7 @@ export default function Nav() {
                   Pages <ChevronDown size={16} color="#d1cccc" />
                 </NavLink>{" "}
               </li>
-                
+
               <li>
                 <NavLink to="/">Contact</NavLink>{" "}
               </li>

@@ -1,0 +1,42 @@
+.ratingstar {
+   /* flex-direction: row-reverse; */
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: yellow;
+    -webkit-text-stroke-width: 1px;
+    
+    width: 35%;
+}
+
+/* .ratingstar .star1:hover,
+.ratingstar .star1:hover ~ .star2,
+.ratingstar .star1:hover ~ .star3,
+.ratingstar .star1:hover ~ .star4,
+.ratingstar .star1:hover ~ .star5 {
+    -webkit-text-fill-color: yellow; 
+}
+
+.ratingstar .star2:hover,
+.ratingstar .star2:hover ~ .star3,
+.ratingstar .star2:hover ~ .star4,
+.ratingstar .star2:hover ~ .star5 {
+    -webkit-text-fill-color: yellow; 
+}
+
+.ratingstar .star3:hover,
+.ratingstar .star3:hover ~ .star4,
+.ratingstar .star3:hover ~ .star5 {
+    -webkit-text-fill-color: yellow;
+}
+
+.ratingstar .star4:hover,
+.ratingstar .star4:hover ~ .star5 {
+    -webkit-text-fill-color: yellow; 
+}
+
+.ratingstar .star5:hover {
+    -webkit-text-fill-color: yellow;     
+}*/
+ .showdata{
+    height: 280px;
+    overflow-y: scroll;
+} 

@@ -1,0 +1,15 @@
+.productcarddiv{
+    border: 2px solid black;
+  
+  margin: 5px 12px;
+  border-radius: 15px;
+}
+.productcarddiv .imgwrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit:fill;
+    border-radius: 15px;
+}
+.productcardinfo{
+  padding: 5px 15px;
+}

@@ -18,22 +18,18 @@ export default function ProductTable({
   const Edithandler = (data) => {
     toggle();
     setProduct(data);
-    setUpdate(true)
+    setUpdate(true);
   };
   const [opendropdown, setOpendropdown] = useState(false);
   const [dropvalue, setDropvalue] = useState(10);
-  const [search,setSearch]=useState("")
+  const [search, setSearch] = useState("");
   const [paginate, setPaginate] = useState({
     limit: 10,
     page: 1,
     totalproduct: 0,
   });
 
-
-
-
   useEffect(() => {
-   
     axios({
       method: "get",
       url: "http://localhost:9999/product/getAllPaginate",
@@ -41,18 +37,16 @@ export default function ProductTable({
         limit: paginate.limit,
         page: paginate.page,
         search,
-        
-    },
-      
+      },
     })
-    .then((res) => {
-      console.log("==>my", res.data.count);
-      setGetproduct(res.data.data);
-      setPaginate({ ...paginate, totalproduct: res.data.count });
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((res) => {
+        console.log("==>my", res.data.count);
+        setGetproduct(res.data.data);
+        setPaginate({ ...paginate, totalproduct: res.data.count });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [refetch]);
   const deletehandler = (id) => {
     axios({
@@ -84,40 +78,32 @@ export default function ProductTable({
     setPaginate({ ...paginate, limit: item, page: 1 });
   };
 
+  const searchfun = (e) => {
+    setSearch(e?.target?.value);
+  };
 
-  
-    const searchfun = (e) => {
-      setSearch(e?.target?.value);
-    };
-    
-    useEffect(() => {
-      const delaySearch = setTimeout(() => {
-        refetchData();
-      }, 1000); 
-      return () => clearTimeout(delaySearch);
-    }, [search]);
-    
-    
-
+  useEffect(() => {
+    const delaySearch = setTimeout(() => {
+      refetchData();
+    }, 1000);
+    return () => clearTimeout(delaySearch);
+  }, [search]);
 
   return (
     <div>
-       
       <div
         className="dropdownmenu"
-        style={{ display: "flex",justifyContent: "end", position: "relative" }}
-      > 
-       <Input
+        style={{ display: "flex", justifyContent: "end", position: "relative" }}
+      >
+        <Input
           type="text"
-          onChange={(e)=>searchfun(e)}
+          onChange={(e) => searchfun(e)}
           placeholder="Search Product .... "
           style={{ width: "220px", marginRight: "100px" }}
         />
-     
-     
 
         <h6>Set Page Limit :</h6>
-      
+
         <div
           style={{
             border: "1px solid ",
@@ -202,8 +188,8 @@ export default function ProductTable({
                       alt="image not available"
                     />
                   </td>
-                  <td>{e.brand}</td>
                   <td>{e?.title || "our product"}</td>
+                  <td>{e.description}</td>
                   <td>
                     <span style={{ color: "green" }}>
                       -{e.discountPercentage || 0}%{" "}

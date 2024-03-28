@@ -8,7 +8,7 @@ export default function TypesProduct() {
     <div>
         
    <div>
-    <div className="container-fluid d-flex   mt-5 typemain">
+    <div className="container-fluid d-flex mt-5 typemain">
       <div className='item'>
         
     <img src={banner1} alt=""  className='w-100 rounded-4'/>
@@ -26,7 +26,7 @@ export default function TypesProduct() {
     </div>
    </div>
 
-
+    
     </div>
   )
 }

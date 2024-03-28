@@ -100,10 +100,10 @@ export default function BellaHeader() {
           <div style={{ backgroundColor: "white", paddingBottom: "10px" }}>
             <div className="headtitle">
               <div className="user mt-1">
-                <NavLink style={{ color: "black" }} to={"/belllogin"}>
+                {/* <NavLink style={{ color: "black" }} to={"/belllogin"}>
                   {" "}
                   <UserRound size={28} strokeWidth={1.25} />
-                </NavLink>
+                </NavLink> */}
               </div>
               <div className="logo text-center">
                 {" "}
@@ -247,6 +247,11 @@ export default function BellaHeader() {
                 
                 {navoption === "admin" && (
                   <>
+                  <li>
+                      <NavLink to={"/dashbord"} style={{ color: "black" }}>
+                        Dashbord
+                      </NavLink>
+                    </li> 
                     <li>
                       <NavLink to={"/profile"} style={{ color: "black" }}>
                         {" "}
@@ -259,11 +264,7 @@ export default function BellaHeader() {
                         Product
                       </NavLink>
                     </li>
-                    <li>
-                      <NavLink to={"/dashbord"} style={{ color: "black" }}>
-                        Dashbord
-                      </NavLink>
-                    </li>
+                    
                   </>
                 )}
               </ul>
