@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "../ProfilePage/ProfilePage.css";
 import { Button, Table } from "reactstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CircleUserRound } from "lucide-react";
 import imgsideshow from '../../Images/sideshow.jpg'
+import { useNavigate } from "react-router-dom";
+import { logout } from "../../../Redux/Fetures/SingupSlice";
 export default function ProfilePage() {
   const {user}= useSelector(state=>state.singupdataslice)
+  const dispach = useDispatch();
+  const navigate = useNavigate();
 //  console.log(data.user)
-   
+const logoutfun = () => {
+  dispach(logout());
+  // localStorage.clear("userType");
+  setLogbutton(false);
+  navigate("/");
+};
   return (
     <div>
       <div className="profilemain">
@@ -52,7 +61,7 @@ export default function ProfilePage() {
               <h4>User Age: {user.age}</h4>
               <h4>Email: {user.email}</h4>
               <h4>User Type: {user.userType}</h4>
-            <div><Button className="bg-dark w-100">LogOut</Button></div>
+            <div><Button onClick={logoutfun} className="bg-dark w-100">Logout</Button></div>
             </div>
             </div>
              

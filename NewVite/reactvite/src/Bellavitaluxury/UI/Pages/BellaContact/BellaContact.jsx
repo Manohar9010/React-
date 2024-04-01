@@ -108,7 +108,7 @@ export default function BellaContact() {
       {bestsellercarddata.map((datalue, i) => {
         return (
           <div key={i}>
-            <div >
+            <div >  
 
             <BestSellercard
              imag1={datalue.image}

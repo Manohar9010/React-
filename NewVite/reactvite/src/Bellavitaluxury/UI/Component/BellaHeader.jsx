@@ -13,16 +13,16 @@ import { Input } from "reactstrap";
 import logoimg from "../Images/logoimage.avif";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 export default function BellaHeader() {
   const [togleopen, setTogleope] = useState(false);
   const [navuse, setNavuse] = useState(false);
   const [navoption, setNavoption] = useState("normal");
-  const data= useSelector(state=>state.singupdataslice)
+  const data = useSelector((state) => state.singupdataslice);
   const navtoggle = () => {
     setNavuse(!navuse);
   };
@@ -31,69 +31,43 @@ export default function BellaHeader() {
     setTogleope(!togleopen);
   };
 
-  useEffect(()=>{
-    
-   
-    setNavoption(data.user.userType ||"normal") 
-    if(!data.user.userType ){
-      setNavoption("normal")
+  useEffect(() => {
+    setNavoption(data.user.userType || "normal");
+    if (!data.user.userType) {
+      setNavoption("normal");
     }
-  })  
+  });
   return (
     <div className="headermain">
       <div children="headpost">
-        <div> 
-          {/* <div className="bg-black" style={{ height: "30px", color: "white" }}>
-            <span>
-              <marquee
-                width="100%"
-                direction="right"
-                height="100px"
-                scrollamount="20"
-              >
-                <span style={{ padding: "0px 0px 0px 0px" }}>
-                  Free Gift worth 99 on PREPAID ORDERS
-                </span>
-                <span style={{ padding: "0px 500px 0px 800px" }}>
-                  Free Gift worth 100 on PREPAID ORDERS
-                </span>
-                <span style={{ padding: "0px 500px 0px 800px" }}>
-                  Free Gift worth 200 on PREPAID ORDERS
-                </span>
-              </marquee>
-            </span>
-            <span>
-              <marquee
-                width="100%"
-                direction="right"
-                height="100px"
-                scrollamount="20"
-              ></marquee>
-            </span>
-          </div> */}
+        <div>
           <div className="upperslide">
-
-            <Swiper  spaceBetween={30}
-      
-
-        autoplay={{
-            delay: 1000,
-            disableOnInteraction: false,
-          }}
-          speed={5000}
-        slidesPerView={1}
-        loop={true}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={false}
-        modules={[Autoplay, Pagination, Navigation]}
-       
-        className="mySwiper bg-black">
-               <SwiperSlide className="bg-black text-white">Free Gift worth 99 on PREPAID ORDERS</SwiperSlide>
-               <SwiperSlide className="bg-black text-white">Free Gift worth 100 on PREPAID ORDERS</SwiperSlide>
-               <SwiperSlide className="bg-black text-white"> Free Gift worth 200 on PREPAID ORDERS</SwiperSlide>
-              
+            <Swiper
+              spaceBetween={30}
+              autoplay={{
+                delay: 1000,
+                disableOnInteraction: false,
+              }}
+              speed={5000}
+              slidesPerView={1}
+              loop={true}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={false}
+              modules={[Autoplay, Pagination, Navigation]}
+              className="mySwiper bg-black"
+            >
+              <SwiperSlide className="bg-black text-white">
+                Free Gift worth 99 on PREPAID ORDERS
+              </SwiperSlide>
+              <SwiperSlide className="bg-black text-white">
+                Free Gift worth 100 on PREPAID ORDERS
+              </SwiperSlide>
+              <SwiperSlide className="bg-black text-white">
+                {" "}
+                Free Gift worth 200 on PREPAID ORDERS
+              </SwiperSlide>
             </Swiper>
           </div>
 
@@ -120,11 +94,20 @@ export default function BellaHeader() {
                   </Button>
                 </InputGroup>
                 <div className="user mt-1">
-                <NavLink style={{ color: "black" }} to={"/belllogin"}>
-                  {" "}
-                  <UserRound size={28} strokeWidth={1.25} />
-                </NavLink>
-              </div>
+                {
+                  data.user.userType ?(
+                  <NavLink style={{ color: "black" }} to={"/profile"}>
+                    {" "}
+                    <UserRound size={28} strokeWidth={1.25} />
+                  </NavLink>):(
+
+                  <NavLink style={{ color: "black" }} to={"/belllogin"}>
+                    {" "}
+                    <UserRound size={28} strokeWidth={1.25} />
+                  </NavLink>
+                  )
+                }
+                </div>
                 <span className="packagemenusqure mt-3">
                   <MenuSquare role="button" onClick={navtoggle} size={30} />
                 </span>
@@ -142,7 +125,7 @@ export default function BellaHeader() {
 
             <div className="navbar">
               <ul className="d-flex justify-content-center gap-5  ">
-                {navoption ==="normal" && (
+                {navoption === "normal" && (
                   <>
                     <li>
                       <NavLink style={{ color: "black" }} to={"/"}>
@@ -158,28 +141,31 @@ export default function BellaHeader() {
                     </li>
 
                     <li className="fragreceli">
-                      Fragrance{" "}
-                      <ChevronDown size={20} color="grey" className="arrow" />
+                    <div className="d-flex align-items-center">
+                        Fragrance
+                        <ChevronDown size={20} color="grey" className="arrow" />
+                      </div>
                       <div className="frageacesub">
                         <ul>
-                          <li>
-                            <a href="">All Perfumes</a>
-                          </li>
-                          <li>
-                            <a href="">Men</a>
-                          </li>
-                          <li>
-                            <a href="">Women</a>
-                          </li>
-                          <li>
-                            <a href="">Unisex</a>
-                          </li>
-                          <li>
-                            <a href="">Oud Collection</a>
-                          </li>
-                          <li>
-                            <a href="">Little Luxuries</a>
-                          </li>
+                        <li>
+                         
+                         <NavLink to={"/allperfumes"}> All Perfumes</NavLink>
+                       </li>
+                       <li>
+                         <NavLink to={"/Menperfume"}>Men</NavLink>
+                       </li>
+                       <li>
+                         <NavLink to={"/femaleperfume"}>Women</NavLink>
+                       </li>
+                       <li>
+                         <a href="">Unisex</a>
+                       </li>
+                       <li>
+                         <a href="">Oud Collection</a>
+                       </li>
+                       <li>
+                         <a href="">Little Luxuries</a>
+                       </li>
                         </ul>
                       </div>
                     </li>
@@ -190,9 +176,8 @@ export default function BellaHeader() {
                     </li>
                   </>
                 )}
-                {
-                  navoption === "customer" && (
-                    <>
+                {navoption === "customer" && (
+                  <>
                     <li>
                       <NavLink style={{ color: "black" }} to={"/"}>
                         Home
@@ -207,18 +192,22 @@ export default function BellaHeader() {
                     </li>
 
                     <li className="fragreceli">
-                      Fragrance{" "}
-                      <ChevronDown size={20} color="grey" className="arrow" />
+                      <div className="d-flex align-items-center">
+                        Fragrance
+                        <ChevronDown size={20} color="grey" className="arrow" />
+                      </div>
+
                       <div className="frageacesub">
                         <ul>
                           <li>
-                            <a href="">All Perfumes</a>
+                         
+                            <NavLink to={"/allperfumes"}> All Perfumes</NavLink>
                           </li>
                           <li>
-                            <a href="">Men</a>
+                            <NavLink to={"/Menperfume"}>Men</NavLink>
                           </li>
                           <li>
-                            <a href="">Women</a>
+                            <NavLink to={"/femaleperfume"}>Women</NavLink>
                           </li>
                           <li>
                             <a href="">Unisex</a>
@@ -233,38 +222,36 @@ export default function BellaHeader() {
                       </div>
                     </li>
                     <li>
-                  <NavLink to={"/wishlist"} style={{ color: "black" }}>
-                    Wishlist
-                  </NavLink>
-                </li>
-                <NavLink to={"/profile"} style={{ color: "black" }}>
-                        {" "}
-                        Profile
+                      <NavLink to={"/wishlist"} style={{ color: "black" }}>
+                        Wishlist
                       </NavLink>
-                    </>
-                  )
-                }
-                
+                    </li>
+                    {/* <NavLink to={"/profile"} style={{ color: "black" }}>
+                      {" "}
+                      Profile
+                    </NavLink> */}
+                  </>
+                )}
+
                 {navoption === "admin" && (
                   <>
-                  <li>
+                    <li>
                       <NavLink to={"/dashbord"} style={{ color: "black" }}>
                         Dashbord
                       </NavLink>
-                    </li> 
-                    <li>
+                    </li>
+                    {/* <li>
                       <NavLink to={"/profile"} style={{ color: "black" }}>
                         {" "}
                         Profile
                       </NavLink>
-                    </li>
+                    </li> */}
 
                     <li>
                       <NavLink to={"/product"} style={{ color: "black" }}>
                         Product
                       </NavLink>
                     </li>
-                    
                   </>
                 )}
               </ul>

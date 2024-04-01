@@ -22,6 +22,10 @@ import Store from '../Redux/App/Store'
 import { Provider } from 'react-redux'
 import Dashbord from '../UI/Pages/Dashbord/Dashbord'
 import PreviewData from '../UI/Pages/ProductPage/PreviewData'
+
+import Femaleperfume from '../UI/Pages/Fragrance/Femaleperfume'
+import Menperfume from '../UI/Pages/Fragrance/Menperfume'
+import Allperfumes from '../UI/Pages/Fragrance/Allperfumes'
 export default function BellaRouter() {
   return (
     <div>
@@ -42,6 +46,9 @@ export default function BellaRouter() {
     <Route path='/product' element={<ProtectedRoute Componentprofile={<ProductPage/>}/>}/>
      <Route path='dashbord'  element={<ProtectedRoute  Componentprofile={<Dashbord/>} />}  />
      <Route path="/preview" element={<PreviewData/>} />     
+     <Route path="/menperfume" element={<Menperfume/>} />
+     <Route path='/femaleperfume' element={<Femaleperfume/>} />
+     <Route path='/allperfumes' element={<Allperfumes/>}/>
     <Route path='*' element={<BellError/>} />
     {/* <Route
             path='/wishlist'

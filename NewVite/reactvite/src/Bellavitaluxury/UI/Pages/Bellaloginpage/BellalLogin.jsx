@@ -106,7 +106,10 @@ export default function BellalLogin() {
                   setUser({ ...user, password: e?.target?.value })
                 }
               />
-              <Eye className="eyee" size={30} onClick={() => setCheck(!chek)} />
+              <div className="eyee">
+
+              <Eye  size={30} onClick={() => setCheck(!chek)} />
+              </div>
             </FormGroup>
           </div>
           <div
@@ -148,11 +151,13 @@ export default function BellalLogin() {
           </div>
         </div>
         <div className="d-flex justify-content-center">
-          <div className=" border border-dark w-25 rounded d-flex justify-content-center">
-            <NavLink className={"text-dark"} to={"/bellrigister"}>
+          <div className="  w-50 text-dark d-flex justify-content-center">
+              If You don't have Account
+          &nbsp;
+            <NavLink className={"text-danger"} to={"/bellrigister"}>
               {" "}
-              For Registration
-            </NavLink>
+              Then Move To Registration
+            </NavLink>   
           </div>
         </div>
       </div>

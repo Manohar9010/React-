@@ -19,10 +19,10 @@ const ProductSlice = createSlice({
   extraReducers: (builder) => {
     builder
     .addCase(getAllproduct.fulfilled, (state, action) => {
-          console.log("action",action)
+          // console.log("action",action)
         // console.log("hhhh", action.payload);
         state.product = action.payload;
-        console.log("state.product", state.product)
+        // console.log("state.product", state.product)
         state.pending =false;
       })
       .addCase(getAllproduct.rejected, (state, action) => {

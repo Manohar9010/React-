@@ -11,5 +11,8 @@
 
 }
 .eyee{
-    transform: translateX(50);
+    position: absolute;
+    right: 555px;
+    margin-top: 4px;
+    
 }
