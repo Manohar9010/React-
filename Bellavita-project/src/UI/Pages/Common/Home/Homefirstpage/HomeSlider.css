@@ -1,0 +1,10 @@
+.homemain img{
+    height: 450px;
+    width: 680px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.homemain{
+    padding-top: 180px;
+    margin-left: 5px;
+}

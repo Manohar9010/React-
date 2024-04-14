@@ -1,0 +1,97 @@
+.footermain{
+    padding: 10px 10px;
+}
+.footermain a{
+    color: grey;
+}
+
+.footerdflex{
+    display: flex;
+    gap: 20px;
+  margin: 50px 30px;
+}
+.footerdflex a{
+    font-size: 15px;
+}
+.footerdflex h6{
+   font-size: 14px;
+}
+.footerone{
+    flex: 2;
+}
+.footerone p{
+    color: grey;
+    font-size: 14px;
+}
+.footertwo{
+    flex: 1;
+}
+.footerthree{
+    flex: 1;
+}
+.footerfour{
+    flex: 1;
+}
+.footermain{
+    background-color: rgb(26, 24, 24);
+    color: white;
+    margin: 0px 0px 0px 0px;
+}
+.footerone{
+    padding: 0px 15px;
+}
+.footermoretypes {
+    margin: 0px 25px;
+}
+
+
+.footermoretypes p{
+   font-size: 13px;
+   color: rgb(219, 215, 215);
+   line-height: 28px;
+}
+.footermoretypes p a {
+    color: rgb(148, 143, 143);
+}
+.footermoretypes p a:hover{
+  color: grey;
+}
+.footersoc{
+    margin: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.footersoc img{
+    height: 45px;
+    width: 350px;
+}
+.footersecure img{
+    height:35px ;
+    width:160px ;
+}
+.footersecure {
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
+}
+.footerfour input{
+    width: 230px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid rgb(189, 180, 180);
+    color: white;
+}
+.footerfour input::placeholder{
+    color: rgb(182, 174, 174);
+
+}
+.footerthree ul{
+    display: inline;
+    padding: 0px;
+}
+.footerfour input:focus{
+    border: none!important;
+    border-radius: 0 !important; /* Optionally, you can remove this line if you don't want border-radius on focus */
+    box-shadow: none !important; /* Optionally, you can remove this line if you don't want box-shadow on focus */
+}

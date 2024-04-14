@@ -1,0 +1,12 @@
+.whishmain{
+    padding: 250px 0px 0px 0px;
+}
+.whishmain .bestselarmain{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    
+}
+.bestselarmain img{
+    width: 250px;
+    height: 250px;
+}

@@ -1,0 +1,14 @@
+.bestsellermain{
+    margin: 0px 0px;
+}
+.cardmain{
+    margin: 0px 0px;
+}
+.slick-track > div{
+    margin: 0px 30px;
+    
+}
+.bestsellermain .swiper-pagination{
+    display: none;
+}
+
