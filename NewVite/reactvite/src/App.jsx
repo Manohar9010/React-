@@ -3,7 +3,7 @@ import ApiPost from "./Api/ApiPost";
 import Product from "./Api/Product";
 import SimpleApi from "./Api/SimpleApi";
 import "./App.css";
-import BellaRouter from "./Bellavitaluxury/Router/BellaRouter";
+
 import Checkbox from "./Inputs/Checkbox";
 import MainLogin from "./Inputs/FilterUser/MainLogin";
 import RouteMain from "./Inputs/Rigister&Login/RouteMain";
@@ -22,6 +22,7 @@ import GetApidata from "./Formvalidation/GetApidata";
 import ModelDisplay from "./ModelCheck/ModelDisplay";
 import CheckboxTask from "./CheckboxTask";
 import Fromikfrom from "./Formikfrom/Fromikfrom";
+import CheckSlider from "./CheckSlider";
 function App() {
   return (
     <>
@@ -34,7 +35,7 @@ function App() {
       {/* <ApiPost/> */}
       {/* <Product /> */}
       {/* <UseforPractice/> */}
-      <BellaRouter/>
+      {/* <BellaRouter/> */}
       {/* <Slidercheck/> */}
       {/* <MainLogin/>   */}
       {/* =======redux====== */}
@@ -47,6 +48,7 @@ function App() {
       {/* <ModelDisplay/> */}
       {/* <CheckboxTask/> */}
       {/* <Fromikfrom/> */}
+      <CheckSlider/>
       <ToastContainer />
 
     </>

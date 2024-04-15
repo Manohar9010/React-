@@ -61,7 +61,7 @@ export default function BellaShopall() {
   let img1 =
     "https://marketplace.canva.com/EAFijA-Es8I/1/0/1600w/canva-beige-minimalist-stay-tuned-coming-soon-instagram-post-iv_vQnhdRkY.jpg";
   return (
-    <div style={{ padding: "125px 0px 50px 0px", textAlign: "center" }}>
+    <div style={{ padding: "145px 0px 50px 0px", textAlign: "center" }}>
       <h1
         style={{
           fontFamily: "ui-rounded",
@@ -83,7 +83,7 @@ export default function BellaShopall() {
 
       <div className="bestselarmain grid grid-cols-4 gap-5  mx-20">
         {allperfumedata?.map?.((e, i) => {
-          return <CardCom product={e} key={e._id} />;
+          return <CardCom  addtocardhandler={addtocardhandler} product={e} key={e._id} />;
         })}
       </div>
     </div>

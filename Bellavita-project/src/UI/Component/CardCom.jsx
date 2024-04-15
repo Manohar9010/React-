@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "reactstrap";
 
-export default function CardCom({ product }) {
+export default function CardCom({ product,addtocardhandler }) {
   const navigate = useNavigate();
   return (
     <div className="mt-3 ">
@@ -24,9 +24,8 @@ export default function CardCom({ product }) {
             {"-" + product?.discountPercentage + "%"}
           </span>
           <span className="text-red-500">
-            {(-(
-              (product?.price * product?.discountPercentage) / 100 -
-              product?.price
+            {((
+              (product?.price * product?.discountPercentage) / 100
             )).toFixed(2)}
           </span>
           <span style={{ textDecoration: "line-through" }}>

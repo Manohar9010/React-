@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import BellaFooter from '../UI/Component/BellaFooter'
-import BellaHeader from '../UI/Component/BellaHeader'
+import Footer from '../UI/Component/Footer'
+import Header from '../UI/Component/Header'
 import Home from '../UI/Pages/Common/Home/Home'
 import {ProtectedRoute,    ProtectedRouteuser } from './ProtectedRoute'
 import Store from '../Redux/App/Store'
@@ -35,7 +35,7 @@ export default function BellaRouter() {
     <div>
    <BrowserRouter>
    <Provider store={Store}>
-   <BellaHeader/>
+   <Header/>
    <Routes>
 
     {/*========== common for all ===============*/}
@@ -65,7 +65,7 @@ export default function BellaRouter() {
 
      <Route path='/fragrance' element={<Allperfumes/>}/>
    </Routes>
-   <BellaFooter/>
+   <Footer/>
    </Provider>
    </BrowserRouter>
     </div>

@@ -1,10 +1,10 @@
 import React from "react";
-import "./BellaFooter.css";
+import "./Footer.css";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import footerimg1 from "../../assets/Images/footerimg1.png"
 import footerimg2 from "../../assets/Images/footerimg2.avif"
 
-export default function BellaFooter() {
+export default function Footer() {
   return (
     <div className="footermain">
       <div>

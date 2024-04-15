@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./BellaHeader.css";
+import "./Header.css";
 import {
   ChevronDown,
   MenuSquare,
@@ -19,7 +19,7 @@ import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { fetchCart } from "../../Redux/Fetures/CartSlice";
-export default function BellaHeader() {
+export default function Header() {
   const [togleopen, setTogleope] = useState(false);
   const [navuse, setNavuse] = useState(false);
   const [navoption, setNavoption] = useState("normal");
