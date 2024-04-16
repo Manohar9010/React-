@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import {toast} from "react-toastify"
-import "./BellaShopall.css";
+import "./ShopAll.css";
 import { useDispatch, useSelector } from "react-redux";
 import { ListFilter } from "lucide-react";
 import axios from "axios";
@@ -17,7 +17,7 @@ let intialvalue = {
   discountPercentage: { lt: 100, gt: 0 },
 };
 
-export default function BellaShopall() {
+export default function ShopAll() {
   const [filter, setFilter] = useState(intialvalue);
   const [open, setOpen] = useState(false);
   const [allperfumedata, setAllperfume] = useState([]);
@@ -79,7 +79,7 @@ export default function BellaShopall() {
         <ListFilter />
         {open ? <h6>CLOSE FILTER </h6> : <h6>SHOW FILTTER</h6>}
       </div>
-      <Filter open={open} setFilter={setFilter} filter={filter} />
+      <Filter open={open} setFilter={setFilter} filter={filter} intialvalue={intialvalue} />
 
       <div className="bestselarmain grid grid-cols-4 gap-5  mx-20">
         {allperfumedata?.map?.((e, i) => {

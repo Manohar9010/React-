@@ -14,7 +14,7 @@ import "../css/Min1200px.css"
 import "../css/Min1400px.css"
 import BellalLogin from '../UI/Pages/Auth/Bellaloginpage/BellalLogin'
 import BellRegistetion from "../UI/Pages/Auth/Registetionpage/BellRegistetion"
-import BellaAboutus from "../UI/Pages/Common/bellAbout/BellaAboutus"
+import BellaAboutus from "../UI/Pages/Common/About/BellaAboutus"
 import Showpreview from "../UI/Component//Showpreview"
 import BellError from "../UI/Pages/Error/BellError"
 // import WishList from '../UI/Pages/User/Wishlist/WishList'
@@ -28,7 +28,7 @@ import Allperfumes from "../UI/Pages/Common/Fragrance/Allperfumes"
 import Unisex from "../UI/Pages/Common/Fragrance/Unisex"
 import Oudcollection from "../UI/Pages/Common/Fragrance/Oudcollection"
 import Littleluxuries from "../UI/Pages/Common/Fragrance/Littleluxuries"
-import BellaShopall from '../UI/Pages/Common/BellaShopall/BellaShopall'
+import ShopAll from '../UI/Pages/Common/ShopAll/ShopAll'
 import WishList from '../UI/Pages/User/Cart/WishList'
 export default function BellaRouter() {
   return (
@@ -43,7 +43,7 @@ export default function BellaRouter() {
     <Route path='/belllogin' element={<BellalLogin/>} />
     <Route path='/bellrigister' element={<BellRegistetion/>} />
     <Route path='/bellabout' element={<BellaAboutus/>} />
-    <Route path='/bellcontact' element={<BellaShopall/>} />
+    <Route path='/bellcontact' element={<ShopAll/>} />
     <Route path='/showpreview/:id' element={<Showpreview/>}/>
     <Route path='*' element={<BellError/>} />
 

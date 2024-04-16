@@ -4,7 +4,7 @@ import { Button, FormGroup, Input, Label } from "reactstrap";
 const genderstype = ["male", "female"];
 const quantity = ["100ml", "250ml", "300ml"];
 
-export default function Filter({ setFilter, filter, open }) {
+export default function Filter({ setFilter, filter, open ,intialvalue}) {
   const CleardataHandler = () => {
     setFilter(intialvalue);
   };

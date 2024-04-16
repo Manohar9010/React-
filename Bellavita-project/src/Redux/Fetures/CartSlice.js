@@ -23,6 +23,10 @@ const cartSlice = createSlice({
     refetch: (state) => {
       state.refresh = !state.refresh;
     },
+    addCart:(state,{payload})=>{
+      state.cart = payload.data;
+        state.cartid = payload.cartId;
+    }
   },
   extraReducers: (builder) => {
     builder
@@ -32,7 +36,7 @@ const cartSlice = createSlice({
       .addCase(fetchCart.fulfilled, (state, { payload }) => {
         state.pending = false;
         state.cart = payload.data;
-        state.cartid = payload.cartid;
+        state.cartid = payload.cartId;
       })
       .addCase(fetchCart.rejected, (state, action) => {
         state.error = action.error.message;
@@ -42,4 +46,4 @@ const cartSlice = createSlice({
 });
 
 export default cartSlice.reducer;
-export const { refetch } = cartSlice.actions;
+export const { refetch,addCart } = cartSlice.actions;

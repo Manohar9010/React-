@@ -47,6 +47,7 @@ export default function Header() {
     <div className="headermain">
       <div children="headpost">
         <div>
+       
           <div className="upperslide">
             <Swiper
               spaceBetween={30}
@@ -62,18 +63,18 @@ export default function Header() {
               }}
               navigation={false}
               modules={[Autoplay, Pagination, Navigation]}
-              className="mySwiper bg-black"
+              className="mySwiper  bg-black"
             >
-              <SwiperSlide className="bg-black text-white">
-                Free Gift worth 99 on PREPAID ORDERS
-              </SwiperSlide>
-              <SwiperSlide className="bg-black text-white">
-                Free Gift worth 100 on PREPAID ORDERS
-              </SwiperSlide>
-              <SwiperSlide className="bg-black text-white">
-                {" "}
-                Free Gift worth 200 on PREPAID ORDERS
-              </SwiperSlide>
+              {
+                [99,100,200].map((e,i)=>{
+                  return(
+                    < SwiperSlide  key={i} className="bg-black text-white">
+                    Free Gift worth {e} on PREPAID ORDERS
+                  </SwiperSlide>
+                  )
+                })
+              }
+             
             </Swiper>
           </div>
 
@@ -210,29 +211,22 @@ export default function Header() {
                     </li>
 
                     <li>
-                      {" "}
+                   
                       <NavLink style={{ color: "black" }} to={"/bellcontact"}>
                         Shop All
                       </NavLink>
                     </li>
 
                     <li className="fragreceli">
-                      <div className="d-flex align-items-center">
+                    <div className="d-flex align-items-center">
                         Fragrance
                         <ChevronDown size={20} color="grey" className="arrow" />
                       </div>
 
-                      <div className="frageacesub">
+                      <div className="">
                         <ul>
                           <li className="fragreceli">
-                            <div className="d-flex align-items-center">
-                              Fragrance
-                              <ChevronDown
-                                size={20}
-                                color="grey"
-                                className="arrow"
-                              />
-                            </div>
+                           
                             <div className="frageacesub">
                               <ul>
                                 <li>
@@ -291,10 +285,7 @@ export default function Header() {
                         Wishlist
                       </NavLink>
                     </li>
-                    {/* <NavLink to={"/profile"} style={{ color: "black" }}>
-                      {" "}
-                      Profile
-                    </NavLink> */}
+                   
                   </>
                 )}
 
@@ -305,12 +296,7 @@ export default function Header() {
                         Dashbord
                       </NavLink>
                     </li>
-                    {/* <li>
-                      <NavLink to={"/profile"} style={{ color: "black" }}>
-                        {" "}
-                        Profile
-                      </NavLink>
-                    </li> */}
+                   
 
                     <li>
                       <NavLink to={"/product"} style={{ color: "black" }}>
@@ -356,7 +342,7 @@ export default function Header() {
         </section>
       )}
 
-      {navuse && (
+{navuse && (
         <div className="navbar_toggle">
           <ul className=" ">
             <li>
