@@ -19,6 +19,8 @@ import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { fetchCart } from "../../Redux/Fetures/CartSlice";
+import Cart from "../Pages/User/Cart/Cart";
+
 export default function Header() {
   const [togleopen, setTogleope] = useState(false);
   const [navuse, setNavuse] = useState(false);
@@ -47,7 +49,6 @@ export default function Header() {
     <div className="headermain">
       <div children="headpost">
         <div>
-       
           <div className="upperslide">
             <Swiper
               spaceBetween={30}
@@ -65,16 +66,13 @@ export default function Header() {
               modules={[Autoplay, Pagination, Navigation]}
               className="mySwiper  bg-black"
             >
-              {
-                [99,100,200].map((e,i)=>{
-                  return(
-                    < SwiperSlide  key={i} className="bg-black text-white">
+              {[99, 100, 200].map((e, i) => {
+                return (
+                  <SwiperSlide key={i} className="bg-black text-white">
                     Free Gift worth {e} on PREPAID ORDERS
                   </SwiperSlide>
-                  )
-                })
-              }
-             
+                );
+              })}
             </Swiper>
           </div>
 
@@ -211,14 +209,13 @@ export default function Header() {
                     </li>
 
                     <li>
-                   
                       <NavLink style={{ color: "black" }} to={"/bellcontact"}>
                         Shop All
                       </NavLink>
                     </li>
 
                     <li className="fragreceli">
-                    <div className="d-flex align-items-center">
+                      <div className="d-flex align-items-center">
                         Fragrance
                         <ChevronDown size={20} color="grey" className="arrow" />
                       </div>
@@ -226,7 +223,6 @@ export default function Header() {
                       <div className="">
                         <ul>
                           <li className="fragreceli">
-                           
                             <div className="frageacesub">
                               <ul>
                                 <li>
@@ -285,7 +281,6 @@ export default function Header() {
                         Wishlist
                       </NavLink>
                     </li>
-                   
                   </>
                 )}
 
@@ -296,7 +291,6 @@ export default function Header() {
                         Dashbord
                       </NavLink>
                     </li>
-                   
 
                     <li>
                       <NavLink to={"/product"} style={{ color: "black" }}>
@@ -321,28 +315,34 @@ export default function Header() {
               </button>
             </div>
             <div className="menutext">
-              <h5>Your crat is empty</h5>
+              {navoption == "normal" ? (
+                <div>
+                  <h5>Your crat is empty</h5>
 
-              <Button>Continue shopping</Button>
+                  <Button>Continue shopping</Button>
 
-              <h5>Have an account?</h5>
+                  <h5>Have an account?</h5>
 
-              <p>
-                <NavLink
-                  style={{ color: "black", textDecoration: "underline" }}
-                  onClick={toglefun}
-                  to={"belllogin"}
-                >
-                  Login
-                </NavLink>{" "}
-                to check out faster.
-              </p>
+                  <p>
+                    <NavLink
+                      style={{ color: "black", textDecoration: "underline" }}
+                      onClick={toglefun}
+                      to={"belllogin"}
+                    >
+                      Login
+                    </NavLink>{" "}
+                    to check out faster.
+                  </p>
+                </div>
+              ) : (
+                <Cart />
+              )}
             </div>
           </div>
         </section>
       )}
 
-{navuse && (
+      {navuse && (
         <div className="navbar_toggle">
           <ul className=" ">
             <li>

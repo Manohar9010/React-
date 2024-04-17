@@ -104,11 +104,12 @@ a{
     right: 0;
     /* transform: translate(100px,-20px); */
     background-color: aliceblue;
-   height: 450px;
-   width: 350px;
+   height: 650px;
+   width: 850px;
    /* padding: 50px; */
    margin-right: 2px;
    z-index: 5;
+   overflow: scroll;
 }
 .closebtn{
     transform: translate(10px ,0px);

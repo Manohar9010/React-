@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import "../Wishlist/WishList.css";
 
@@ -6,50 +7,57 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Input } from "reactstrap";
 import axios from "axios";
 
-export default function WishList() {
-  const dispatch = useDispatch();
-  const { error, cart, pending,cartid } = useSelector((store) => store.cartSlice);
-  console.log("WishList  cartid:", cartid)
-  const data = useSelector((state) => state.singupdataslice);  
-       const  [count,setCount]=useState()
-  useEffect(() => {
-    dispatch(fetchCart());
-  }, []);
-        
+export default function Cart() {
+    const dispatch = useDispatch();
+    const { error, cart, pending,cartid } = useSelector((store) => store.cartSlice);
+    console.log("WishList  cartid:", cartid)
+    const data = useSelector((state) => state.singupdataslice);  
+      
+    useEffect(() => {
+      dispatch(fetchCart());
+    }, []);
+          
+  
+    const dcrementeHnadler=(productId ,count,id) => {
+      let isRemove =  false
+  if( id || count === 1){
+    isRemove=true
+  }     
+  
+      axios({
+        method:"put",
+        url:`http://localhost:9999/cart/update`,
+        data:{
+          _id:cartid,
+          productId,
+          isRemove
+        },
+        headers: {
+          authorization: `Bearer ${data?.token}`,
+          "Content-Type": "application/json",
+        },
+      })?.then((res)=>{
+             dispatch(addCart(res.data));
+      })
+    }
+  
+    const deleteAllHandler=()=>{
+     axios({
+       method:"delete",
+       url:`http://localhost:9999/cart/delete/${id}`,
+     })
+    }
+    console.log("+++++",cart)
 
-  const dcrementeHnadler=(productId ,count,id) => {
-    let isRemove =  false
-if( id || count === 1){
-  isRemove=true
-}     
-// 
-    axios({
-      method:"put",
-      url:`http://localhost:9999/cart/update`,
-      data:{
-        _id:cartid,
-        productId,
-        isRemove
-      },
-      headers: {
-        authorization: `Bearer ${data?.token}`,
-        "Content-Type": "application/json",
-      },
-    })?.then((res)=>{
-           dispatch(addCart(res.data));
-    })
-  }
 
-  const deleteAllHandler=()=>{
-   axios({
-     method:"delete",
-     url:`http://localhost:9999/cart/delete/${id}`,
-   })
-  }
-  console.log("+++++",cart)
   return (
-    <div className="" style={{ marginTop: "0px" }}>
-      <div>  <Button onClick={()=>deleteAllHandler()}>deleteAll</Button> </div>
+    <div>
+        
+        <div className="" style={{ marginTop: "0px" }}>
+      {/* <div>  <Button onClick={()=>deleteAllHandler()}>deleteAll</Button> </div> */}
+      <div>
+        <h3 className="">MY CART LIST</h3>
+      </div>
       <div>
         <div>
           {cart.map((e,i) => {
@@ -85,5 +93,8 @@ if( id || count === 1){
         </div>
       </div>
     </div>
-  );
+
+
+    </div>
+  )
 }
