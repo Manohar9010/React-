@@ -116,7 +116,7 @@ export default function Header() {
                       strokeWidth={1.25}
                     />
                     <p className="text-sm p-1 h-6 w-6 absolute top-0 right-0 bg-red-500 border border-white rounded-full grid  text-white font-bold place-content-center">
-                      {cart.length}
+                      {cart?.length || 0}
                     </p>
                   </div>
                 </span>
