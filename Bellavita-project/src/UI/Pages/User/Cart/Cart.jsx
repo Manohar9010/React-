@@ -4,6 +4,7 @@ import "../Wishlist/WishList.css";
 import {
   addCart,
   fetchCart,
+  refetch,
   setCart,
 } from "../../../../Redux/Fetures/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -62,6 +63,32 @@ export default function Cart() {
       });
   };
 
+  const addtocardhandlers = (id) => {
+    console.log("first-id", id, data?.token);
+
+    axios({
+      method: "post",
+      url: `http://localhost:9999/cart/create/${id}`,
+      headers: {
+        authorization: `Bearer ${data?.token}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        console.log("cardlog", res?.data?.data);
+        // toast.success("success")
+        dispatch(refetch());
+       
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(()=>{
+
+    console.log("checkdata",cart)
+  },[])
   return (
     <div>
       <div className="" style={{ marginTop: "0px" }}>
@@ -80,7 +107,7 @@ export default function Cart() {
                 >
                   <div className="flex-1 flex justify-center">
                     <img
-                      src={e.productId.thumbnail}
+                      src={e?.productId?.thumbnail}
                       alt=""
                       className="w-36 rounded"
                     />
@@ -88,18 +115,18 @@ export default function Cart() {
                   <div className="flex-1 grig items-center">
                     <p>
                       {" "}
-                      <span>TITTLE :</span> {e.productId.title}
+                      <span>TITTLE :</span> {e?.productId?.title}
                     </p>
                     <p>
                       {" "}
-                      <span>PRICE :</span> {e.productId.price}
+                      <span>PRICE :</span> {e?.productId?.price}
                     </p>
                   </div>
                   <div className="flex-1">
                     <div className="d-flex ">
                       <Button
                         onClick={() =>
-                          dcrementeHnadler(e.productId._id, e.count)
+                          dcrementeHnadler(e?.productId?._id, e?.count)
                         }
                         className="bg-transparent text-black fw-bolder  "
                       >
@@ -109,13 +136,13 @@ export default function Cart() {
                         {e.count}
                       </div>
                       <p className="text-center"></p>
-                      <Button className="bg-transparent text-black fw-bolder  ">
+                      <Button onClick={()=> addtocardhandlers (e?.productId?._id,)} className="bg-transparent text-black fw-bolder  ">
                         +
                       </Button>
 
                       <Button
                         onClick={() =>
-                          dcrementeHnadler(e.productId._id, e.count, e._id)
+                          dcrementeHnadler(e?.productId?._id, e?.count, e?._id)
                         }
                         className="bg-dark ms-14"
                       >

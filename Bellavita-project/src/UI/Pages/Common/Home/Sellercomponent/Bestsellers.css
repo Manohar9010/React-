@@ -30,3 +30,6 @@
 .bestsellartext button:hover{
     background-color: black;
 }
+.bestsellermain .swiper-pagination{
+    display: none;
+}

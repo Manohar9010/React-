@@ -20,8 +20,8 @@ export default function BestSellercard({
         <div className="bestsellarimg">
           <img src={imag1} alt="" />
         </div>
-        <div className="bestsellartext ">
-          <p className="m-0 p-0">{type}</p>
+        <div className="bestsellartext text-center">
+          <p className="m-0 p-0 text-center">{type}</p>
           <h6>{brandname}</h6>
           <div className=" d-flex gap-3 justify-center">
             <Star fill="#f2eb07" color="#f2eb07" />

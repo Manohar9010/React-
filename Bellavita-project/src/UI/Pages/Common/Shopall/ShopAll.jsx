@@ -49,9 +49,8 @@ export default function ShopAll() {
     })
       .then((res) => {
         console.log("cardlog", res?.data?.data);
-        // toast.success("success")
         dispatch(refetch());
-        alert("addddd");
+        alert("Do You Want Add TO Cart ");
       })
       .catch((err) => {
         console.log(err);

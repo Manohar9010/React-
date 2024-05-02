@@ -33,7 +33,7 @@ export default function Showpreview({ showprview }) {
         
         <div>
 
-        <img src={data?.thumbnail} alt="" srcset="" className="w-80 rounded-lg"/>
+        <img src={data?.thumbnail} alt="" srcSet="" className="w-80 rounded-lg"/>
 
 
         
