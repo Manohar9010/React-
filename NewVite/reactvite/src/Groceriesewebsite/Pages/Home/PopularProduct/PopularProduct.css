@@ -1,5 +1,6 @@
 .popularitems ul {
   display: flex;
+
   margin-left: auto;
   gap: 25px;
 }
@@ -10,13 +11,17 @@
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
-.popularitems ul li a:hover{
-    color:rgb(41, 192, 74);
-    transform: translateY(-20);
+.popularitems ul li a:hover {
+  color: rgb(41, 192, 74);
+  transform: translateY(-20);
 }
 .popularitems {
   align-items: baseline;
+  margin: 20px 50px;
+  
 }
-.productrow{
-  display: flex;
+.productrow {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  
 }

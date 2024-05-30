@@ -3,7 +3,14 @@
 
 }
 
-
+.navfirst .fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 9999;
+}
 .navmain{
     display: flex;
     justify-content: space-around;

@@ -1,15 +1,113 @@
-.productcarddiv{
-    border: 2px solid black;
-  
-  margin: 5px 12px;
+.productcarddiv {
+  border: 1px solid rgb(211, 205, 205);
+
+  margin: 15px 12px;
   border-radius: 15px;
 }
-.productcarddiv .imgwrapper img{
-    width: 100%;
-    height: 100%;
-    object-fit:fill;
-    border-radius: 15px;
+.productcarddiv:hover {
+  /* box-shadow: 0 5px 15px rgba(69, 117, 5, 0.14); */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-.productcardinfo{
+.productcarddiv .imgwrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+ 
+  align-items: center;
+  justify-content: center;
+}
+.productcarddiv .imgwrapper .tagdiv{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgb(255, 115, 0);
+  color: white;
+  font-weight: 400;
+  z-index: 999;
+  padding: 3px 20px 5px 20px;
+  border-radius: 15px 0px 15px 0px;
+  text-transform: capitalize;
+}
+
+.productcarddiv .imgwrapper .tagdiv.hot{background-color: #f74b81 !important;}
+.productcarddiv .imgwrapper .tagdiv.sale{background-color: #67bcee !important;}
+.productcarddiv .imgwrapper .tagdiv.new{background-color: #3bb77e !important;}
+.productcarddiv .imgwrapper .tagdiv.best{background-color: #f59758 !important;}
+.productcarddiv .imgwrapper:hover img {
+  transform: scale(1.1);
+  border-radius: 52px;
+}
+.productcarddiv .imgwrapper .overlay {
+  position: absolute;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  display: none;
+}
+.productcarddiv .imgwrapper:hover .overlay {
+  display: block;
+}
+.productcarddiv .imgwrapper .overlay ul {
+  padding: 2px 0px;
+  margin: 0px;
+  width: 100px;
+  gap: 12px;
+  justify-content: center;
+}
+.productcarddiv .imgwrapper .overlay ul :nth-child(2){
+  border-right: 1px solid #3bb77e;
+  border-left: 1px solid #3bb77e;
+  padding: 0px 2px;
+} 
+.productcarddiv .imgwrapper .overlay a {
+  color: #3bb77e;
+ transition: 0.2s ease-in-out;
+}
+.productcarddiv .imgwrapper .overlay a:hover {
+  color: orange;
+ 
+}
+.productcarddiv .imgwrapper img {
+  width: 90%;
+  height: 90%;
+  object-fit: fill;
+  border-radius: 15px;
+  transition: 0.5s ease-in-out;
+}
+
+.productcardinfo {
   padding: 5px 15px;
+}
+.productcardinfo .tagname {
+  transition: 0.5s ease-in-out;
+  font-weight: 500;
+  color: grey;
+}
+.productcardinfo .tagname:hover {
+  color: #3bb77e;
+}
+.productcardinfo .carddeiscription {
+  transition: 0.5s ease-in-out;
+}
+.productcardinfo .carddeiscription:hover {
+  color: #3bb77e;
+  cursor: pointer;
+}
+.productcardinfo .foodtype {
+  color: #3bb77e;
+  transition: 0.5s ease-in-out;
+}
+.productcardinfo .foodtype:hover {
+  color: orange;
+}
+.productcardinfo button {
+  background-color: #d1e7dd;
+  color: #3bb77e;
+  transition: 0.5s ease-in-out;
+}
+.productcardinfo button:hover {
+  background-color: #339668;
+  color: white;
+  transform: translateY(-10px);
 }

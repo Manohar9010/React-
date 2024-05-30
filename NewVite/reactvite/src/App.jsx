@@ -23,6 +23,8 @@ import ModelDisplay from "./ModelCheck/ModelDisplay";
 import CheckboxTask from "./CheckboxTask";
 import Fromikfrom from "./Formikfrom/Fromikfrom";
 import CheckSlider from "./CheckSlider";
+import Authentication from "./Register/Authentication";
+import Mainregiter from "./Register_login/Mainregiter";
 function App() {
   return (
     <>
@@ -30,7 +32,7 @@ function App() {
       {/* <Checkbox/>  */}
       {/* <SimpleInput/> */}
       {/* <TravelProjectmain /> */}
-      {/* <RouteMain/> */}
+      {/* <RouteMain/>   */}
       {/* <SimpleApi/> */}
       {/* <ApiPost/> */}
       {/* <Product /> */}
@@ -41,14 +43,16 @@ function App() {
       {/* =======redux====== */}
       {/* <AppRedux /> */}
       {/* <ReduxMain/> */}
-      {/* <GrocerieseMain/> */}
+      <GrocerieseMain/>
       {/* <IndexDisplay/> */}
       {/* <FormDetails/> */}
       {/* <GetApidata/> */}
       {/* <ModelDisplay/> */}
       {/* <CheckboxTask/> */}
       {/* <Fromikfrom/> */}
-      <CheckSlider/>
+      {/* <CheckSlider/> */}
+      {/* <Authentication/> */}
+      {/* <Mainregiter/> */}
       <ToastContainer />
 
     </>

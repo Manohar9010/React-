@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Nav.css";
 import { Button } from "reactstrap";
 import { ChevronDown, LayoutGrid, Headphones } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
+import { useRef } from "react";
 export default function Nav() {
+  const headerRef = useRef();
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      let position = window.pageYOffset;
+      if (position > 82) {
+        headerRef.current.classList.add("fixed");
+      } else {
+        headerRef.current.classList.remove("fixed");
+      }
+      console.log("first", position)
+    });
+  },[]);
   return (
     <div className="navfirst">
-      <div className="container-fluid">
+      <div className="container-fluid" ref={headerRef}>
         <nav className="navmain">
           <div className="navnutton">
             <Button className="d-flex">
@@ -14,27 +27,27 @@ export default function Nav() {
             </Button>
           </div>
           <div className="navoption">
-            <ul className="d-flex gap-4">
+            <ul className="d-flex gap-3">
               <li>
-                <NavLink to="/">
-                  Home <ChevronDown size={16} color="#d1cccc" />
+                <NavLink to="/" style={{display:"flex",alignItems:"center"}}>
+                  Home&nbsp;<ChevronDown size={16} color="#d1cccc" />
                 </NavLink>{" "}
               </li>
               <li>
-                <NavLink to="/">About</NavLink>{" "}
+                <NavLink to="/" style={{display:"flex",alignItems:"center"}}>About <ChevronDown size={16} color="#d1cccc" /></NavLink>{" "}
               </li>
               <li>
-                <NavLink to="/">
+                <NavLink to="list" style={{display:"flex",alignItems:"center"}}>
                   Shop <ChevronDown size={16} color="#d1cccc" />
                 </NavLink>{" "}
               </li>
               <li>
-                <NavLink to="/">
+                <NavLink to="/" style={{display:"flex",alignItems:"center"}}>
                   Vendors <ChevronDown size={16} color="#d1cccc" />
                 </NavLink>{" "}
               </li>
               <li className="megamenu">
-                <NavLink to="/">
+                <NavLink to="/" style={{display:"flex",alignItems:"center"}}>
                   Mega menu <ChevronDown size={16} color="#d1cccc" />
                 </NavLink>
               </li>
@@ -79,12 +92,12 @@ export default function Nav() {
                 </div>
               </div>
               <li>
-                <NavLink to="/">
+                <NavLink to="/" style={{display:"flex",alignItems:"center"}}>
                   Blog <ChevronDown size={16} color="#d1cccc" />
                 </NavLink>{" "}
               </li>
               <li>
-                <NavLink to="/">
+                <NavLink to="/" style={{display:"flex",alignItems:"center"}}>
                   Pages <ChevronDown size={16} color="#d1cccc" />
                 </NavLink>{" "}
               </li>
